@@ -1,2 +1,2 @@
 # endless-sky-the-legacy-plugin
-The Legacy plugin development for the game Endless Sky
+Development of "The Legacy" plugin for the game Endless Sky
