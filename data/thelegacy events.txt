@@ -1,0 +1,45 @@
+# Copyright (c) 2020 by Ralf Franken
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+event "the legacy disclosure pending"
+	system Kugel
+		add object "Legacy Disclosure site"
+			sprite "planet/asteroid base"
+			distance 2400
+			period 1000
+		add fleet "Large Southern Merchants" 300
+		add fleet "Small Northern Merchants" 300
+		add fleet "Large Northern Merchants" 500
+		add fleet "Paradise Merchants" 800
+		add fleet "Small Republic" 600
+		add fleet "Large Republic" 900
+		add fleet "Small Core Merchants" 1000
+		add fleet "Large Core Merchants" 2000 
+		add fleet Quarg 3000 
+		add fleet "Small Militia" 4000
+		add fleet "Large Militia" 4000 
+
+event "the legacy disclosure done"
+	"unvisit planet" "Legacy Disclosure site"
+	system Kugel
+		remove object "Legacy Disclosure site"
+		remove fleet "Large Southern Merchants"
+		remove fleet "Small Northern Merchants"
+		remove fleet "Large Northern Merchants"
+		remove fleet "Paradise Merchants"
+		remove fleet "Small Republic"
+		remove fleet "Large Republic"
+		remove fleet "Small Core Merchants"
+		remove fleet "Large Core Merchants"
+		remove fleet Quarg
+		remove fleet "Small Militia"
+		remove fleet "Large Militia"
+
+event "the legacy was aborted"

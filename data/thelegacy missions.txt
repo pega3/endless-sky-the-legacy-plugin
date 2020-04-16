@@ -1,0 +1,163 @@
+# Copyright (c) 2020 by Ralf Franken
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+mission "The Legacy: Treasure Hunters 1"
+	name "The Legacy: Treasure hunters"
+	description "Transport a group of treasure hunters to the event where the legacy of legendary traveller and philosopher Rhon Dan will be disclosed."
+	cargo "(reserved)" 10
+	passengers 4
+	minor
+	to offer
+		has "free worlds plot completed"
+		has "There Might Be Riots part 3B: done"
+		has "Wanderers Hai Assistance 2: done"
+		has "Wanderers: Sestor: Final: done"
+		has "Remnant: Salvage 6: done"
+		has "Rim Archaeology 6: declined"
+		not "event: the legacy was aborted"
+	source
+		attributes "paradise"
+	destination "Tinker"
+	on offer
+		conversation
+			`While enjoying some food in a rather posh spaceport restaurants, you notice a group of 4 secretive men at a nearby table. One of the men keeps staring at you and finally gets up and comes over to your table.`
+			`	"Sorry for the interruption, sir. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
+			choice
+				`"Yes, that's me"`
+			`"In that case, you may be just the person we are looking for."`
+			`	He introduces himself: "I am Benoit, and over there are my friends Sherlock, Hercule and Stephan. We are looking for a trustworthy and reliable captain who will transport us on a rather delicate and dangerous mission."`
+			`	He looks at you rather conspicously and whispers: "We will solve the mystery of 'Rhon the Traveller'!"`
+			`	You have no idea who Rhon the Traveller is, but the fancy restaurant and the impression that Benoit and his friends leave indicate that this could be a rather lucrative opportunity.`
+			choice
+				`	"Okay, tell me more."`
+					goto "tell me more"
+				`	"Who is Rhon the Traveller?"`
+				`	"Sorry, but I am not interested"`
+					goto "not interested 1"
+			`Benoit looks surprised, but then explains: "Rhon the Traveller was a famous philosopher, philantropist and teacher. And stinkingly rich, if I may say so."`
+			label "tell me more"
+			`	"When Rhon died almost a year ago, everybody was wondering what would happen to his significant inheritence."`
+			`	He smiles and continues: "It turns out he left the vast part of it to 'whomever is worthy by solving the clues I have laid out'. How typical of him."`
+			`	Looking at his friends he finishes: "Rhon was quite a genius, so solving his puzzles is going to be tough, but that is exactly the challenge that my friends and I enjoy."`
+			choice
+				`	"Sounds interesting. What would I have to do?"`
+				`	"I'm sorry, but I am not really interested into chasing phantoms."`
+					goto "not interested 1"
+			`"Well, you would have to take us to the legacy disclosure, where all intersted parties receive the first clue. This will be in the Kugel system and we will pay you <payment> just to take us there."`
+			`	With a smile he continues: "After that, it depends on where the clues will take us. I would not be surprised if this will become a chase through the entire known galaxy. And maybe even beyond..."`
+			`	His expression becomes earnest.`
+			`	"I fear, it will also draw attention from some rather unpleasant and violent subjects. Therefore, you and your ship must be up to the task."`
+			choice
+				`	"So far, so good. But what is in it for me?"`
+				`	"Sorry, but this sounds rather dubious to me. You have to look for someone else."`
+					goto "not interested 1"
+			`"Well, we will pay you for all your costs, no matter the outcome. But what might really pique your interest - Rhon's ship is also part of the inheritance. Since none of my group has any use for such a device, the ship would be yours, in case we succeed. That and 5 percent of the rest of the inheritance."`
+			choice
+				`	"That surely sounds interesting. Count me in"`
+					goto "count me in"
+				`	"Give me the ship and 10 percent and we have a deal"`
+				`	"I'm sorry, but that sounds a bit too risky for me."`
+					goto "not interested 1"
+			`He considers your offer for a moment and then reaches a decision. `
+			label "count me in"
+			`	Benoit ceremoniously shakes your hand. "We have a deal. Could you please bring us to Tinker in the Diphda system first, where we will pick up some equipment."`
+				accept
+			label "not interested 1"
+			`"Ah, that's too bad."`
+			`He turns around and walks back to his table.`
+				decline
+	on accept
+		event "the legacy disclosure pending"
+		log `Took on a group of treasure hunters and will help them chase the legacy of someone called 'Rhon the Traveller'.`
+	on decline
+		event "the legacy was aborted" 180
+	on complete
+		payment 500000
+		conversation
+			`The four treasure hunters disembark to seek out their contacts. You agree to meet them in the Spaceport in 3 hours.`
+
+mission "The Legacy: Treasure Hunters 2"
+	name "The Legacy: Treasure hunters"
+	description "Transport a group of treasure hunters to the event where the legacy of legendary traveller and philosopher Rhon Dan will be disclosed."
+	cargo "(reserved)" 10
+	passengers 4
+	to offer
+		has "The Legacy: Treasure Hunters 1: done"
+		not "event: the legacy was aborted"
+	source "Tinker"
+	destination "Legacy Disclosure site"
+	on offer
+		conversation
+			`When you look for your passengers in the Spaceport, they are easy to spot. Each of them pulls a wagon full of electronic equipment.`
+			`	You recognise some of the latest analysis computers and wonder how much money they spent on these devices. `
+			`	Benoit greets you: "So, are you ready for the flight to the Kugel system?"`
+			`	You cannot help but wonder: "Indeed, I am. However, you are aware that the Kugel system is an uninhabited system with no planets to land upon?"`
+			`	He smiles at you. "And that is exactly the reason why Rhon chose it. Rhon always aimed for the special and the suprising. Just take us to the system and you will see."`
+				accept
+	on enter "Kugel"
+		dialog `When you enter the <system> system, you notice hundred of ships in the system. They all converge towards a small asteroid.`
+		dialog `	To your surprise your computer indicates that you can land on the asteroid.`
+		dialog `	You queue up and after several hours of waiting, you finally get the permission to land.`
+	on complete
+		conversation
+			`The landing platforms on the asteroid facility are busier than a beehive. You hurry to unload the equipment and then send the treasure hunters on their way.`
+			`	"Good luck with the hunt. I am sorry, but I will have to depart again, I am only allowed to block the landing slot for 15 minutes"`
+			`	Benoit nods. "That is okay, Captain <last>. Please stay in orbit until we call for you."`
+
+mission "The Legacy: Hang around"
+	landing
+	invisible
+	to offer
+		has "The Legacy: Treasure Hunters 2: done"
+	destination "Legacy Disclosure site"
+	npc disable
+		government "Test Dummy"
+		system "Kugel"
+		personality unconstrained heroic nemesis
+		ship "Timer Ship" "Timer"
+		conversation
+			`After what seems like an eternity, Benoit is finally hailing you.`
+			`	"Please return to the landing site and pick us up."`
+			`	You respond: "I am on my way, but I may get stuck in traffic again."`
+			`	And indeed, it takes you 2 hours to finally get the landing permission`
+	on complete
+		conversation
+			`Test complete conversation`
+
+mission "The Legacy: Treasure Hunters 3"
+	name "The Legacy: Treasure hunters"
+	description "Transport a group of treasure hunters to the event where the legacy of legendary traveller and philosopher Rhon Dan will be disclosed."
+	cargo "(reserved)" 10
+	passengers 4
+	landing
+	to offer
+		has "The Legacy: Hang around: done"
+		not "event: the legacy was aborted"
+	source "Legacy Disclosure site"
+	destination "Calda"
+	on offer
+		conversation
+			`Test offer conversation`
+				accept
+	on complete
+		event "the legacy disclosure done"
+		conversation
+			`The landing platforms on the asteroid facility are busier than a beehive. You hurry to unload the equipment and then send the treasure hunters on their way.`
+			`	"Good luck with the hunt. I am sorry, but I will have to depart again, I am only allowed to block the landing slot for 15 minutes"`
+			`	Benoit nods. "That is okay, Captain <last>. Please stay in orbit until we call for you."`
+
+mission "The Legacy: Muahaha"
+	landing
+	to offer
+		has "event: the legacy was aborted"
+	on offer
+		conversation
+			`When you enter the spaceport you notice the latest news. The mystery around the legacy of Rhon the Traveller was finally solved. It was discovered in a previously unknown area of space and contained a new type of spaceship and immense riches. You briefly recall that you had a chance to participate...`
+				decline

@@ -84,3 +84,9 @@ planet "Wormhole TheRefuge"
 planet "Wormhole Balaen Orkish Galaxy"
 	attributes "requires: yellow quantum keystone"
 	description ""
+
+planet "Legacy Disclosure site"
+	attributes uninhabited
+	landscape land/sivael6
+	description `Rhon had quite an extravagant taste. He decided that the first clue to his legacy would be handed out in a facility built for only this purpose on an uninhabited asteroid.`
+	government "Syndicate"
