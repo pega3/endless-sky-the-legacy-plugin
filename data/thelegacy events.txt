@@ -29,7 +29,6 @@ event "the legacy disclosure pending"
 event "the legacy disclosure done"
 	"unvisit planet" "Legacy Disclosure site"
 	system Kugel
-		remove object "Legacy Disclosure site"
 		remove fleet "Large Southern Merchants"
 		remove fleet "Small Northern Merchants"
 		remove fleet "Large Northern Merchants"
@@ -41,5 +40,9 @@ event "the legacy disclosure done"
 		remove fleet Quarg
 		remove fleet "Small Militia"
 		remove fleet "Large Militia"
+		remove object 
+			"Legacy Disclosure site"
 
 event "the legacy was aborted"
+
+event "the legacy abortion message"
