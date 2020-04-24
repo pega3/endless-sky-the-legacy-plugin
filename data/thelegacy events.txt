@@ -43,6 +43,32 @@ event "the legacy disclosure done"
 		remove object 
 			"Legacy Disclosure site"
 
+event "the legacy clue 1 pending"
+	system "Imo Dep"
+		add object "Legacy Clue 1 site"
+			sprite "planet/asteroid base"
+			distance 3000
+			period 1000
+
+event "the legacy clue 1 done"
+	"unvisit planet" "Legacy Clue 1 site"
+	system "Imo Dep"
+		remove object 
+			"Legacy Clue 1 site"
+
+event "the legacy clue 2A pending"
+	system "Nenia"
+		add object "Legacy Clue 2A site"
+			sprite "planet/asteroid base"
+			distance 3600
+			period 1500
+
+event "the legacy clue 2A done"
+	"unvisit planet" "Legacy Clue 2A site"
+	system "Nenia"
+		remove object 
+			"Legacy Clue 2A site"
+
 event "the legacy was aborted"
 
 event "the legacy abortion message"
