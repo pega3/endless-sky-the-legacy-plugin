@@ -57,7 +57,7 @@ event "the legacy clue 1 done"
 			"Legacy Clue 1 site"
 
 event "the legacy clue 2A pending"
-	system "Nenia"
+	system "Stercutus"
 		add object "Legacy Clue 2A site"
 			sprite "planet/asteroid base"
 			distance 3600
@@ -65,7 +65,7 @@ event "the legacy clue 2A pending"
 
 event "the legacy clue 2A done"
 	"unvisit planet" "Legacy Clue 2A site"
-	system "Nenia"
+	system "Stercutus"
 		remove object 
 			"Legacy Clue 2A site"
 
