@@ -13,3 +13,6 @@ outfitter "Refuge Outfits"
 
 shipyard "Refuge Shipyard"
 	"Rhons Hurricane"
+
+government "Rhon's Legacy"
+	"player reputation" 1

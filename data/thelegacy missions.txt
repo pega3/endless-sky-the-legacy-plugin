@@ -104,14 +104,14 @@ mission "The Legacy: Treasure Hunters 2"
 	destination "Legacy Disclosure site"
 	on offer
 		conversation
-			`When you look for your passengers in the Spaceport, they are easy to spot. Each of them pulls a wagon full of electronic equipment.`
+			`When you look for your passengers in the Spaceport, they are easy to spot. Each of them commands a wagon full of electronic equipment.`
 			`	You recognise some of the latest analysis computers and wonder how much money they spent on these devices. `
 			`	Benoit greets you: "So, are you ready for the flight to the Kugel system?"`
 			`	You cannot help but wonder: "Indeed, I am. However, you are aware that the Kugel system is an uninhabited system with no planets to land upon?"`
 			`	He smiles at you. "And that is exactly the reason why Rhon chose it. Rhon always aimed for the special and the suprising. Just take us to the system and you will see. Oh, and make sure we arrive there in 3 days, else we are going to miss the big moment!"`
 				accept
 	on enter "Kugel"
-		dialog `When you enter the <system> system, you notice hundred of ships in the system. They all converge towards a small asteroid.`
+		dialog `When you enter the <system> system, you notice dozens of ships in the system. They all converge towards a small asteroid.`
 		dialog `	To your surprise your computer indicates that you can land on the asteroid.`
 		dialog `	You queue up and after several hours of waiting, you finally get the permission to land.`
 	on fail
@@ -176,6 +176,7 @@ mission "The Legacy: Treasure Hunters 3"
 	description "Transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveller' will be disclosed."
 	cargo "(reserved)" 10
 	passengers 4
+	invisible
 	landing
 	to offer
 		has "The Legacy: Hang around: done"
@@ -187,7 +188,16 @@ mission "The Legacy: Treasure Hunters 3"
 			`When you finally arrive at the landing area, your party is already waiting for you. Each of them is carrying a plastic tube with paper inside.`
 			`	Benoit approaches you, waves the tube towards you and says: "Please get us out of here as fast as possible, so we can start looking at this with our equipment and without prying eyes."`
 			`	You respond: "Okay, so where should I take you then?"`
-			`	Benoit thinks for a moment. "Hmm... You know what, get us to Mainsail. I own a small island there to which we can retreat for our studies."`
+			`	Benoit thinks for a moment and then gives you a mischievous look. "Hmm... You know what, I believe you should participate in the guessing game, to earn your share. I will describe you the target, let us see if you can guess it."`
+			`	"For our studies we want to retreat to my own private island. It is on the planet consisting mostly of water, where even the spaceport is on its own city-ship."`
+			`	Any idea where you should take us? Oh, and be warned: your mission computer will not disclose the destination."`
+			choice
+				`	"Yes, I know where you want to be taken."`
+					goto "no help"
+				`	"Sorry, I have no idea."`
+			`"Ah, that's too bad. My private island is on Mainsail."`
+			label "no help"
+			`"So, let us take of then."`
 				accept
 	on fail
 		event "the legacy was aborted"
@@ -202,8 +212,10 @@ mission "The Legacy: Treasure Hunters 3"
 mission "The Legacy: Treasure Hunters 4"
 	name "The Legacy: Treasure hunters"
 	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
-	deadline 12 0
+	autosave
+	deadline 6 0
 	cargo "(reserved)" 5
+	invisible
 	stopover "Vinci"
 	to offer
 		has "The Legacy: Treasure Hunters 3: done"
@@ -212,18 +224,33 @@ mission "The Legacy: Treasure Hunters 4"
 	destination "Mainsail"
 	on offer
 		conversation
-			`When you call Benoit, he seems to be in deep thoughts. "Ah, Captain <last>. This seems to be more of a challenge than we imagined. Could you pick up some additional supplies for us on <stopovers>? And we would need them before <day>."`
+			`When you call Benoit, he seems to be in deep thoughts. "Ah, Captain <last>. This seems to be more of a challenge than we imagined. I would like you to pick up some additional supplies for us. The CEO of the largest CPU manufacturing company is a good friend of mine and he will give me a couple of super-computers. Can you pick them up and deliver them before <day>?"`
 			choice
 				`"Sure, I'd be happy to."`
 					goto "okay"
+				`"I would, but where exactly is that company situated?"`
+					goto "get clue"
 				`"Sorry, but I had enough of this."`
 					goto "had enough"
+			label "get clue"
+			`"Like most of the big CPU manufacturing companies, my friends factory is situated on <stopovers>."`
 			label "okay"
-			`You prepare your ship for the trip to <stopovers>.`
+			`	Benoit isn't done: "Oh, and one more thing. I promised that I will transport the computers on my own freighter, so you will have to take it with you."`
+			choice
+				`	"Sure, that is fine. I know how to manipulate the space-time in this universe."`
+					goto "knows how to cheese"
+				`	"Sorry, but this is impossible, unless your ship has a jump drive."`
+			`Benoig laughs. "It has not. But you have such a device, so if you jump ahead into the target system and let my freighter catch up while you wait there, this will bend the space-time continuum of this universe and the freighter will arrive on the same day as you did."`
+			label "knows how to cheese"
+			`You prepare your ship for takeoff.`
 				accept
 			label "had enough"
 			`"Ah, sorry to hear that. We had become rather fond of your services, but in that case we will find someone else." He hangs up.`
 				decline
+	npc accompany
+		government "Merchant"
+		personality timid escort
+		ship "Behemoth" "Knives Out"
 	on decline
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
@@ -265,6 +292,7 @@ mission "The Legacy: Treasure Hunters 5"
 	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
 	deadline 4 0
 	passengers 2
+	invisible
 	stopover "Glory"
 	to offer
 		has "The Legacy: Treasure Hunters 4: done"
@@ -275,14 +303,14 @@ mission "The Legacy: Treasure Hunters 5"
 		conversation
 			`When you call Benoit, he is in a good mood. "Ah, Captain <last>! We have just finished setting up the new equipment and it seems everything is working fine."`
 			`	You respond: "That is good news."`
-			`	Benoit get's down to business: "To your next mission, then. Would it be possible for you to pick up my good friend Jane and her maid Marta on <stopovers> and bring her here within 4 days?"`
+			`	Benoit get's down to business: "To your next mission, then. Would it be possible for you to pick up my good friend Jane and her maid Marta at the Academy of Planetary Science and bring her here within 4 days?"`
 			choice
 				`"Sure, this will be no problem."`
 					goto "okay"
 				`"Sorry, but I had enough of this."`
 					goto "had enough"
 			label "okay"
-			`You prepare your ship for the trip to <stopovers>.`
+			`You prepare your ship for the next trip.`
 				accept
 			label "had enough"
 			`"Ah, sorry to hear that. We had become rather fond of your services, but in that case we will find someone else." He hangs up.`
@@ -387,9 +415,9 @@ mission "The Legacy: The First Clue 1"
 			`	"Twenty years later, he resurfaced. Since he had never killed anyone during his raids, he was no longer wanted by the law. So, he travelled through the systems and tried to make amends for what he had done in the past by helping."`
 			`	"He also spread his message of peace. He quickly became popular amongst the poor, but also administration listen to his advice. He was a very smart man."`
 			choice
-				`	"What about then Pirates, though?"`
+				`	"What about the Pirates, though?"`
 			`"You are right. The Pirates never forget and there was still a large bounty on his head. Several gangs tried to cash in, but it did them no good. Rhon never attacked, but those who went up against him, he destroyed without mercy."`
-			`	"His ship could not be touched by anything build in human space. Rumor says he had filled it with alien technology. In the end, they left him alone. Turned him into a scare for little children."`
+			`	"His ship could not be touched by anything built in human space. Rumor says he had filled it with alien technology. In the end, they left him alone. Turned him into a scare for little children."`
 			choice
 				`	"Wow, where do you know this from?"`
 			`"They scared me with his name when I was little. But I don't like being scared, so I started digging and found out the complete story."`
@@ -424,6 +452,8 @@ mission "The Legacy: The First Clue 1"
 			`	You may have overdone it with your studies, tough. In your sleep you dream of Rhon visiting you.`
 			`	He gives you a warning: "If you want to find my inheritance, your mission computer will not be helping you. All you have at your disposal is your knowledge of the galaxy and the friends you have made."`
 				accept
+	on accept
+		log `Maria and Joe helped me to solve the first clue, now I am on searching for someone who can decipher Hai symbols.`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -473,6 +503,7 @@ mission "The Legacy: The First Clue 2"
 	source "Vara K'chrai"
 	destination "Desi Seledrak"
 	on offer
+		event "the legacy clue 1 pending"
 		conversation
 			`You don't know if it's because Hai diplomats are different from the ones in human space or if it's just Sayari, but she actually arrives on time in the Spaceport.`
 			`	You arrange the transfer of her belongings into the cargo bay of your ship and then help Sayari to settle in one of the cabins.`
@@ -481,7 +512,6 @@ mission "The Legacy: The First Clue 2"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
 	on complete
-		event "the legacy clue 1 pending"
 		conversation
 			`Once you have arrived at <planet>, Ambassador Sayari first reports to the Wanderer council, while her belongings are brought to her new quarters.`
 			`During the flight there was no good opportunity to ask her about the symbols, but when you told her that you would like to discuss something personal, she invited you to her place for dinner. A guide will pick you up in the Spaceport.`
@@ -501,7 +531,7 @@ mission "The Legacy: The First Clue 3"
 		conversation
 			`When you arrive at Sayari's place, she is not alone - Rek is with her.`
 			`	"<first>, how good to see you again. I was just at the council to report on my progress, when I met Sayari. She mentioned you were also here, so I insisted to join her."`
-			`	You notice that Rek's english has again improved. Sayari has somehow arranged for some suitable food for each of you to be delivered. During the meal, you wonder if Rek's presence does further or hinder your course. In any case, it is a wonderful evening with good food and conversations.`
+			`	You notice that Rek's english has again improved. Sayari has somehow arranged for some suitable food for each of you to be delivered. During the meal, you wonder if Rek's presence does further or hinder your cause. In any case, it is a wonderful evening with good food and conversations.`
 			`	In the end, you decide that Rek's language capabilities may actually be helpful.`
 			choice
 				`	Disclose your story to both of them.`
@@ -517,22 +547,23 @@ mission "The Legacy: The First Clue 3"
 			`"He was a special man, and many humans noticed that. I assume that one of them must have told the Pirates, because one day a fleet of them apeared in Hai space. I was working at the time, so I knew as soon as they had exited the worm hole. Rhon had always warned me that something like that might happen."`
 			`	"We were prepared, so we managed to flee deeper into Hai space before they could find him. Rhon had hoped that he could shake them that way, but they continued and starting causing all sorts of troubles. So Rhon decided to leave Hai space to restore peace."`
 			`	"He offered me to take me with him, but back then I was not ready to leave my people, so I declined." The regret in her voice is tangible.`
-			`	"After that, I never saw him again. But I never forgot him. The time with him inspired me to learn more about the humans and to become the envoy for the human government."`
+			`	"After that, I never saw him again. But I never forgot him. The time with him inspired me to learn more about the humans and to eventually become the envoy for the human government."`
 			`	She returns into the present. "I am glad to hear that he lived a good life and achieved redemption amongst humans."`
 			choice
 				`	"So, will you translate the symbols?"`
 			`Sayari makes the chittering sound you know equals the Hai version of laughter. "I already have. 'Enter the system with the Iron Sky and utter the name of my Hai savior and friend'. So, do you know what to do?"`
 			choice
 				`	"Yes, I believe I have an idea of where we need to go."`
-					goto "smart_player"
+					goto "smart_player_1c3"
 				`	"Sorry, but I am clueless. Can you help?"`
 			`"I am pretty sure that the Iron Sky refers to the metallic meteorites of the Imo Dep system. I assume we need to go there and then you need to broadcast my name."`
-			label "smart_player"
+			label "smart_player_1c3"
 			`	Sayari blinks at you: "This is the system that we fled to. If you do not mind, I would like to accompony you on this quest. Somehow, I am already involved, anyway."`
 			`	Rek, who can barely contain her excitement, chimes in: "Yes, and I will also come along. It has been a long time since I had anything that exciting and refreshing."`
 			`	Somehow, you feel that your chances of solving this mystery just have significantly improved. You are glad that your friends have joined your quest.`
 				accept
 	on enter "Imo Dep"
+		log `Sayari was able to decipher the symbols. She and Rek have both joined me on the quest.`
 		dialog `As you enter the <system> system, you start broadcasting Sayari's name.`
 		dialog `	It takes only a moment, and you receive a guiding beam leading you to the outskirts of the system.`
 		dialog `	You prepare for another landing on an asteroid.`
@@ -548,13 +579,14 @@ mission "The Legacy: The First Clue 4"
 	invisible
 	landing
 	to offer
-		has "The Legacy: The First Clue 3: active"
+		has "The Legacy: The First Clue 3: done"
 	source "Legacy Clue 1 site"
 	destination "Viminal"
 	on offer
+		event "the legacy clue 2A pending"
 		conversation
 			`While on the landing approach, you notice that this time the facilities are much smaller. You barely fit your ship into the landing zone.`
-			`	The facilities as such consist of a resting area and an additional room separated by a close gate. When you approach the gate, each member of the party is scanned.`
+			`	The facilities as such consist of the landing bay and an additional room separated by a close gate. When you approach the gate, each member of the party is scanned.`
 			`	When a voice speaks, you are glad you brought the translator, because it is speaking Hai. "Welcome, [seekers, explorers]. I will admit you for the next [clue, hint] in a moment. But first let Sayari enter alone."`
 			choice
 				`	Do as the voice commands and let Sayari enter alone.`
@@ -564,7 +596,7 @@ mission "The Legacy: The First Clue 4"
 			label "enter_sayari"
 			`Sayari steps towards the gate, which opens, let her pass and then closes after her.`
 			`	After a while, the gate opens again and the voice invites you to step forward. You join Sayari in a plain room which contains not much more but a holographic projector.`
-			`	Sayari seems happy and sad at the same time. "Rhon had left me a personal farewell message. I am so glad that you brought me here."`
+			`	Sayari seems happy and sad at the same time. "Rhon had left me a personal farewell message. I am glad that you brought me here."`
 			`	At this moment, the holographic projector activates and an elderly Rhon stands in front of you. He also speaks in Hai.`
 			`	"Welcome again, and I [appreciate, value] that you have brought Sayari with you. I can also see that each of you is from a different [species, origin]. This will help you at a later [time, moment]. But to get there, you will have to [follow the path, take the journey] that I took."`
 			`	Beside the hologram, symbols appear. You have no difficulty recognizing them, they are Remnant hand signals, but you do not understand all of them.`
@@ -573,7 +605,7 @@ mission "The Legacy: The First Clue 4"
 			`	With that, you are alone.`
 			`	Rek issues a serious of clicks which, as you have learned, indicates his amusement. "You have already solved the 2nd clue - admit it."`
 			choice
-				`	"Well, yes and now. I know what these symbols are - they are signs from the Remants, a group of humans who fled the Alpha Wars into isolation and who now communicate through sign language on not by spoken word."`
+				`	"Well, yes and no. I know what these symbols are - they are signs from the Remants, a group of humans who fled the Alpha Wars into isolation and who now communicate through sign language and not by spoken word."`
 			`Rek is excited. "That is fascinating. Albeit..." He looks down at his lengthy, claw-like fingers. Sayari looks at her small paws. They both look at you. "I believe, you will have to do the 'talking'". You all break out into laughter.`
 			`	You try to dampen the mood a bit. "We will require help in any case. My 'Remnant' is not sufficient. I recognize some of the symbols, but not enough. Unfortunately, the Remnant are pretty much at the other end of the galaxy."`
 			`	Rek is not deterred: "Well, then we better depart." Sayari chimes in: "It's good then that I had the ship loaded with provisions before departure."`
@@ -582,9 +614,9 @@ mission "The Legacy: The First Clue 4"
 		dialog `You may have been concerned about your fuel costs now, had the great creator, MZ, not decided that for the advancement of space travel, space ship fuel would be free for all and everyone. In your thoughts, you thank him for creating such a wonderful universe.`
 	on complete
 		event "the legacy clue 1 done"
-		event "the legacy clue 2A pending"
+		log `The search for the legacy now leads us to Remnant space. I hope that Taely will be able to help us.`
 		conversation
-			`During the trip, both Rek and Sayari used your old school materials to study the sign language of the Remnant and have both reached a reasonable level. However, when you land on <planet>, only you exit the space craft, since you are unsure how the Remnant would react to the presence of aliens.`
+			`During the trip, both Rek and Sayari used your old school materials to study the sign language of the Remnant and have both reached a reasonable level of understanding. However, when you land on <planet>, only you exit the space craft, since you are unsure how the Remnant would react to the presence of aliens.`
 			`	After you passed the mandatory blood test, you manage to find Taely in the shipyards and - even though your Remant is a bit rusty - manage to explain her the reason for your visit.`
 			`	When you hand her a printed version of the symbols, she starts reading them and then looks up to you in surprise. She hesitates for a moment and then she signs you to meet her at the shipyard exit to the Spaceport in the evening.`
 	on fail
@@ -603,6 +635,7 @@ mission "The Legacy: The Second Clue 1"
 	source "Viminal"
 	destination "Legacy Clue 2A site"
 	on offer
+		event "the legacy clue 2B pending"
 		conversation
 			`When you enter the shipyards, Taely is already waiting for you, and she is not alone. With her are a woman and a man, who you judge to be siblings. They are both about your age and share the same distinctive and very attractive look.`
 			`	Taely, in her usual way, get's straight down to business: "Hello Captain <last>. Since you have helped us in the past, I will try my best to help you now. You will need a remnant translator to accompany you. While I can't join you myself, I have found two in my team who would be suitable to help you. I vouch for them. Please meet Yohna and Yahon.`
@@ -623,23 +656,23 @@ mission "The Legacy: The Second Clue 1"
 			`	When she sees your surprise, she laughs. "Taely thought it would be helpful if you had a proper translator. My brother and I were raised communicating both the Remnant and the Ancient way."`
 			choice
 				`	"Taely has a point. So, when are you ready to depart?"`
-			`"We can go straight to your <ship>, I know that she is fully refueled and loaded. And maybe we can have also dinner there. I would invite you into one of the restaurants here, but I am well aware on how dull Remnant kitchen is to outsiders. Besides, that way I can get to know your companions. I am really looking forward to meeting them."`
+			`"We can go straight to your <ship>, I know that she is fully refueled and loaded. And maybe we can have dinner there. I would invite you into one of the restaurants here, but I am well aware on how dull Remnant kitchen is to outsiders. Besides, that way I can get to know your companions. I am really looking forward to meeting them."`
 			`	You realize she must be aware of your aliens friends. Once again, she recognizes your surprise and you hear her adorable laughter. "Taely has her eyes and ears pretty much everywhere. You don't think that any foreign ship can approach Remnant space without Taely knowing about load and crew? Oh, and she really appreciates that you left your alien friends on board of your ship. Sometimes, the officers running the blood check can be a bit... difficult."`
 			`	As smitten as you are by Yohna, your wits are slowly coming back to you. "Ah, so that is why you are joining the party and not just translating - to ensure the Remnant will get a share in case anything interesting gets discovered."`
 			`	Yohna looks at you for a moment. Then she reaches a decision: "Okay, let us be honest with each other. Yes and no. Ensuring that we participate from any interesting discovery may have been the decisive argument to send someone along, but Taely is really fond of you and genuinly wanted to help you."`
-			`	"And for me, this is the chance I have been waiting for. I am in this as much as for Taely as for myself." She pauses and then looks you so intense in the eyes that you stomach starts to tingle. "Captain, I pledge myself to your quest and will always speak the truth to you."`
+			`	"And for me, this is the chance I have been waiting for. I am in this as much as for Taely as for myself." She pauses, looks at you very intense and then holds out her hand. "Captain, I pledge myself to your quest and will be truthful to you, always."`
 			choice
-				`	You hold her gaze and grab her shoulders. "And I promise that I will always treat you fairly and honestly." You pause for a moment. "And I will always speak the truth to you."`
+				`	You hold her gaze and grab her hand. "And I promise that I will always treat you fairly and honestly. You will be a full member and equal member of the crew."`
 			`On the ship you introduce Yohna to Sayari and Rek over dinner. Both are as taken by her charm as you and before you know it, she is teaching you funny Remnant swear signs. Eventually, you have to get serious, though.`
 			`	"Okay, you are a great teacher, but maybe it's about time you show us that you are also good at solving riddles." With that you bring up the symbols on the main screen.`
 			`	Yohna takes a look and then turns to you in surprise. "No wonder you have difficulties reading these - they are in a rare dialect."`
 			`	On your question "But you can read them?", she responds: "Yes, I actually grew up with them. They direct to a location and give instructions on what to do. But they are written in riddles."`
-			`	"The symbols say: A system between two wormholes, those who can jump will often pass you by. And yet, those who ask for help the right way, will receive it. So, do you know where we should go?"`
+			`	"The symbols say: A system between two doorways, those who can jump will often pass you by. And yet, those who ask for help the right way, will receive it. So, do you know where we should go?"`
 			choice
 				`	"Yes, I believe I know where to go."`
-					goto "smart_player"
+					goto "smart_player_2c1"
 				`	"Not really."`
-					goto "clueless"
+					goto "clueless_2c1"
 			label "chose_yahon"
 			apply
 				set "the legacy chose yahon"
@@ -654,46 +687,49 @@ mission "The Legacy: The Second Clue 1"
 			`	You realize he must be aware of your aliens friends. Once again, he recognizes your surprise and you hear his contageous laughter. "Taely has her eyes and ears pretty much everywhere. You don't think that any foreign ship can approach Remnant space without Taely knowing about load and crew? Oh, and she really appreciates that you left your alien friends on board of your ship. Sometimes, the officers running the blood check can be a bit... difficult."`
 			`	As smitten as you are by Yahon, your wits are slowly coming back to you. "Ah, so that is why you are joining the party and not just translating - to ensure the Remnant will get a share in case anything interesting gets discovered."`
 			`	Yahon looks at you for a moment. Then he reaches a decision: "Okay, let us be honest with each other. Yes and no. Ensuring that we participate from any interesting discovery may have been the decisive argument to send someone along, but Taely is really fond of you and genuinly wanted to help you."`
-			`	"And for me, this is the chance I have been waiting for. I am in this as much as for Taely as for myself." He pauses and then looks you so intense in the eyes that you stomach starts to tingle. "Captain, I pledge myself to your quest and will always speak the truth to you."`
+			`	"And for me, this is the chance I have been waiting for. I am in this as much as for Taely as for myself." He pauses, looks at you very intense and then holds out his hand. "Captain, I pledge myself to your quest and I will be truthful to you, always."`
 			choice
-				`	You hold his gaze and grab his strong shoulders. "And I promise that I will always treat you fairly and honestly." You pause for a moment. "And I will always speak the truth to you."`
+				`	You hold his gaze and grab his hand. "And I promise that I will always treat you fairly and honestly. You will be full and equal member of the crew."`
 			`On the ship you introduce Yahon to Sayari and Rek over dinner. Both are as taken by his charm as you and before you know it, he is teaching you funny Remnant swear signs. Eventually, you have to get serious, though.`
 			`	"Okay, you are a great teacher, but maybe it's about time you show us that you are also good at solving riddles." With that you bring up the symbols on the main screen.`
 			`	Yahon takes a look and then turns to you in surprise. "No wonder you have difficulties reading these - they are in a rare dialect."`
 			`	On your question "But you can read them?", he responds: "Yes, I actually grew up with them. They direct to a location and give instructions on what to do. But they are written in riddles."`
-			`	"The symbols say: A system between two wormholes, those who can jump will often pass you by. And yet, those who ask for help the right way, will receive it. So, do you know where we should go?"`
+			`	"The symbols say: 'A system between two doorways, those who can jump will often pass you by. And yet, those who ask for help the right way, will receive it.' So, do you know where we should go?"`
 			choice
 				`	"Yes, I believe I know where to go."`
-					goto "smart_player"
+					goto "smart_player_2c1"
 				`	"Not really."`
-					goto "clueless"
-			label "clueless"
-			`"Well, I am pretty sure this refers to the Stercutus system."`
-			label "smart_player"
+					goto "clueless_2c1"
+			label "clueless_2c1"
+			`"Well, I am pretty sure this refers to the Stercutus system. It is connecting two systems with wormholes, however, ships with a Jumpdrive usually jump over it."`
+			label "smart_player_2c1"
 			`"Excellent, then let's take off first thing in the morning."`
 				accept
 	on enter "Edusa"
 		conversation
-			branch "with_yahon"
+			branch "with_yahon_2c1_edusa"
 				has "the legacy chose yahon"
 			`You are just finished with the navigational adjustments, when you hear someone behind you. It is Yohna. "Captain, may I join you for a moment?"`
 			`	You offer her the co-pilot seat and she gracefully settles beside you. For a moment, she watches the stars outside.`
 			`	It is then that you realize what makes her stand out amongst other Remnant. It is the colour of her eyes. Where most of the Remnant have dark eyes, her are a warm amber, almost golden.`
 			`	She speaks softly: "I have seen this view a hundred times and still love it like the first time. Some may call it the Ember Waste, but for me it is more home than Aventine."`
-			`	"How so?"`
-			`	"I pretty much grew up in this area. My mother worked for the Remnant military and was part of the unit which would maintain our scout network and patrol the Waste systems. Most of her comrades preferred short turns, but she only returned to HQ when she had to."`
+			choice
+				`	"How so?"`
+			`"I pretty much grew up in this area. My mother worked for the Remnant military and was part of the unit which would maintain our scout network and patrol the Ember Waste systems. Most of her comrades preferred short turns, but she only returned to HQ when she had to."`
 			`	You wonder: "That must have been tough for you as a child".`
-			`	"Not really. We were never really alone. I had my brother, but there were also several like my mother who preferred to keep to themselves and who had kids. We called us the 'Waste-Folks'. We were a committed community and could absolutely rely on each other. The symbols from the clue are in 'Waste-Folks' dialect. So this Rhon must have been part of the community, at least for a while."`
-			`	You consider what she said for a moment. "Well, it was clear that Rhon, after he had fled the Hai, somehow ended up in Remnant space. It's not unlikely that he got stranded somewhere in the waste and was saved, maybe by someone from the 'Waste-Folks'."`
+			`	"Not really. We were never really alone. Beside Yahon, there were more like my mother who also had kids and then there were civilians who were vagabonding through the systems. We would often meet in small groups and spend time together. We were a committed community and could absolutely rely on each other. We're known as the 'Ember-People'"`
+			`	"The symbols from the clue are in 'Ember' dialect. So this Rhon must have been part of the community, at least for a while. It is strange I never heard of him."`
+			`	You consider what she said for a moment. "Well, it was clear that Rhon, after he had fled the Hai, somehow ended up in Remnant space. It's not unlikely that he got stranded and was saved by someone from the 'Ember-People'."`
 			choice
 				`	"So, how did you find your way to Aventine and end up with Taely?"`
-			`	Her amber eyes fill with sadness. "Well, in the Waste you learn all sorts of practical things pretty fast. And mother also saw to it that we get a proper education in all other matters. She wanted us to also know the regular Remnant life. She and Taely go way back, mother often brought her interesting things, so Taely took us under her wings."`
-			`	"And she was right - I am happy now, where I am, even though I sometimes miss the times in the Waste. But in the end home is where the heart is."`
-			`	"So where is your mother now? Shouldn't we pay her a visit?"`
-			`	Her eyes fill with tears. "She vanished on her next trip after she had brought us to Aventine, almost as if to make sure we don't return to her. But the evidence was clear, they found the wreckage of her ship crashed into an Asteroid."`
-			`	"What about your father?"`
-			`	"I don't know who he is. Mother would never speak of him. Yahon once overheard an argument between her and Tealy, where mother blamed the government for him not being with us. That's pretty much all I know, because neither Taely nor any of the Waste Folks would tell us more."`
-			You see tears stream down her face. 
+			`	"Well, in the Waste you learn all sorts of practical things pretty fast. And mother also saw to it that we get a proper education in all other matters. She wanted us to also know the regular Remnant life. She and Taely go way back, mother often brought her interesting things, so Taely took us under her wings."`
+			`	"And she was right, I guess... I am content with my work for Taely and have pretty much settled down on Viminal. But I admit that I am always happy when she sends Yahon and myself out into the Waste on a mission."`
+			choice
+				`	"So where is your mother now? Shouldn't we pay her a visit?"`
+			`	Her amber eyes fill with sadness. "She vanished on her next trip after she had brought us to Aventine, almost as if to make sure we don't return to her. But the evidence was clear, they found the wreckage of her ship crashed into an Asteroid."`
+			`	"What about your father, then?"`
+			`	For a long moment, she is silent. "I... I don't know who he is. Mother would never speak of him. Yahon once overheard an argument between her and Taely, where mother blamed the government for him not being with us. That's pretty much all I know, because neither Taely nor any of the Ember-People would tell us more."`
+			`	You see tears stream down her face.`
 			choice
 				`	Take her into your arms and console her.`
 					goto "i_need_a_hug yohna"
@@ -709,33 +745,40 @@ mission "The Legacy: The Second Clue 1"
 			label "i_need_a_hug yohna"
 			`She puts her arms around your neck and leanes into you. You hold her gently until her breathing becomes calm and she lifts her head. You point towards the Ember Waste.`
 			`	"Yohna, the answers are out there. And I will do everything to help you find them."`
-			`	"Thank you, <first>." She leanes into you a bit more. "Maybe I should go now."`
+			`	"Thank you, <first>." She leanes into you a bit more. "This feels nice... But maybe I should go now."`
 			`	"Shall I walk you to your cabin?"`
 			`	"I would like that very much"`
-			`	When you reach her cabin, she turns around and looks at you. "Thanks you, for everything." With that, she leans in and gives you a kiss. Then, she turns around and disappears into her cabin.`
+			`	When you reach her cabin, she turns around and looks at you. "Thank you, for everything." With that, she leans in and gives you a kiss. Then, she turns around and disappears into her cabin.`
 			`	You return to the cockpit and stare out into the Ember Waste for a while, contemplating what just has happened.`
-				goto "done_edusa"
-			label "with_yahon"
+			choice
+				`	You decide to keep your distance from Yohna from now on. You are not interested in romance.`
+					goto "reflected no romance"
+				`	With all you just learned, the one thing you which keeps coming back to you is the feeling of her lips on yours.`
+					goto "done_edusa"
+			label "with_yahon_2c1_edusa"
 			`You are just finished with the navigational adjustments, when you hear someone behind you. It is Yahon. "Captain, may I join you for a moment?"`
 			`	You offer him the co-pilot seat and he settles beside you. For a moment, he watches the stars outside.`
 			`	It is then that you realize what makes him stand out amongst other Remnant. It is the colour of his eyes. Where most of the Remnant have dark eyes, his are a warm amber, almost golden.`
 			`	He speaks softly: "I have seen this view a hundred times and still love it like the first time. Some may call it the Ember Waste, but for me it is more home than Aventine."`
-			`	"How so?"`
-			`	"I pretty much grew up in this area. My mother worked for the Remnant military and was part of the unit which would maintain our scout network and patrol the Waste systems. Most of her comrades preferred short turns, but she only returned to HQ when she had to."`
+			choice
+				`	"How so?"`
+			`"I pretty much grew up in this area. My mother worked for the Remnant military and was part of the unit which would maintain our scout network and patrol the Ember Waste systems. Most of her comrades preferred short turns, but she only returned to HQ when she had to."`
 			`	You wonder: "That must have been tough for you as a child".`
-			`	"Not really. We were never really alone. I had my sister, but there were also several like my mother who preferred to keep to themselves and who had kids. We called us the 'Waste-Folks'. We were a committed community and could absolutely rely on each other. The symbols from the clue are in 'Waste-Folks' dialect. So this Rhon must have been part of the community, at least for a while."`
-			`	You consider what he said for a moment. "Well, it was clear that Rhon, after he had fled the Hai, somehow ended up in Remnant space. It's not unlikely that he got stranded somewhere in the waste and was saved, maybe by someone from the 'Waste-Folks'."`
+			`	"Not really. We were never really alone. Beside Yohna, there were more like my mother who also had kids and then there were civilians who were vagabonding through the systems. We would often meet in small groups and spend time together. We were a committed community and could absolutely rely on each other. We're known as the 'Ember-People'"`
+			`	"The symbols from the clue are in 'Ember' dialect. So this Rhon must have been part of the community, at least for a while. It is strange I never heard of him."`
+			`	You consider what he said for a moment. "Well, it was clear that Rhon, after he had fled the Hai, somehow ended up in Remnant space. It's not unlikely that he got stranded and was saved by someone from the 'Ember-People'."`
 			choice
 				`	"So, how did you find your way to Aventine and end up with Taely?"`
-			`	His amber eyes fill with sadness. "Well, in the Waste you learn all sorts of practical things pretty fast. And mother also saw to it that we get a proper education in all other matters. She wanted us to also know the regular Remnant life. She and Taely go way back, mother often brought her interesting things, so Taely took us under her wings."`
-			`	"And she was right - I am happy now, where I am, even though I sometimes miss the times in the Waste. But in the end home is where the heart is."`
-			`	"So where is your mother now? Shouldn't we pay her a visit?"`
-			`	His eyes become even more sad. "She vanished on her next trip after she had brought us to Aventine, almost as if to make sure we don't return to her. But the evidence was clear, they found the wreckage of her ship crashed into an Asteroid."`
-			`	"What about your father?"`
-			`	"I don't know who he is. Mother would never speak of him. Yohna once overheard an argument between her and Tealy, where mother blamed the government for him not being with us. That's pretty much all I know, because neither Taely nor any of the Waste Folks would tell us more."`
-			You see a tear stream down his face. 
+			`	"Well, in the Waste you learn all sorts of practical things pretty fast. And mother also saw to it that we get a proper education in all other matters. She wanted us to also know the regular Remnant life. She and Taely go way back, mother often brought her interesting things, so Taely took us under her wings."`
+			`	"And she was right, I guess... I am content with my work for Taely and have pretty much settled down on Viminal. But I admit that I am always happy when she sends Yohna and myself out into the Waste on a mission."`
 			choice
-				`	Take him into your arms and console him.`
+				`	"So where is your mother now? Shouldn't we pay her a visit?"`
+			`	His amber eyes fill with sadness. "She vanished on her next trip after she had brought us to Aventine, almost as if to make sure we don't return to her. But the evidence was clear, they found the wreckage of her ship crashed into an Asteroid."`
+			`	"What about your father, then?"`
+			`	For a long moment, he is silent. "I... I don't know who he is. Mother would never speak of him. Yohna once overheard an argument between her and Taely, where mother blamed the government for him not being with us. That's pretty much all I know, because neither Taely nor any of the Ember-People would tell us more."`
+			`You see a tear stream down his face.`
+			choice
+				`	Take him into your arms.`
 					goto "i_need_a_hug yahon"
 				`	Put your hand on his shoulder and squeeze it.`
 					goto "squeeze yahon"
@@ -749,7 +792,7 @@ mission "The Legacy: The Second Clue 1"
 			label "i_need_a_hug yahon"
 			`He puts his arms around your neck and leanes into you. You hold him until he lifts his head. You point towards the Ember Waste.`
 			`	"Yahon, the answers are out there. And I will do everything to help you find them."`
-			`	"Thank you, <first>." He leanes into you a bit more. "Maybe I should go now."`
+			`	"Thank you, <first>." He leanes into you a bit more. "This feels nice... But maybe I should go now."`
 			choice
 				`	"Shall I walk you to your cabin?"`
 					goto "yahon cabin"
@@ -759,17 +802,710 @@ mission "The Legacy: The Second Clue 1"
 				set "the legacy no romance"
 			label "yahon cabin"
 			`	"I would like that very much"`
-			`	When you reach his cabin, he turns around and looks at you. "Thanks you, for everything." With that, he leans in and gives you a kiss. Then, he turns around and disappears into his cabin.`
+			`	When you reach his cabin, he turns around and looks at you. "Thank you, for everything." With that, he leans in and gives you a kiss. Then, he turns around and disappears into his cabin.`
 			`	You return to the cockpit and stare out into the Ember Waste for a while, contemplating what just has happened.`
+			choice
+				`	You decide to keep your distance from Yahon from now on. You are not intersted in romance.`
+					goto "reflected no romance"
+				`	With all you just learned, the one thing you which keeps coming back to you is the feeling of his lips on yours.`
+					goto "done_edusa"
+			label "reflected no romance"
+			apply
+				set "the legacy no romance"
 			label "done_edusa"
+			`Meanwhile, the ship is about to enter the wormhole.`
 	on enter "Stercutus"
-		dialog `Action to disclose clue`
+		conversation
+			branch "with_yahon_2c1_stercutus"
+				has "the legacy chose yahon"
+			`As you enter the <system> system, Yohna is beside you in the co-pilots seat.`
+			`	You ask her: "Now we have to ask for help the rigth way. Is there a distress signal that the Ember-Pople use?"`
+			`	She flashes you a radiant smile. "Broadcasting it now..."`
+			`	You get an immediate response from one of the moons of the 3rd planet.`
+			`	Yohna explains: "The Ember-People have hidden caches for emergency situations throughout the systems. They will respond to the signal I just sent out. I am pretty sure, however, that <system> doesn't have one. So, we may be onto something here."`
+				goto "done_stercutus"
+			label "with_yahon_2c1_stercutus"
+			`As you enter the <system> system, Yahon is beside you in the co-pilots seat.`
+			`	You ask him: "Now we have to ask for help the rigth way. Is there a distress signal that the Ember-People use?"`
+			`	He flashes you a radiant smile. "Broadcasting it now..."`
+			`	You get an immediate response from one of the moons of the 3rd planet.`
+			`	Yahon explains: "The Ember-People have hidden caches for emergency situations throughout the systems. They will respond to the signal I just sent out. I am pretty sure, however, that <system> doesn't have one. So, we may be onto something here."`
+				goto "done_stercutus"
+			label "done_stercutus"
+			`You decide to land on the moon.`
 	on decline
 		event "the legacy was aborted"
 	on fail
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
 
+mission "The Legacy: Log Second Clue 1 FR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yohna"
+		not "the legacy no romance"
+	on offer
+		log `Yohna, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. She and I are getting along very well.`
+		fail
+
+mission "The Legacy: Log Second Clue 1 FN"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yohna"
+		has "the legacy no romance"
+	on offer
+		log `Yohna, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. She is very capable.`
+		fail
+
+mission "The Legacy: Log Second Clue 1 MR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yahon"
+		not "the legacy no romance"
+	on offer
+		log `Yahon, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. He and I are getting along very well.`
+		fail
+
+mission "The Legacy: Log Second Clue 1 MN"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yahon"
+		has "the legacy no romance"
+	on offer
+		log `Yahon, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. He is very capable.`
+		fail
+
+mission "The Legacy: The Second Clue 2"
+	cargo "(reserved)" 12
+	passengers 3
+	invisible
+	landing
+	to offer
+		has "The Legacy: The Second Clue 1: done"
+	source "Legacy Clue 2A site"
+	destination "Legacy Clue 2B site"
+	waypoint "Nenia"
+	on offer
+		conversation
+			branch "with_yahon_2c2_site"
+				has "the legacy chose yahon"
+			`You follow the beacon to the surface of the moon. When you touch down, you see a cave entrance next to the landing site. While the moon has a thin breathable athmosphere, you gratefully accept one of the breathing units that Yohna hands out.`
+			`	A few meters into the cave you pass an air lock and enter a room similar to the one in the Imo Dep system. Once you are settled, the familiar hologram appears. This time, however, Rhon does not speak, but sign. You leave the translation to Yohna, especially since he uses the Ember-People dialect.`
+			`	"Welcome, seekers. I can see that your party is now better staffed for the next steps and I welcome you, who are familiar with the customs of the Ember-People." The holographic Rhon bows towards Yohna.`
+			`	"It was here, that I first encountered one of you, who found me stranded at this exact spot after I had run out of fuel, energy and options. She followed the unwritten law and provided assistance. Then she hid me from the mob of pirates who had been chasing me from Hai space through half the galaxy."`
+			`	"This is where you will have to go next: a mighty power guards indigenous life and only who can sing the right tune will enter unharmed."`
+			`	With another bow towards Yohna the hologram vanishes. Yohna turns to you and asks: "So, do you know where to we go next?"`
+				goto "whereto_2c2"
+			label "with_yahon_2c2_site"
+			`You follow the beacon to the surface of the moon. When you touch down, you see a cave entrance next to the landing site. While the moon has a thin breathable athmosphere, you gratefully accept one of the breathing units that Yahon hands out.`
+			`	A few meters into the cave you pass an air lock and enter a room similar to the one in the Imo Dep system. Once you are settled, the familiar hologram appears. This time, however, Rhon does not speak, but sign. You leave the translation to Yahon, especially since he uses the Ember-People dialect.`
+			`	"Welcome, seekers. I can see that your party is now better staffed for the next steps and I welcome you, who are familiar with the customs of the Ember-People." The holographic Rhon bows towards Yahon.`
+			`	"It was here, that I first encountered one of you, who found me stranded at this exact spot after I had run out of fuel, energy and options. She followed the unwritten law and provided assistance. Then she hid me from the mob of pirates who had been chasing me from Hai space through half the galaxy."`
+			`	"This is where you will have to go next: a mighty power guards indigenous life and only who can sing the right tune will enter unharmed."`
+			`	With another bow towards Yahon the hologram vanishes. Yahon turns to you and asks: "So, do you know where to we go next?"`
+				goto "whereto_2c2"
+			label "whereto_2c2"
+			choice 
+				`	"Yes, I know the system he is referring to."`
+					goto "smart_player_2c2"
+				`	"I am not really sure. So, where do go?"`
+			`"In the Nenia system, the Draks have stationed several Archons to guard the indigenous species living there."`
+			label "smart_player_2c2"
+			`	"Over the years, the Ember-People have come to a truce with the Guardians. Unless they have a grudge with you personally, I can see to it that they will tolerate us while we look for the next clue."`
+			`	You return to the <ship> and prepare to depart.`
+				accept
+	on enter "Nenia"
+		conversation
+			branch "with_yahon_2c2_nenia"
+				has "the legacy chose yahon"
+			`When you enter Nenia, Yohna opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it one of us and we mean them no harm."`
+				goto "done_2c2_nenia"
+			label "with_yahon_2c2_nenia"
+			`When you enter Nenia, Yahon opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it one of us and we mean them no harm."`
+				goto "done_2c2_nenia"
+			label "done_2c2_nenia"
+			`	A moment later, a drone uncloaks next to your ship. You receive a transmission, this time in English: "Come and get me..."`
+			`	One spacewalk later, you have the drone on board. Fortunately, she was small enough to fit in the airlock and followed you automatically once you had touched her.`
+			`	The examination of the drone is rather brief, once you discover the written words: 'Base: Antevorta'`
+	on enter "Antevorta"
+		conversation
+			`As you enter <system>, Yohna first broadcasts the emergency signal, but with no success. Then she sings the melody again and you receive a guide beam.`
+	on complete
+		event "the legacy clue 2A done"
+		conversation
+			`As you land in the base, you notice that this time it offers more amenities - you see refueling devices and maintenance robots. As you step out of the ship, you are greeted by Rhon. He speaks english.`
+			`	"Welcome. I realize that by now, the asteroid bases get old, so I added some comforts for you. Beside the ship maintenance, you will find provisions for your various crew members, so you can stock up, in case you want to go on a longer trip."`
+			`	"I want that you get a feeling of what it feels like to live in such a place, because that's what I called home for the next several months. My ship served as bait in the Nenia system, while I hid here and waited, until the last Pirates had given up. Oh, and those guys can be stubborn."`
+			`	"But don't get me wrong, it was a good time. I was fascinated by the Remnant and even more fascinated by the Ember-People. But what captivated me above all other was the Remnant woman who had rescued me - the lovely Tohra."`
+			branch "with_yahon_2c2_complete"
+				has "the legacy chose yahon"
+			choice
+				`	As he mentions the name, you hear Yohna take in a sharp breath.`
+					goto "done_2c2_complete"
+			label "with_yahon_2c2_complete"
+			choice
+				`	As he mentions the name, you hear Yahon take in a sharp breath.`
+					goto "done_2c2_complete"
+			label "done_2c2_complete"
+			`	But your attention is drawn back to Rhon, who continues: "I tried to absorb everything given to me, and while I was always curious, in this case the motivation was love. Further enhanced by the fact that it was mutual."`
+			`	"When the last of the pirates had finally vanished, I knew enough to move freely amongst the Ember-People. So, I started to accompany Tohra on her patrols and since I was not completely useless, I gradually earned the respect of her comrades and the Ember-People."`
+			`	"So, I have happy memories of this place and the time on Waste patrol. Too bad it wasn't meant to last. But that is a story for the next station, and if you want to find it, meet me in the briefing room in the Spaceport." With that, he vanishes.`
+			`	Before you continue with the quest, you initiate the refueling of the <ship> and coordinate the loading of provisions and the execution of some routine maintenance and repairs, because you expect that the next long distance travel will not be too far away.`
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+
+mission "The Legacy: The Third Clue Main"
+	cargo "(reserved)" 12
+	passengers 3
+#	invisible
+	to offer
+		has "The Legacy: The Second Clue 2: done"
+	to complete
+		has "The Legacy: TMBR found: offered"
+	source "Legacy Clue 2B site"
+	destination "Alexandria"
+	on offer
+		conversation
+			branch "with_yahon_3cm_01"
+				has "the legacy chose yahon"
+			`As you wonder into the control center, you find Yohna at one of the data terminals. You address her: "Are you okay, Yohna? When Rhon mentioned the name 'Tohra' it seemed to affect you quite a bit."`
+			`	She looks up and smiles at you. "You are correct. Tohra is my mother."`
+			`	Now it‘s your turn to gasp. "What??? Then how is it possible you never heard of Rhon? Could he be...?"`
+			`	"My father? Yes, that is what I am also starting to believe. It would explain a lot."`
+			choice
+				`You point at the data terminal: "Have you found anything interesting?"`
+			`"Nothing significant. It contains logs from Rhon while he was here, up to the point that he left with my mother. He really loved her..."`
+			`	She detaches a data crystal, gets up and walks over to you. "It is strange - while the one big question I had, may have been solved, I now long for answers more then before."`
+			branch "with_yohna_3cm_nr_01"
+				has "the legacy no romance"
+			`	You put the hand on the side of her shoulder: "I understand you."`
+			`	She looks you in the eyes and comes closer. You can feel your heart pounding and butterflies in your stomach. When she speaks, it is with an alluring voice: "I believe you do... I am glad you took me on this trip. Not only for Rhon... The time we spend together, I really enjoy every moment. I have never felt this way. And I can't forget how you held me in your arms the other night..."`
+			choice
+				`	You take her into your arms. "You mean like this?"`
+			`She leans into you and sighs "Yes."`
+			`	"Yohna, I feel exactly the same way... And what I can‘t forget is the feeling of your lips on mine."`
+			`	"You mean like this?..." With that, she locks her lips with yours, but this time it is not a brief kiss, this time she leans in and you can feel her with all your senses. You forget the world around you, until you hear chittering Hai laughter behind you.`
+			`	When you look behind, you see the highly bemused Sayari and Rek. While you are a bit embarrassed, Yohna holds the embrace and seems undeterred.`
+			`	Rek rustles her feathers: "A wise choice, you two are a good match for each other." Sayari doubles up: "And what better place to form a union than where your parents already did, right, Yohna?"`
+			`	You are surprised: "How... How do you know?"`
+			`	Again, Sayari chitters. "Yohna's reaction to the mention of the female was the final give-away. But I suspected much earlier." She looks at Yohna: "There is so much of him in you, my dear. Most prominently the eyes."`
+			choice
+				`	You try to change the subject: "Umm, how about we check the next clue now?"`
+			`Fortunately for you, your friends let you off the hook and you all walk over to the briefing room.`
+				goto "3cm_clue"
+			label "with_yohna_3cm_nr_01"
+			`	You try to cheer her up: "Well, this quest is not yet over. I'm sure we will come to the bottom of all of this."`
+			`	At this moment you spot Rek and Sayari walking over. You call over to them: "Should we check out the next clue, now?"`
+			`	You all walk over to the briefing room.`
+				goto "3cm_clue"
+			label "with_yahon_3cm_01"
+			`As you wonder into the control center, you find Yahon at one of the data terminals. You address him: "Are you okay, Yahon? When Rhon mentioned the name 'Tohra' it seemed to affect you quite a bit."`
+			`	He looks up and smiles at you. "You are correct. Tohra is my mother."`
+			`	Now it‘s your turn to gasp. "What??? Then how is it possible you never heard of Rhon? Could he be...?"`
+			`	"My father? Yes, that is what I am also starting to believe. It would explain a lot."`
+			choice
+				`You point at the data terminal: "Have you found anything interesting?"`
+			`"Nothing significant. It contains logs from Rhon while he was here, up to the point that he left with my mother. He really loved her..."`
+			`	He detaches a data crystal, gets up and walks over to you. "It is strange - while the one big question I had, may have been solved, I now long for answers more then before."`
+			branch "with_yahon_3cm_nr_01"
+				has "the legacy no romance"
+			`	You put the hand on the side of his shoulder: "I understand you."`
+			`	He looks you in the eyes and comes closer. You can feel your heart pounding and butterflies in your stomach. When he speaks, it is with a seductive voice: "I believe you do... I am glad you took me on this trip. Not only for Rhon... The time we spend together, I really enjoy every moment. I have never felt this way. And I can't forget when I were in your arms the other night..."`
+			choice
+				`	You take him into your arms. "You mean like this?"`
+			`He leans into you and sighs "Yes."`
+			`	"Yahon, I feel exactly the same way. And what I can‘t forget is the feeling when you kissed me."`
+			`	"You mean like this?..." With that, he locks his lips with yours, but this time it is not a brief kiss, this time he leans in and you can feel him with all your senses. You forget the world around you, until you hear chittering Hai laughter behind you.`
+			`	When you look behind, you see the highly bemused Sayari and Rek. While you are a bit embarrassed, Yahon holds the embrace and seems undeterred.`
+			`	Rek rustles her feathers: "A wise choice, you two are a good match for each other." Sayari doubles up: "And what better place to form a union than where your parents already did, right, Yahon?"`
+			`	You are surprised: "How... How do you know?"`
+			`	Again, Sayari chitters. "Yahon's reaction to the mention of the female was the final give-away. But I suspected much earlier." She looks at Yahon: "There is so much of him in you, my dear. Most prominently the eyes."`
+			choice
+				`	You try to change the subject: "Umm, how about we check the next clue now?"`
+			`Fortunately for you, your friends let you off the hook and you all walk over to the briefing room.`
+				goto "3cm_clue"
+			label "with_yahon_3cm_nr_01"
+			`	You try to cheer him up: "Well, this quest is not yet over. I'm sure we will come to the bottom of all of this."`
+			`	At this moment you spot Rek and Sayari walking over. You call over to them: "Should we check out the next clue, now?"`
+			`	You all walk over to the briefing room.`
+				goto "3cm_clue"
+			label "3cm_clue"
+			`When you have entered, Rhon appears. "While the next location is still in the Ember Waste, as you might haved guessed from the fact that I now use a Human language, the key to the location is not. You will find it... in a song. But don't look for it in the charts, it was directly released to the archive."`
+			`	Rhon gives you the name of the band and the song and then vanishes. A first search in your ship's computer reveals nothing, as expected.`
+			`	Sayari asks you: "So, where should we go to look for this song?"`
+			choice
+				`	"I believe I have a pretty good idea where Rhon wants us to go."`
+					goto "3m_clue_smart"
+				`	"I am not yet entirely sure."`
+			branch "with_yahon_3cm_help"
+				has "the legacy chose yahon"
+			`Yohna helps you out: "Didn't you bring us a data crystal a while ago which contained the entire human history? It came from a big archive, this is where we should go."`
+				goto "3m_clue_smart"
+			label "with_yahon_3cm_help"
+			`Yahon helps you out: "Didn't you bring us a data crystal a while ago which contained the entire human history? It came from a big archive, this is where we should go."`
+				goto "3m_clue_smart"
+			label "3m_clue_smart"
+			`"Okay, then let us waste no more time and take off"`
+				accept
+	on enter "Terminus"
+		conversation
+			branch "3m_terminus_nr"
+				has "the legacy no romance"
+			branch "with_yahon_3m_terminus"
+				has "the legacy chose yahon"
+			`While before, space travel due to the long transfer times tended to be a bit boring, your world has completely changed. You wake up every morning next to Yohna and you both enjoy the high of being newly in love, while exploring each other and laying the foundations for a longer lasting relationship.`
+			`	You usually also perform the navigational tasks together, and you have become a perfect team, working hand in hand without even looking. It is during one of those times in the cockpit that you ask her: "So, why do you think you mother actually also taught you the human language? Maybe because of your father?"`
+			`	She considers her response for a moment: "Hmm, you may have a point. It is common for Ember-People to teach the human language to their children. We will visit a human world now and then for some trading, so we need to be able to blend in. But now that I think of it, mother taught us much more, almost as if to prepare us to actually live with a human."`
+			`	You lean over to her and give her a kiss. "I am happy she did."`
+			`	"Hmmm... I am, too. Not that I really needed it - you have been picking up the customs of my folks just as well. You could very well pass as an Ember-People already."`
+			`	Your response: "You know how to keep me properly motivated..." earns you a very enticing gaze and a smile. "We will see about that later."`
+			`	"You are right, we're done here. Let's head over to the others." Since you synchronized the wake and resting periods with your friends, you also spend a lot of quality time together with Sayari and Rek.`
+				goto "3m_terminus_done"
+			label "with_yahon_3m_terminus"
+			`While before, space travel due to the long transfer times tended to be a bit boring, your world has completely changed. You wake up every morning next to Yahon and you both enjoy the high of being newly in love, while exploring each other and laying the foundations for a longer lasting relationship.`
+			`	You usually also perform the navigational tasks together, and you have become a perfect team, working hand in hand without even looking. It is during one of those times in the cockpit that you ask him: "So, why do you think you mother actually also taught you the human language? Maybe because of your father?"`
+			`	He considers his response for a moment: "Hmm, you may have a point. It is common for Ember-People to teach the human language to their children. We will visit a human world now and then for some trading, so we need to be able to blend in. But now that I think of it, mother taught us much more, almost as if to prepare us to actually live with a human."`
+			`	You lean over to him and give him a kiss. "I am happy she did."`
+			`	"Hmmm... I am, too. Not that I really needed it - you have been picking up the customs of my folks just as well. You could very well pass as an Ember-People already."`
+			`	Your response: "You know how to keep me properly motivated..." earns you a very enticing gaze and a smile. "We will see about that later."`
+			`	"You are right, we're done here. Let's head over to the others." Since you synchronized the wake and resting periods with your friends, you also spend a lot of quality time together with Sayari and Rek.`
+				goto "3m_terminus_done"
+			label "3m_terminus_nr"
+			`While before you sometimes found the travel times between systems to be a challenge, on this trip you don't mind them at all. Your all have synchronized your wake and rest periods, so you spend a lot of time together, enjoying each others company and swapping stories and learning the Ember People remnant signs.`
+			label "3m_terminus_done"
+			`	You are almost sorry that you are already back in human space.`
+	on complete
+		event "the legacy clue 2A done"
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+
+mission "The Legacy: Log Third Clue 1 FR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy chose yohna"
+		not "the legacy no romance"
+	on offer
+		log `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space. Yohna and I have become an item. Life is good!`
+		fail
+
+mission "The Legacy: Log Third Clue 1 MR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy chose yahon"
+		not "the legacy no romance"
+	on offer
+		log `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space. Yahon and I have become an item. Life is good!`
+		fail
+
+mission "The Legacy: Log Third Clue 1 N"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy no romance"
+	on offer
+		log `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space.`
+		fail
+
+mission "The Legacy: TMBR setup"
+	landing
+#	invisible
+	to offer
+		has "The Legacy: The Third Clue Main: active"
+		not "The Legacy: TMBR found: offered"
+	source "Alexandria"
+	destination "Alexandria"
+	waypoint "Alnitak"
+	on offer
+		conversation
+			branch "with_yahon_tmbr_setup"
+				has "the legacy chose yahon"
+			`After you have landed on Alexandria, Yohna and you head out into the archive. Yohna collects all the information she can on Rhon, but you are both unable to find any trace of the band name, let along the song.`
+			`	With a bit of persistence, you discover Albert, the department lead for the musical archive and manage to talk to him.`
+			`	You inquire: "We are looking for a specific song, but could not find anything in the official archive. But we are sure it exists. Is there an additional archive which contains material which for whatever reason may not be displayed to the public".`
+			`	Albert regards you intensly. "Well yes, in fact there is."`
+			`	You gain hope: "Could you check if this song can be found in that archive and if so, what the criteria are so you would be able to disclose it to us?"`
+			`	"Well, I suppose, I could - if you were a contributor to our facility."`
+			choice
+				`	Offer a bribe`
+					goto "with_yohna_tmbr_setup_bribe"
+				`	Ask Yohna for help`
+					goto "with_yohna_tmbr_setup_help"
+			label "with_yohna_tmbr_setup_bribe"
+			`You offer Albert a significant amount of money. However, he is not impressed by this.`
+			`	"We have folks from the Paradise Planet coming in all the time, thinking they can buy their way into everything, but this is not how this works here. Unless you can contribute something to the human heritage, I won't be able to help you."`
+			label "with_yohna_tmbr_setup_help"
+			`	Yohna has the right idea. "I could offer you a data crystal containing unpublished journal entries from the early years of Rhon the Traveller."`
+			`	That gets his attention. "Rhon the Traveller. I am intrigued. He is one of my favorite subjects of contemporary history. Why don't you get that data crystal and I see what I can find in the backoffice archive."`
+			`	Yohna creates a copy of Rhon's journal entries and you return to the musical archive. Albert is already waiting. He examines the content of the data crystal and gets really exited. "This seems authentic and indeed unpublished. Extraordinary. This is a truly generous gift."`
+			`	He becomes a bit apologetic: "Okay, so here is what I have found out. The song does indeed exist in the backoffice archive. It is actually a music video. Unfortunately, it has very specific instructions. It may only be disclosed to a renowned musician. Thanks to your generous gift, I will help you in any way I can, but I have to obey to the rules of the archive, I hope you understand."`
+			`	Yohna looks a bit desperate, but you smile at her: "Don't worry, I have good relations to a very famous band. We just need to find them."`
+				accept
+			label "with_yahon_tmbr_setup"
+			`After you have landed on Alexandria, Yahon and you head out into the archive. Yahon collects all the information he can on Rhon, but you are both unable to find any trace of the band name, let along the song.`
+			`	With a bit of persistence, you discover Albert, the department lead for the musical archive and manage to talk to him.`
+			`	You inquire: "We are looking for a specific song, but could not find anything in the official archive. But we are sure it exists. Is there an additional archive which contains material which for whatever reason may not be displayed to the public".`
+			`	Albert regards you intensly. "Well yes, in fact there is."`
+			`	You gain hope: "Could you check if this song can be found in that archive and if so, what the criteria are so you would be able to disclose it to us?"`
+			`	"Well, I suppose, I could - if you were a contributor to our facility."`
+			choice
+				`	Offer a bribe`
+					goto "with_yahon_tmbr_setup_bribe"
+				`	Ask Yahon for help`
+					goto "with_yahon_tmbr_setup_help"
+			label "with_yahon_tmbr_setup_bribe"
+			`You offer Albert a significant amount of money. However, he is not impressed by this.`
+			`	"We have folks from the Paradise Planet coming in all the time, thinking they can buy their way into everything, but this is not how this works here. Unless you can contribute something to the human heritage, I won't be able to help you."`
+			label "with_yahon_tmbr_setup_help"
+			`	Yahon has the right idea. "I could offer you a data crystal containing unpublished journal entries from the early years of Rhon the Traveller."`
+			`	That gets his attention. "Rhon the traveller. I am intrigued. He is one of my favorite subjects of contemporary history. Why don't you get that data crystal and I see what I can find in the backoffice archive."`
+			`	Yahon creates a copy of Rhon's journal entries and you return to the musical archive. Albert is already waiting. He examines the content of the data crystal and gets really exited. "This seems authentic and indeed unpublished. Extraordinary. This is a truly generous gift."`
+			`	He becomes a bit apologetic: "Okay, so here is what I have found out. The song does indeed exist in the backoffice archive. It is actually a music video. Unfortunately, it has very specific instructions. It may only be disclosed to a renowned musician. Thanks to your generous gift, I will help you in any way I can, but I have to obey to the rules of the archive, I hope you understand."`
+			`	Yahon looks a bit desperate, but you smile at her: "Don't worry, I have good relations to a very famous band. We just need to find them."`
+				accept
+	on enter
+		conversation
+			`Back on the <ship>, Rek asks you: "So, who is this famous band?"`
+			`	"Well, they're famous in Human space, it could well be that you have not heard of them. They are called 'There Might Be Riots'."`
+			branch "with_yahon_tmbr_setup_enter"
+				has "the legacy chose yahon"
+			`	Sayari and Yohna both get exited. "What, you know 'There Might Be Riots'? I saw them play on 'Hai Home' during my last report to the Hai council. I would love to meet them."`
+			`	Yohna adds: "I missed them only by 3 days during my last trip to a human planet. I would really love to see them play live."`
+				goto "tmbr_setup_enter_done"
+			label "with_yahon_tmbr_setup_enter"
+			`	Sayari and Yahon both get exited. "What, you know 'There Might Be Riots'? I saw them play on 'Hai Home' during my last report to the Hai council. I would love to meet them."`
+			`	Yahon adds: "I missed them only by 3 days during my last trip to a human planet. I would really love to see them play live."`
+				goto "tmbr_setup_enter_done"
+			label "tmbr_setup_enter_done"
+			`	You desperately look at Rek, who gives you the wanderer equivalent of a shrug and cocks his head in amusement.`
+
+mission "The Legacy: TMBR hint A1"
+	landing
+	to offer
+		has "Deep: TMBR 1: done"
+		has "The Legacy: The Third Clue Main: active"
+		has "The Legacy: TMBR setup: offered"
+		not "The Legacy: TMBR found: offered"
+	source 
+		government "Hai"
+	on offer
+		conversation
+			`When you land on <origin>, you recall that you actually brought 'There Might Be Riots' to Midgard to play as a favour for some Deep scientists. Since none of the Hai you talk to has heard of them for a while, you might as well head over to Deep space.`
+				decline
+
+mission "The Legacy: TMBR hint A2"
+	landing
+	to offer
+		has "Deep: TMBR 1: done"
+		has "The Legacy: The Third Clue Main: active"
+		has "The Legacy: TMBR setup: offered"
+		not "The Legacy: TMBR found: offered"
+	source 
+		attributes "deep"
+		attributes "spaceport"
+		not planet "Alexandria"
+	on offer
+		conversation
+			`When you land on <origin>, you start asking around for 'There Might Be Riots'. After a while you find a fan who tells you that they played several concerts in the Deep, but then left. The last she heard, they were now in the 'Far North'.`
+				decline
+
+mission "The Legacy: TMBR hint B1"
+	landing
+	to offer
+		not "Deep: TMBR 1: done"
+		has "The Legacy: The Third Clue Main: active"
+		has "The Legacy: TMBR setup: offered"
+		not "The Legacy: TMBR found: offered"
+	source 
+		government "Hai"
+	on offer
+		conversation
+			`After you have landed on <origin>, Sayari heads out. When she returns, she has bad news and good news.`
+			`	"It seems they are not longer in Hai space. Not too long ago, they were picked up by a ship belonging to the Oath Keepers. So, we have to go back to Human space."`
+				decline
+
+mission "The Legacy: TMBR hint C3"
+	landing
+	to offer
+		has "The Legacy: The Third Clue Main: active"
+		has "Deep: TMBR 1: done"
+		or
+			has "The Legacy: TMBR hint A2: offered"
+			has "The Legacy: TMBR hint B1: offered"
+		not "The Legacy: TMBR found: offered"
+	source 
+		attributes "north"
+		attributes "spaceport"
+		not planet "Farpoint"
+	on offer
+		conversation
+			`As you enter the Spaceport of <origin>, the first thing you see is a plasma billboard advertising the benefit concert that 'There Might Be Riots' will give an a couple of days on Farpoint to honour the Oath Keepers and their brave decision to not fight against fellow humans.`
+			`	You cringe a little reading this representation of events, but are glad that you now know where you can find the band.`
+				decline
+
+mission "The Legacy: TMBR found"
+	cargo "(reserved)" 16
+	passengers 12
+	blocked `You are missing <capacity> to continue the missions.`
+#	invisible
+	landing
+	to offer
+		has "The Legacy: The Third Clue Main: active"
+		has "The Legacy: TMBR setup: offered"
+		or
+			has "The Legacy: TMBR hint A2: offered"
+			has "The Legacy: TMBR hint B1: offered"
+		has "cargo space" >= 20
+		has "passenger space" >= 12
+	source "Farpoint"
+	destination "Alexandria"
+	on offer
+		event "the legacy clue 3 pending"
+		log `Still in pursuit of The Legacy, several of my human acquaintances have joined the quest as well: Raven, Captain Paris and the even brought in Freya.`
+		conversation
+			`When you approach <system>, the authorities at first refuse to let you land, since there are no more landing slots free. While you still discuss your next move, you get hailed again.`
+			`	"Captain <last>, I apologize for turning you down earlier, but we were not informed that you are expected. Please follow the guide beam to the private landing field of the Oath Keeper head-quarters. Admiral Danforth is expecting you and your guests. And he told me to emphasize that he really means all of them."`
+			choice
+				`	"Thank you".`
+			`You follow the beam. While crossing the regular spaceport, you notice that the guide did not exaggerate - the landing field is full to the brim with ships.`
+			`	When you exit the <ship>, you are greeted by a familiar face. Raven is waiting for you and your party. "Captain <last>, it is a pleasure to meet you again, and for once in less dramatic circumstances."`
+			`	While you believe that her friendliness is geniune, you also know that her task is to make sure that you follow Danforth's instructions. Raven leads you to a conference room, where a whole bunch of happy reunions take place. Danforth, but also Captain Paris from Deep Security, Ulrich from 'There Might Be Riots' and Freya.`
+			`	You have lunch together and you manage to catch up with almost everyone, except for Ulrich who instead ogles all over 'the peaceful Squirrel People Lady and the Giant Bird'.`
+			`	Eventually, Danforth get's down to business: "So, Captain <last>, this gathering here should only be a mild surprise for you."`
+			choice
+				`	"I had hoped to catch up with you, Admiral, but I certainly did not expect such a party. It is a nice surprise, though."`
+			`"Well, given your exploits over the years, the authorities take note when the <ship> appears in their system. I have also made it a point to follow your activities, especially when you disappear for a while, and if it's only to have an excuse for another field trip." You see the twinkle in his eyes.`
+			`	"And to prevent any more encounters with those Neanderthals from the Republic Intelligence." You can hear the disgust in Raven's voice as she joins the thread.`
+			`	The - newly promoted - Captain Paris wants to know: "What happened?" "They pulled a Void-Punch test on him" "Seriously?" "Yap. And on Hanover, too. The Quarg were not impressed, caused quite a diplomatic tussle. The Reps don't deserve the name 'Intelligence', if you ask me."`
+			`	Danforth interrupts the exchange: "So, we are aware of your current quest. When we heard you were on your way here, we thought it would be nice to catch up and to offer you our assistance."`
+			`	This, now, sounds familiar to you: "So, who is going to join the fun then?". Danford smiles: "I see, we understand each other. It is going the be Miss Winters, Raven, and Captain Paris."`
+			choice
+				`	"I amy quite happy about all of them. Thank you for your considerate selection."`
+			`Danford appreciates your approval and raises his glass for a salute: "To a successful adventure!" You all toast.`
+			`	You wonder: "So, what happens next, then?"`
+			`	Danford is well prepared, as always: "Later tonight we are all going to attend the benefit concert. By the way, the concert was Raven's idea, to commemorate the founding of the Oath Keepers, support charitable courses and bring us some good PR. The result exceeds all expectations, you may have noticed the airfield."`
+			`	"After that, Ulrich and his band have agreed to participate in the project 'History making History', where a concert will be played at the location where it will be archived - on Alexandria. I suppose you won't mind taking the band to their next location?"`
+				accept
+	on enter
+		conversation
+			`The concert was a triumph, even for 'The Might Be Riots' standards, so everyone is still in a very good mood when you take off. The band is absolutely fascinated by Sayari and Rek, so you don't need to worry about them.`
+	on enter "Markeb"
+		conversation
+			branch "with_yahon_found_enter"
+				has "the legacy chose yahon"
+			`While 'There Might Be Riots' thoroughly enjoyed their trip, you did less so. It became appearant pretty fast that Yohna and Raven were not comfortable around each other. Things culminated near the end of the journey, when first Raven waylayed you to pull you aside.`
+			`	"<first>, may I have a word?"`
+			`	"Sure, Raven. What is it?"`
+			branch "with_yohna_found_enter_nr"
+				has "the legacy no romance"
+			`	"I know it is not my business, and it may sound like I am jealous, but you have made your decision and I accept that." You do hear regret in her voice, though. "I cannot pinpoint it, but there is something alien about Yohna. Please, just be careful..."`
+			choice
+				`	"I appreciate your warning, Raven. I will be careful..."`
+			`When you enter cabin, Yohna is waiting for you. "<first>, I am afraid. Raven..., she is really scaring me." You take her into your arms and hold her. Then you come to a decision.`
+				goto "with_yohna_found_enter_cont"
+			label "with_yohna_found_enter_nr"
+			`	"I know it is not my business, but there is something alien about Yohna. I can't really pinpoint it. Please, just be careful..."`
+			choice
+				`	"I appreciate your warning, Raven. I will be careful..."`
+			`A short while later, Yohna comes to your cabin. "<first>, I am afraid. Raven..., she is really scaring me." You come to a decision.`
+			label "with_yohna_found_enter_cont"
+			`	"Yohna, I need you to trust me now. Please come with me." You find Raven in her cabin. You set both down at a table.`
+			choice
+				`	"Both of you - this has to stop now. I cannot afford having members in this team which don't trust each other."`
+			`"Yohna, this is Raven. She is an empath, but she is still human. I have been through some pretty tough times with her. It was her assessment which brought an end to hostilities between the Free World and the Republic. And I know that I can trust her with my live and would do so anytime." You hear Raven swallow.`
+			choice
+				`	"So, please let me tell her the truth now." Yohna looks at her and then at you and nods.`
+			`"Raven, Yohna seems alien to you, because she is. She comes from a group of humans who fled to an unknown area of space in the heights of the Alpha War. They call themselves 'The Remnant'. And her father may have actually been Rhon. And I vouch for her with my life."`
+			`	For a long moment, the only sound audible is the ever present humming of the <ship>'s generators.`
+			`	Then Raven speaks: "Yohna, I was wrong to mistrust you and I am sorry for that. Will you allow me to take your hands and ready you?" Yohna holds out her hands and Raven gingerly takes them into hers. You leave the cabin to wait outside.`
+				goto "found_enter_end"
+			label "with_yahon_found_enter"
+			`While 'There Might Be Riots' thoroughly enjoyed their trip, you did less so. It became appearant pretty fast that Yahon and Raven were not comfortable around each other. Things culminated near the end of the journey, when first Raven waylayed you to pull you aside.`
+			`	"<first>, may I have a word?"`
+			`	"Sure, Raven. What is it?"`
+			branch "with_yahon_found_enter_nr"
+				has "the legacy no romance"
+			`	"I know it is not my business. You have fallen for Yahon and I accept that." She sighs. "I cannot pinpoint it, but there is something alien about Yahon. Please, just be careful..."`
+			choice
+				`	"I appreciate your warning, Raven. I will be careful..."`
+			`When you enter cabin, Yahon is waiting for you. "<first>, I am nervous. Raven..., she is really scaring me." You take him into your arms and kiss him. Then you come to a decision.`
+				goto "with_yahon_found_enter_cont"
+			label "with_yahon_found_enter_nr"
+			`	"I know it is not my business, but there is something alien about Yahon. I can't really pinpoint it. Please, just be careful..."`
+			choice
+				`	"I appreciate your warning, Raven. I will be careful..."`
+			`A short while later, Yahon comes to your cabin. "<first>, I am nervous. Raven..., she is really scaring me." You come to a decision.`
+			label "with_yahon_found_enter_cont"
+			`	"Yahon, I need you to trust me now. Please come with me." You find Raven in her cabin. You set both down at a table.`
+			choice
+				`	"Both of you - this has to stop now. I cannot afford having members in this team which don't trust each other."`
+			`"Yahon, this is Raven. She is an empath, but she is still human. I have been through some pretty tough times with her. It was her assessment which brought an end to hostilities between the Free World and the Republic. And I know that I can trust her with my live and would do so anytime." You hear Raven swallow.`
+			choice
+				`	"So, please let me tell her the truth now." Yahon looks at her and then at you and nods.`
+			`"Raven, Yahon seems alien to you, because he is. He comes from a group of humans who fled to an unknown area of space in the heights of the Alpha War. They call themselves 'The Remnant'. And his father may have actually been Rhon. And I vouch for him with my life."`
+			`	For a long moment, the only sound audible is the ever present humming of the <ship>'s generators.`
+			`	Then Raven speaks: "Yahon, I was wrong to mistrust you and I am sorry for that. Will you allow me to take your hands and ready you?" Yahon holds out his hands and Raven gingerly takes them into hers. You leave the cabin to wait outside.`
+				goto "found_enter_end"
+			label "found_enter_end"
+			`	After what feels like an eternity, the door opens and both of them exit, laughing and chatting. You decide to go to the cockpit and prepare the landing.`
+	on complete
+		conversation
+			`Albert is ecstatic about the 'History making History' project and the PR effect it creates. For once, the flocks of reluctant pupils and travel groups of Paradise senior residents are replaced by a far more diverse audience, and the series of exclusive "History making History" merchandise items will ensure that Alexandria will stay on the radar of 'There Might Be Riots' fans in the future.`
+	on fail
+		event "the legacy was aborted"
+
+mission "The Legacy: The Hideout"
+	cargo "(reserved)" 12
+	passengers 6
+	blocked `You are missing <capacity> to continue the missions.`
+#	invisible
+	landing
+	to offer
+		has "The Legacy: TMBR found: done"
+		not "event: the legacy was aborted"
+	source "Alexandria"
+	destination "Far Monad"
+	on offer
+		log `Still in pursuit of The Legacy, we have to return into the Ember Waste.`
+		conversation
+			`The next day, Albert leads your party into the restricted area where the non-public audio archive is housed. The environment is bizarre and a bit intimidating. He leads you into small auditorium. Then he vanishes and returns with a metal box.`
+			`	"This is actually a very peculiar item we have here. While the music video as such is in the main storage, the instructions state that you shall also receive a data crystal. I didn't even know such instructions existed..." Then he starts the playback.`
+			`	The video is a groovy song in which Rhon plays all the instruments, overlayed so that it looks like he did them all at once. In the middle, he performs some bizzarre dance moves, but by now your Ember-People Remnant is good enough, that you can follow the message he is signaling.`
+			`	Once the video is finished, you tell the others: "We have to go to a lonely planet, orbiting a dying sun and situated so far out in the middle of nowhere, that no species has claimed it."`
+			choice
+				`	"Since I have a pretty good idea which system is meant by this, I suggest we take off immediately."`
+					accept
+				`	"Does any of you have an idea which planet he may be referring to?"`
+			branch "with_yahon_hideout_offer"
+				has "the legacy chose yahon"
+			`Yohna responds: "This must refer to Far Monad in the Lucina system. The Remnant run regular patrols there, but no Faction has ever claimed the system. It's just too far off."`
+			`	"Hmm, back to the Ember Waste. I suggest we take off straight away."`
+				accept
+			label "with_yahon_hideout_offer"
+			`Yahon responds: "This must refer to Far Monad in the Lucina system. The Remnant run regular patrols there, but no Faction has ever claimed the system. It's just too far off."`
+			`	"Hmm, back to the Ember Waste. I suggest we take off straight away."`
+				accept
+	on enter
+		conversation
+			`It turns out that the data crystal you received contains an artificial Rhon program. It allows pretty much normal interaction and answers most of your questions, as long as you don't inquire about further clues. On its request, you keep it activated in the mess hall, so that it can join your conversations as it sees fit.`
+			`	Once you have set course, it gives you the next piece of the story: "Tohra and I were in heaven. But it all changed when we decided to travel to Aventine together. We wanted to form a bond and thought that integrating me into the Remnant military would be a formality."`
+			`	"But fate has a tendency to hit you when you least expect it. For me, it was the blood check after I had landed on Aventine. The alert went off. Until today, I have no idea why, because I am definitely no Alpha and I despise them and all what they stand for. But that didn‘t matter. My blood contained too much non-human DNA and I was arrested and detained."`
+			choice
+				`	You hear Raven mutter "Now it makes sense..."`
+			`But you continue to listen to Rhon: "Tohra was furious, especially since the results were ambiguous. And she had the entire Ember-People community behind her and had good connections to part of the government. So, this quickly turned into a huge political controversy and old grudges and fears resurfaced."`
+			`	"In the end, the fear faction prevailed and I was banned for life from Remnant space and the Ember Waste. While officially Tohra brought me back to Human Space, she hid me at the place you are now going, which I refer to as 'The Hideout'."`
+			`	"Back then, the Remnant military regularly ran patrols there, Tohra's unit and the Ember-People saw to it that we could spend a lot of time together and I had regular company there. We had everything we needed, including a small cloaking device, in case unexpected visitors would show up."`
+			`	You notice that the last remark draws the attention of your human passengers, and so does Rhon. With a wink, he says: "Well, I guess that is enough material for discussions for now".`
+			branch "with_yahon_hideout_start"
+				has "the legacy chose yahon"
+			choice
+				`	You turn towards Yohna, wondering how she is taking the news that she might have Alpha DNA in her blood.`
+			`Yohna is shocked, but Raven, who sits beside her, quickly comes to her rescue. She takes Yohna's hand and says loudly: "You definitely have no Alpha DNA. This was the first thing I learned in my training - to reliable detect anything Alpha. And you don't have anything."`
+			`	Yohna is relieved. Raven continues: "I do sense something different about you, so far I thought it was because you're Remnant, but I believe it could actually be the traces of non-human DNA. And given, how Rhon turned away from being a dominating Pirate warlord to ultimately a messanger of peace, I have a theory about that."`
+			choice
+				`	You suggest: "You mean that Rhon - and consequently also Yohna - goes more into the direction of 'Elias Hanover'?"`
+			`Raven nods her head toward you: "Precisely. But to verify this, we require special equipment, so this has to wait."`
+			branch "hideout_start_done"
+				has "the legacy no romance"
+			`	This night, Yohna snuggles very closely in your arms.`
+				goto "hideout_start_done"
+			label "with_yahon_hideout_start"
+			choice
+				`	You turn towards Yahon, wondering how he is taking the news that he might have Alpha DNA in his blood.`
+			`Yahon is shocked, but Raven, who sits beside him, quickly comes to his rescue. She takes Yahon's hand and says loudly: "You definitely have no Alpha DNA. This was the first thing I learned in my training - to reliable detect anything Alpha. And you don't have anything."`
+			`	Yahon is relieved. Raven continues: "I do sense something different about you, so far I thought it was because you're Remnant, but I believe it could actually be the traces of non-human DNA. And given, how Rhon turned away from being a dominating Pirate warlord to ultimately a messanger of peace, I have a theory about that."`
+			choice
+				`	You suggest: "You mean that Rhon - and consequently also Yahon - goes more into the direction of 'Elias Hanover'?"`
+			`Raven nods her head toward you: "Precisely. But to verify this, we require special equipment, so this has to wait."`
+			branch "hideout_start_done"
+				has "the legacy no romance"
+			`	This night, Yahon snuggles very closely in your arms.`
+				goto "hideout_start_done"
+			label "hideout_start_done"
+	on enter "Markeb"
+		conversation
+			`Entered Markeb`
+	on complete
+		conversation
+			`On complete reached`
+	on fail
+		event "the legacy was aborted"
+
+# Rhon hat nicht Alpha, sondern Beta-Blut
+# Flucht am Ende war chaotisch, da Verräter ihn sonst getötet hätte
+# Vielleicht der irre gewordene Verräter als Gegner und nicht Belzebub? Oder vielleicht ist er Belzebub? Nee, zu weit hergeholt
+# Aber Belzebub hätte insofern noch ein Bonus, weil Paris auch mit von der Partie ist und beide noch eine Rechnung zu begleichen haben => Paris geht auf Suicide-Mission und setzt Belzebub ausser Gefecht, kehrt 
+#     zurück und gesteht Raven seine Liebe. <schluchz>
+# die mutter ist noch am leben, evt. auch rhon selber'??
+
+# Charaktere an Bord:
+# Sayari
+# Rek
+# Yohna
+# Freya
+# Raven
+# Paris
+
+# Ermuntere Paris, Raven eine Chance zu geben - Romanze zwischen Paris und Raven
+
+# Brauche aber auch eine Verwendung für alle
+
+# Sayari - bleibt sie TMBR? Oder geht zu Danford? Vielleicht am Ende?
+# Danfort könnte mit Sayari und Rek zu den Wanderern aufbrechen, um offiziell Beziehungen aufzunehmen und erste, friedliche Kontakte mit den Korath aufzunehmen?
+# Raven und Paris gehen gemeinsam auf Urlaub??? Oder auf Mission
+
+# Freya und Taely freunden sich an und werden künftig zusammen arbeiten und sich regelmässig besuchen
+
+# Idee mit Lösungen - Umsetzung via Schiff, dass nur beschränkte Reichweite hat und nur über den richtigen Weg zum Ziel kommt, sonst liegen bleibt
+
+# Was findet sich auf dem Lonely Planet 
+
+# Mehr Charakter / Story-Entwicklung auf der Reise -> mal sehen
+
+# Auf dem Planeten findet sich unter den angegebenen Koordinaten zu nächst nichts. Nach abspielen des Videos deaktiviert sich Tarnfeld und Landeplatz mit kleiner Hütte am Rand eines Sees wird sichtbar. 
+# -> Tarn-Technologie ist von Interesse
+
+# Fortsetzung der Geschichte
+# Dann taucht Taely auf, mit Tohra. Oder erst Tohra und dann Taely
+# Tohra steht neben Rhon - Rhon ist Hologram, Thora nicht
+# Taely sitzt in getarntem Raumschiff nebendrann
+# Nächste Clues sind entlang der Route zu den Wanderern
+# Dann muss Rek sein Geheimnis enthüllen - er oder jemand der ihm nahe stand, haben Rhon die Pläne für die Hurricane verraten
+
+# Fortsetzung Geschichte Rhon:
+
+# -> Spaceport auf Planet einrichten
+
+# When you touch down, you are again awaited by Rhon: 
+#			`It was a simple, but happy life. We even wanted to start a family.
+# But then disaster struck again. One regular member of Tohra‘s unit had an accident and was replaced on short note by a young jar-head. He found out about this place and thought, he could make a name for himself and ratted everything off to the fear fraction in the military. Tohra was detained and it would have been my death-sentence, had Marla, the head of the shipyards and a close friend of Tohra, not stolen an Ibis and evacuated me in the last moment. I brought her back to Aventine, but then had to leave Remnant space for good.
+# It was all very chaotic, with Tohra being in prison, so I wasn‘t even able to talk to her and to say good-bye. She instructed me through Marla on how I could leave a trace for her and she promised she would find me, even if it would take her a decade. It actually took her almost two decades and then 10 more years to reveal why. What I had not known, or I would never have abandoned her - at the time of her imprisonment, Tohra was pregnant with our children. Since I could not be found, Thora was acquitted and went back into service. The jar head who had betrayed us became the scapegoat for both sides and had to flee. Rumor is, he went to Human Space and joined the Pirates.
+# Marla had to step down and handed the reigns to the young Ember-People born Taely, who she had already been grooming for the last years. Tohra decided to give her children a normal upbringing amongst the Ember People, a decision I do not approve of, but can understand. She had everyone involved swear an oath that they would never disclose the truth unless she allowed them to.
+# Once the children had become independent, she faked her death and came after me. I was finally reunited with the love of my life, and we were happy together until death did us part. The only black spot was the fact that I had never met my two children, Yohna and Yahon. 
+
+
+# Please have a look around and enjoy the peace and serenity of this place. 
+
+
+# Finaler Kampf gegen Belzebub - mehrere Timer, ausweichen ist die einzige Chance
+# Zwischendurch Einblendungen
+# Paris geht auf Selbstmordmission, Raven zeigt Gefühle
+# Dann geht Wurmloch auf, wo Belzebub nicht folgen kann
+# Dort gibt‘s dann das Schiff - zurück, Belzebub-Schiff vernichten, dann Paris einsammeln
 
 
 

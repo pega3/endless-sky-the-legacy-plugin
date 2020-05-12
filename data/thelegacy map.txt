@@ -10,7 +10,7 @@
 
 system TheRefuge
 	pos -1648.26 -610.441
-	government Uninhabited
+	government "Rhon's Legacy"
 	habitable 906.92
 	object
 		sprite star/b5
@@ -99,6 +99,13 @@ planet "Legacy Clue 1 site"
 
 planet "Legacy Clue 2A site"
 	attributes uninhabited
-	landscape land/sivael0
-	description `Yet another converted asteroid. Unbelievable.`
+	landscape land/lava6
+	description `A barren and unwelcoming moon.`
+	government "Remnant"
+
+planet "Legacy Clue 2B site"
+	attributes uninhabited
+	landscape land/sivael4
+	description `This asteriod even has facilities to refuel and reprovision. Unbelievable.`
+	spaceport `The spaceport contains storage facilities for various kinds of synthetic food and the basic maintenance and refueling facilities for spaceships`
 	government "Remnant"

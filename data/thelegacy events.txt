@@ -58,16 +58,162 @@ event "the legacy clue 1 done"
 
 event "the legacy clue 2A pending"
 	system "Stercutus"
-		add object "Legacy Clue 2A site"
-			sprite "planet/asteroid base"
-			distance 3600
-			period 1500
+		pos 140.87 320.242
+		government "Rhon's Legacy"
+		habitable 945
+		belt 1492
+		haze _menu/haze-red
+		link Caeculus
+		link Peragenor
+		link Segesta
+		asteroids "large rock" 1 0.772033
+		trade Clothing 216
+		trade Electronics 829
+		trade Equipment 591
+		trade Food 370
+		trade "Heavy Metals" 996
+		trade Industrial 821
+		trade "Luxury Goods" 1069
+		trade Medical 536
+		trade Metal 299
+		trade Plastic 294
+		fleet "Korath Ember Waste Raid" 20000
+		fleet "Small Remnant" 20000
+		fleet "Large Remnant" 20000
+		fleet "Remnant Transport" 40000
+		object
+			sprite star/g5-old
+			distance 31.1534
+			period 11.4822
+		object
+			sprite star/m0
+			distance 60.8466
+			period 11.4822
+			offset 180
+		object
+			sprite planet/cloud6-b
+			distance 244.937
+			period 49.8798
+		object
+			sprite planet/titan
+			distance 466.297
+			period 131.02
+		object
+			sprite planet/gas11-b
+			distance 1449.31
+			period 717.934
+			object
+				sprite planet/rock7-b
+				distance 235
+				period 11.8817
+			object
+				sprite planet/ice0-b
+				distance 332
+				period 19.9519
+			object "Legacy Clue 2A site"
+				sprite planet/rock3-b
+				distance 438
+				period 30.2335
+		object
+			sprite planet/gas14
+			distance 2557.67
+			period 1683.1	
 
 event "the legacy clue 2A done"
 	"unvisit planet" "Legacy Clue 2A site"
 	system "Stercutus"
+		pos 140.87 320.242
+		government Uninhabited
+		habitable 945
+		belt 1492
+		haze _menu/haze-red
+		link Caeculus
+		link Peragenor
+		link Segesta
+		asteroids "large rock" 1 0.772033
+		trade Clothing 216
+		trade Electronics 829
+		trade Equipment 591
+		trade Food 370
+		trade "Heavy Metals" 996
+		trade Industrial 821
+		trade "Luxury Goods" 1069
+		trade Medical 536
+		trade Metal 299
+		trade Plastic 294
+		fleet "Korath Ember Waste Raid" 20000
+		fleet "Small Remnant" 20000
+		fleet "Large Remnant" 20000
+		fleet "Remnant Transport" 40000
+		object
+			sprite star/g5-old
+			distance 31.1534
+			period 11.4822
+		object
+			sprite star/m0
+			distance 60.8466
+			period 11.4822
+			offset 180
+		object
+			sprite planet/cloud6-b
+			distance 244.937
+			period 49.8798
+		object
+			sprite planet/titan
+			distance 466.297
+			period 131.02
+		object
+			sprite planet/gas11-b
+			distance 1449.31
+			period 717.934
+			object
+				sprite planet/rock7-b
+				distance 235
+				period 11.8817
+			object
+				sprite planet/ice0-b
+				distance 332
+				period 19.9519
+			object
+				sprite planet/rock3-b
+				distance 438
+				period 30.2335
+		object
+			sprite planet/gas14
+			distance 2557.67
+			period 1683.1
+		
+event "the legacy clue 2B pending"
+	system "Antevorta"
+		government "Rhon's Legacy"
+		add object "Legacy Clue 2B site"
+			sprite "planet/asteroid base"
+			distance 3000
+			period 1000
+
+event "the legacy clue 2B done"
+	"unvisit planet" "Legacy Clue 2B site"
+	system "Antevorta"
+		government Uninhabited
 		remove object 
-			"Legacy Clue 2A site"
+			"Legacy Clue 2B site"
+
+event "the legacy clue 3 pending"
+	system "Lucina"
+		government "Rhon's Legacy"
+	planet "Far Monad"
+		landscape land/water0
+		description `The weather on Far Monad is actually rather pleasant. If it were not a lonely planet orbiting a dying sun in a region of space that few species visit and none claim for their own, it could have become a fruitful farming world or perhaps even a metropolitan center.`
+		spaceport `The Facilities around Rhon's hideaway are simple but offer everything you need to refuel and maintain your ship`
+		security 0
+
+event "the legacy clue 3 done"
+	system "Lucina"
+		government Uninhabited
+	planet "Far Monad"
+		landscape land/water0
+		description `The weather on Far Monad is actually rather pleasant. If it were not a lonely planet orbiting a dying sun in a region of space that few species visit and none claim for their own, it could have become a fruitful farming world or perhaps even a metropolitan center.`
+		security 0
 
 event "the legacy was aborted"
 
