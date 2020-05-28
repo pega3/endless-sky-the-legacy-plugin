@@ -43,18 +43,18 @@ event "the legacy disclosure done"
 		remove object 
 			"Legacy Disclosure site"
 
-event "the legacy clue 1 pending"
+event "the legacy clue hai pending"
 	system "Imo Dep"
-		add object "Legacy Clue 1 site"
+		add object "Legacy Clue Hai site"
 			sprite "planet/asteroid base"
 			distance 3000
 			period 1000
 
-event "the legacy clue 1 done"
-	"unvisit planet" "Legacy Clue 1 site"
+event "the legacy clue hai done"
+	"unvisit planet" "Legacy Clue Hai site"
 	system "Imo Dep"
 		remove object 
-			"Legacy Clue 1 site"
+			"Legacy Clue Hai site"
 
 event "the legacy clue 2A pending"
 	system "Stercutus"

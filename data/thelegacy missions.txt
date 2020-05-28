@@ -28,12 +28,13 @@ mission "The Legacy: Treasure Hunters 1"
 		attributes "paradise"
 	destination "Tinker"
 	on offer
+		require "Jump Drive"
 		conversation
 			`While enjoying some food in a rather posh spaceport restaurants, you notice a group of 4 secretive elder gentlemen at a nearby table. One of the men keeps looking at you and finally gets up and comes over to your table.`
 			`	"Sorry for the interruption, sir. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
 			choice
 				`"Yes, that's me"`
-			`"In that case, you may be just the person we are looking for."`
+			`	"In that case, you may be just the person we are looking for."`
 			`	He introduces himself: "I am Benoit, and over there are my friends Sherlock, Hercule and Stephan. We are looking for a trustworthy and reliable captain who will transport us on a rather delicate and dangerous mission."`
 			`	He looks at you rather conspicously and whispers: "We will solve the mystery of 'Rhon the Traveller'!"`
 			`	You have no idea who Rhon the Traveller is, but the fancy restaurant and the impression that Benoit and his friends leave indicate that this could be a rather lucrative opportunity.`
@@ -43,16 +44,16 @@ mission "The Legacy: Treasure Hunters 1"
 				`	"Who is Rhon the Traveller?"`
 				`	"Sorry, but I am not interested"`
 					goto "not interested 1"
-			`Benoit looks surprised, but then explains: "Rhon the Traveller was a famous philosopher, philantropist and teacher. And stinkingly rich, if I may say so."`
+			`	Benoit looks surprised, but then explains: "Rhon the Traveller was a famous philosopher, philantropist and teacher."`
 			label "tell me more"
 			`	"When Rhon died almost a year ago, everybody was wondering what would happen to his significant inheritence."`
-			`	He smiles and continues: "It turns out he left the vast part of it to 'whomever is worthy by solving the clues I have laid out'. How typical of him."`
+			`	He smiles and continues: "It turns out he left the vast part of it to 'whomever is worthy by solving the clues I have laid out'."`
 			`	Looking at his friends he finishes: "Rhon was quite a genius, so solving his puzzles is going to be tough, but that is exactly the challenge that my friends and I enjoy."`
 			choice
 				`	"Sounds interesting. What would I have to do?"`
 				`	"I'm sorry, but I am not really interested into chasing phantoms."`
 					goto "not interested 1"
-			`"Well, you would have to take us to the legacy disclosure, where all intersted parties receive the first clue. This will be in the Kugel system and we will pay you <payment> just to take us there."`
+			`	"Well, you would have to take us to the legacy disclosure, where all intersted parties receive the first clue. This will be in the Kugel system and we will pay you <payment> just to take us there."`
 			`	With a smile he continues: "After that, it depends on where the clues will take us. I would not be surprised if this will become a chase through the entire known galaxy. And maybe even beyond..."`
 			`	His expression becomes earnest.`
 			`	"I fear, it will also draw attention from some rather unpleasant and violent subjects. Therefore, you and your ship must be up to the task."`
@@ -60,20 +61,20 @@ mission "The Legacy: Treasure Hunters 1"
 				`	"So far, so good. But what is in it for me?"`
 				`	"Sorry, but this sounds rather dubious to me. You have to look for someone else."`
 					goto "not interested 1"
-			`"Well, we will pay you for all your costs, no matter the outcome. But what might really pique your interest - Rhon's ship is also part of the inheritance. Since none of my group has any use for such a device, the ship would be yours, in case we succeed. That and 5 percent of the rest of the inheritance."`
+			`	"Well, we will pay you for all your costs, no matter the outcome. But what might really pique your interest - Rhon's ship is also part of the inheritance. Since none of my group has any use for such a device, the ship would be yours, in case we succeed. That and 5 percent of the rest of the inheritance."`
 			choice
 				`	"That surely sounds interesting. Count me in"`
 					goto "count me in"
 				`	"Give me the ship and 10 percent and we have a deal"`
 				`	"I'm sorry, but that sounds a bit too risky for me."`
 					goto "not interested 1"
-			`He considers your offer for a moment and then reaches a decision. `
+			`	He considers your offer for a moment and then reaches a decision. `
 			label "count me in"
 			`	Benoit ceremoniously shakes your hand. "We have a deal. Could you please bring us to Tinker in the Diphda system first, where we will pick up some equipment. Oh, and you better hurry up, we don't want to be late to the event!"`
 				accept
 			label "not interested 1"
-			`"Ah, that's too bad."`
-			`He turns around and walks back to his table.`
+			`	"Ah, that's too bad."`
+			`	He turns around and walks back to his table.`
 				decline
 	on accept
 		event "the legacy disclosure pending"
@@ -108,13 +109,13 @@ mission "The Legacy: Treasure Hunters 2"
 	on offer
 		conversation
 			`When you look for your passengers in the Spaceport, they are easy to spot. Each of them commands a wagon full of electronic equipment.`
-			`	You recognise some of the latest analysis computers and wonder how much money they spent on these devices. `
+			`	You recognise some rather fancy hardware and wonder how much money they spent on these devices. `
 			`	Benoit greets you: "So, are you ready for the flight to the Kugel system?"`
-			`	You cannot help but wonder: "Indeed, I am. However, you are aware that the Kugel system is an uninhabited system with no planets to land upon?"`
+			`	You cannot help but wonder: "I am. But you are aware that the Kugel system is an uninhabited system with no planets to land upon?"`
 			`	He smiles at you. "And that is exactly the reason why Rhon chose it. Rhon always aimed for the special and the suprising. Just take us to the system and you will see. Oh, and make sure we arrive there in 3 days, else we are going to miss the big moment!"`
 				accept
 	on enter "Kugel"
-		dialog `When you enter the <system> system, you notice dozens of ships in the system. They all converge towards a small asteroid.`
+		dialog `When you enter the <system> system, you notice dozens of ships in the system. Many converge towards a small asteroid.`
 		dialog `	To your surprise your computer indicates that you can land on the asteroid.`
 		dialog `	You queue up and after several hours of waiting, you finally get the permission to land.`
 	on fail
@@ -140,7 +141,7 @@ mission "The Legacy: Hang around"
 		government "Test Dummy"
 		system "Kugel"
 		personality unconstrained heroic nemesis
-		ship "Timer Ship" "Timer"
+		ship "TL Timer Ship" "TL Timer"
 		conversation
 			`After what seems like an eternity, Benoit is finally hailing you.`
 			`	"Please return to the landing site and pick us up."`
@@ -195,15 +196,15 @@ mission "The Legacy: Treasure Hunters 3"
 			`	Benoit approaches you, waves the tube towards you and says: "Please get us out of here as fast as possible, so we can start looking at this with our equipment and without prying eyes."`
 			`	You respond: "Okay, so where should I take you then?"`
 			`	Benoit thinks for a moment and then gives you a mischievous look. "Hmm... You know what, I believe you should participate in the guessing game, to earn your share. I will describe you the target, let us see if you can guess it."`
-			`	"For our studies we want to retreat to my own private island. It is on the planet consisting mostly of water, where even the spaceport is on its own city-ship."`
+			`	"For our studies we want to retreat to my own private island. It is on a planet consisting mostly of water, so even the spaceport is on its own city-ship. And it is not exactly cheap to live there."`
 			`	"Any idea where you should take us? Oh, and be warned: your mission computer will not disclose the destination."`
 			choice
 				`	"Yes, I know where you want to be taken."`
 					goto "no help"
 				`	"Sorry, I have no idea."`
-			`"Ah, that's too bad. My private island is on Mainsail."`
+			`	"Ah, that's too bad. My private island is on Mainsail."`
 			label "no help"
-			`"So, let us take of then."`
+			`	"So, let us take off then."`
 				accept
 	on fail
 		event "the legacy was aborted"
@@ -213,24 +214,25 @@ mission "The Legacy: Treasure Hunters 3"
 		conversation
 			`Benoit directs you to land on his private island. You drop the party and their equipment off and then transfer the <ship> to the official spaceport.`
 			`	You notice that Benoit transferred another 500000 credits to your account.`
-			`	Before departure, he requested that you get in touch with him via the Spaceport.`
+			`	Before departure, he requested that you get in touch with him once you're in the Spaceport.`
 
 mission "The Legacy: Treasure Hunters 4"
 	name "The Legacy: Treasure hunters"
 	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
 	autosave
-	deadline 6 0
+	deadline 3 0
 	cargo "(reserved)" 5
+	passengers 2
 	invisible
-	stopover "Vinci"
 	to offer
 		has "The Legacy: Treasure Hunters 3: done"
 		not "event: the legacy was aborted"
 	source "Mainsail"
-	destination "Mainsail"
+	destination "Vinci"
 	on offer
+		require "Jump Drive"
 		conversation
-			`When you call Benoit, he seems to be in deep thoughts. "Ah, Captain <last>. This seems to be more of a challenge than we imagined. I would like you to pick up some additional supplies for us. The CEO of the largest CPU manufacturing company is a good friend of mine and he will give me a couple of super-computers. Can you pick them up and deliver them before <day>?"`
+			`When you call Benoit, he seems to be in deep thoughts. "Ah, Captain <last>. This seems to be more of a challenge than we imagined. I would like you to pick up some additional supplies for us. The CEO of the largest CPU manufacturing company is a good friend of mine and he will give me a couple of their latest toys. Can you pick them up before <day>?"`
 			choice
 				`"Sure, I'd be happy to."`
 					goto "okay"
@@ -239,19 +241,21 @@ mission "The Legacy: Treasure Hunters 4"
 				`"Sorry, but I had enough of this."`
 					goto "had enough"
 			label "get clue"
-			`"Like most of the big CPU manufacturing companies, my friends factory is situated on <stopovers>."`
+			`	"Like most of the big CPU manufacturing companies, my friend's factory is situated on <planet>."`
 			label "okay"
-			`	Benoit isn't done: "Oh, and one more thing. I promised that I will transport the computers on my own freighter, so you will have to take it with you."`
+			`	Benoit isn't done: "Oh, and one more thing. The computers will have to be transported on my specially secured freighter. Your job will be to ensure it arrives savely and on time."`
+			`	You wonder: "Does your freighter have a jump drive? Because if I have to follow normal hyperspace links, it is impossible to make it on time."`
+			`	Benoig laughs. "No, although I sure wish it had one."`
 			choice
-				`	"Sure, that is fine. I know how to manipulate the space-time in this universe."`
+				`	"I see. Well, I will still make it on time, because I know how to manipulate the space-time in this universe."`
 					goto "knows how to cheese"
-				`	"Sorry, but this is impossible, unless your ship has a jump drive."`
-			`Benoig laughs. "It has not. But you have such a device, so if you jump ahead into the target system and let my freighter catch up while you wait there, this will bend the space-time continuum of this universe and the freighter will arrive on the same day as you did."`
+				`	"Well, how I am supposed to meet the deadline then?"`
+			`	"My dear Captain <last>. Your fine ship is equiped with a jump drive. So, if you jump ahead straight into the target system and wait for my freighter to catch up, it will allow the freighter to travel in your stream and it will arrive on the same day as you did. All you need is patience."`
 			label "knows how to cheese"
-			`You prepare your ship for takeoff.`
+			`	You prepare your ship for takeoff.`
 				accept
 			label "had enough"
-			`"Ah, sorry to hear that. We had become rather fond of your services, but in that case we will find someone else." He hangs up.`
+			`	"Ah, sorry to hear that. We had become rather fond of your services, but in that case we will find someone else." He hangs up.`
 				decline
 	npc accompany
 		government "Merchant"
@@ -265,84 +269,62 @@ mission "The Legacy: Treasure Hunters 4"
 			`You did not reach the destination on time. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
-	on complete
-		payment 500000
+			
+mission "The Legacy: Treasure Hunters 5"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	cargo "(reserved)" 5
+	passengers 2
+	invisible
+	landing
+	to offer
+		has "The Legacy: Treasure Hunters 4: done"
+		not "event: the legacy was aborted"
+	source "Vinci"
+	destination "Glory"
+	on offer
 		conversation
-			`When you land on his island, Benoit welcomes you.`
-			`	"I hope they did not bother you too much about these computers. They can be a bit whimsical when it comes to their latest equipment."`
+			`When you reach <origin>, you are rerouted into the private spaceport of the largest CPU manufacturing company.`
+			`	Your credentials are verified multiple times and the loading process is overseen by half a dozen very nervous managers.`
+			`	Once the loading is completed, they usher you to take off straight away.`
+				launch
+	npc accompany
+		government "Merchant"
+		personality timid escort
+		ship "Behemoth" "Knives Out"
+	on enter
+		conversation
+			`As soon as you have taken off, you receive a call from Benoit. "Captain <last>, I hope they did not bother you too much about these computers. They can be a bit whimsical when it comes to their latest equipment."`
 			choice
 				`"No, it was fine."`
 					goto "just fine"
 				`"When they checked my credentials for the 5th time, I thought they might be overdoing it."`
 			`	Benoit chuckles: "That sounds just like them."`
 			label "just fine"
-			`	"Well, it is excellent that we now have these computers at our disposal. Please contact me from the official spaceport once you have refreshed yourself"`
-			`	You head back to your ship and transfer to the official spaceport`
-			
-mission "The Legacy: Treasure Hunters suppress stop"
-	invisible
-	landing
-	to offer
-		has "The Legacy: Treasure Hunters 4: active"
-	source "Vinci"
-	destination "Mainsail"
-	on offer
-		conversation
-			`When you reach <origin>, you are rerouted into the private spaceport of the largest CPU manufacturing company.`
-			`	Your credentials are verified multiple times and the loading process is overseen by half a dozen very nervous executives.`
-			`	Once the loading is completed, they usher you to take off straight away.`
-				launch
-
-mission "The Legacy: Treasure Hunters 5"
-	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
-	deadline 4 0
-	passengers 2
-	invisible
-	stopover "Glory"
-	to offer
-		has "The Legacy: Treasure Hunters 4: done"
-		not "event: the legacy was aborted"
-	source "Mainsail"
-	destination "Mainsail"
-	on offer
-		conversation
-			`When you call Benoit, he is in a good mood. "Ah, Captain <last>! We have just finished setting up the new equipment and it seems everything is working fine."`
-			`	You respond: "That is good news."`
-			`	Benoit get's down to business: "To your next mission, then. Would it be possible for you to pick up my good friend Jane and her maid Marta at the Academy of Planetary Science and bring her here within 4 days?"`
+			`	"Well, it is excellent that the computers are now on their way to us. I take it you will ensure they arrive here safely. And while you are on your way, would you mind picking up my good friend Jane and her maid Marta at the Academy of Planetary Science?"`
 			choice
 				`"Sure, this will be no problem."`
 					goto "okay"
-				`"Sorry, but I had enough of this."`
-					goto "had enough"
+				`"Where exactly is the Academy of Planetary Science?."`
+			`	"Well, on <destination>, of course!"`
 			label "okay"
-			`You prepare your ship for the next trip.`
-				accept
-			label "had enough"
-			`"Ah, sorry to hear that. We had become rather fond of your services, but in that case we will find someone else." He hangs up.`
-				decline
-	on decline
-		event "the legacy was aborted"
-		event "the legacy abortion message" 180
+			`	You enter the new target coordinates.`
 	on fail
 		dialog
-			`You did not reach the destination on time. Benoit is very angry and terminates the collaboration.`
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
-	on complete
-		payment 500000
-		conversation
-			`When you approach Benoit's island, he is already waiting near the landing pad. As soon as you have touched down, he rushes in to greet your passengers.`
-			`	"Jane, how lovely to see you. Thank you for joining into our endeavour."`
-			`	She responds: "Benoit, it is always a pleasure, and especially if I can partake in one of your adventures. You know how I love a good challenge."`
-			`	They stroll off and you help Marta with the luggage. Then you decide to follow the usual procedure, take your ship to the official spaceport and to check back in on them later.`
-			`	You head back to your ship and transfer to the official spaceport. Upon arriving you notice that Benoit paid you <payment>.`
 
-mission "The Legacy: Treasure Hunters suppress stop 2"
+mission "The Legacy: Treasure Hunters 6"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	cargo "(reserved)" 5
+	passengers 2
 	invisible
 	landing
 	to offer
-		has "The Legacy: Treasure Hunters 5: active"
+		has "The Legacy: Treasure Hunters 5: done"
+		not "event: the legacy was aborted"
 	source "Glory"
 	destination "Mainsail"
 	on offer
@@ -350,23 +332,345 @@ mission "The Legacy: Treasure Hunters suppress stop 2"
 			`When you reach <origin>, you are once again rerouted, this time to the airfield of the Academy of Planetary Science.`
 			`	Your passengers turns out to be an elderly lady and her maid. You help them to board and take off straight away.`
 				launch
+	npc accompany
+		government "Merchant"
+		personality timid escort
+		ship "Behemoth" "Knives Out"
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		payment 1000000
+		conversation
+			`When you approach Benoit's island, he is already waiting near the landing pad. As soon as you have touched down, he rushes in to greet your passengers.`
+			`	"Jane, how lovely to see you. Thank you for joining into our endeavour."`
+			`	She responds: "Benoit, it is always a pleasure, and especially if I can partake in one of your adventures. You know how I love a good challenge."`
+			`	They stroll off and you help Marta with the luggage. Then you decide to follow the usual procedure, take your ship to the official spaceport and to check back in on them later. Upon arriving you notice that Benoit paid you <payment>.`
 
-mission "The Legacy: Treasure Hunters 6"
+mission "The Legacy: Ghost Chase 0"
 	name "The Legacy: Treasure hunters"
 	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
-	cargo "(reserved)" 20
+	invisible
 	to offer
-		has "The Legacy: Treasure Hunters 5: done"
+		has "The Legacy: Treasure Hunters 6: done"
+		not "event: the legacy was aborted"
+	source "Mainsail"
+	destination "Nifel"
+	on offer
+		conversation
+			`When you call Benoit, he is in a good mood. "Ah, Captain <last>! We have just finished setting up the new equipment and it seems everything is working fine. So, your effort heeded good results."`
+			`	"That's great to hear."`
+			`	"If you would fancy, there are a couple of errands I would like you to run. As usual, I require your discretion and reliability, which in turn will be reflected in your compensation."`
+			choice
+				`	"I really enjoy working for you, so count me in."`
+					goto "okay"
+				`	"I'm sorry, but I had enough of this."`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "okay"
+			`	"Your first destination is the planet on which they discovered the cure for the Rigellian Plague."`
+			choice
+				`	"No problem, I know where that is."`
+					goto "nohelp"
+				`	"Sorry, but history is not my strongest side. Can you tell me where that is?"`
+			`	You can see Benoit shake his head. "Tsk, my dear Captain. If it hadn't been for the cryophilic bacteria which were found on <destination>, we would probably still be in travel quarantine."`
+			label "nohelp"
+			`	Benoit wishes you a good journey.`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`After you have landed on <planet>, you follow Benoit's instructions and visit one of the local research labs. One of the scientists hands you a suitcase and wonders: "Here is the analysis kit that Benoit requested. I have no idea what he wants with it, but he usually knows what he's doing."`
+			`	He shrugs and then bids you farewell.`
+
+mission "The Legacy: Ghost Chase 1"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 0: done"
+		not "event: the legacy was aborted"
+	source "Nifel"
+	destination "New Austria"
+	on offer
+		conversation
+			`Back on the ship, you contact Benoit and report your progress. He is satisfied: "This is good news. Ready for the next task?"`
+			choice
+				`	"Yes, what's up next?"`
+					goto "next_target"
+				`	"Sorry, but I had enough of this"`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "next_target"
+			`	"So, for the next location, you will need to go to the planet which offers the most diverse range of sapphires."`
+			choice
+				`	"Okay, I know where that is."`
+					goto "nohelp"
+				`	"Sorry, but can you tell me where that is?"`
+			`	"Well, you have to go to <destination>. The sapphires there range have a multitude of colours and are used both for industrial purposes as for jewelry."`
+			label "nohelp"
+			`	Benoit smiles. "A good opportunity to buy a present, in case you want to surprise someone dear."`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`On <planet>, you follow Benoits directions and visit a small jewelry shop in one of the side streets. Size and location of the venue are misleading, though. The jewelry offered is of the finest quality - which is also reflected in the prices.`
+			`	When you identify yourself, the owner hands you a bag with 2 jewely pouches in them. One contains an exquisit brooch, the other one a whole bunch of tumbled gemstones.`
+			`	"No idea what Benoit wants with these - but usually he knows what he's doing."`
+			`	You smile. "So I have heard."`
+
+mission "The Legacy: Ghost Chase 2"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 1: done"
+		not "event: the legacy was aborted"
+	source "New Austria"
+	destination "Zug"
+	on offer
+		conversation
+			`After you have returned to the <ship>, you update Benoit. He gives you the usual offer: "Ready for the next leg?"`
+			choice
+				`	"Yes, whereto now?"`
+					goto "next_target"
+				`	"Sorry, but I had enough of this"`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "next_target"
+			`	"I hope that you will enjoy the next target. You are going to meet an old friend of yours - Albert Foster. He is currently at the dig site you helped him to discover. Please pay him a visit."`
+			choice
+				`	"Okay, I'm on my way."`
+					goto "nohelp"
+				`	"Sorry, but can you tell me where that is?"`
+			`	"Well, the dig site is still on <destination>."`
+			label "nohelp"
+			`	You prepare the <ship> for departure.`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`When you arrive at the dig site on <planet>, you have difficulties to find Albert. The site has turned into somewhat of a tourist attraction and there are far more people present than in the early days. Finally, you discover Albert, who is quite happy to see you. He takes you to his quarters where you sit down and catch up on the latest developments. Eventually, the topic turns to the reason of your visit.`
+			`	"So, what brings you back to the site?"`
+			choice
+				`	"I am actually here on behalf of Mr. Blanc."`
+			`	"Benoit? I see. That makes sense. It would be unlike him to just send a simple starship captain, he prefers to work with competent people."`
+			`	"So you know him?"`
+			`	"Yes, we go way back. He financed a couple of my earlier operations." He opens a drawer on his desk and takes out a data crystal. "Here, this contains the data he asked for. I don't know what he wants with it, but..."`
+			choice
+				`	"...he usually knows what he's doing?"`
+			`	Albert laughs. "Yes exactly."`
+
+mission "The Legacy: Ghost Chase 3"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 2: done"
+		not "event: the legacy was aborted"
+	source "Zug"
+	destination "Wayfarer"
+	on offer
+		conversation
+			`Back on the <ship>, you inform Benoit. "I am glad to see that on this leg of your journey you actually met someone you knew. Do you want to continue?"`
+			choice
+				`	"Sure, where is the next target?"`
+					goto "next_target"
+				`	"Sorry, but I had enough of this"`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "next_target"
+			`	"The next one is simple - go to the planet which has a moon inhabited by the Quarks."`
+			choice
+				`	"Okay, I'm on my way."`
+					goto "nohelp"
+				`	"Sorry, but can you tell me where that is?"`
+			`	"<destination> has the moon Echo, where the Quarks have an outpost and are watching what is happening on the planet below."`
+			label "nohelp"
+			`	Once again, you prepare the <ship> for departure.`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`On <planet>, you are not surprised when you are directed to a private hangar of the Tarazed corporation. While some technical equipment is loaded onto your ship, an official of the corporation hands you a suitcase with a data crystals.`
+
+mission "The Legacy: Ghost Chase 4"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	cargo "technical equipment" 4
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 3: done"
+		not "event: the legacy was aborted"
+	source "Wayfarer"
+	destination "Sundive"
+	on offer
+		conversation
+			`When you contact Benoit, he has some good news: "We are almost done. Just two more legs on this journey. Are you ready to continue?"`
+			choice
+				`	"Of course."`
+					goto "next_target"
+				`	"Sorry, but I had enough of this"`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "next_target"
+			`	"You know what they say - when you gaze long into an abyss... Your next target is the place where they observe a singularity. Just do not stay long enough for the Abyss to gaze back into you. You are awaited here."`
+			choice
+				`	"Don't worry. I'll be on my way..."`
+					goto "nohelp"
+				`	"Sorry, but can you tell me where that is?"`
+			`	"<destination> is home to a large astronomical laboratory to study the black hole in the galactic core."`
+			label "nohelp"
+			`	Once more you prepare your ship for a long journey.`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`The scientist welcoming you in the astronomical labratory of <planet> insists on giving you a tour through the relevant sections, which happens to be most of the facility. Once you are done, he hands you another data cristal. You return to your ship.`
+
+mission "The Legacy: Ghost Chase 5"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	cargo "technical equipment" 4
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 4: done"
+		not "event: the legacy was aborted"
+	source "Sundive"
+	destination "Icefall"
+	on offer
+		conversation
+			`Benoit seems to have guessed the reason for your delay. "Ah Captain. I take it you were treated to the honour of a complete tour of the facility?", he says with a chuckle.`
+			`	You try to stay polite. "Well, it is certainly very interesting for someone enjoying astronomy."`
+			`	"I'm sure it is. Anyway, one more station and we are done. Are you ready?"`
+			choice
+				`	"Sure."`
+					goto "next_target"
+				`	"Sorry, but I had enough of this"`
+			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
+				decline
+			label "next_target"
+			`	"Your last destination is a planet with an unusual axial tilt and a rather long year, resulting in many of the local landowners to have farms in both hemispheres, between which they migrate following the summer."`
+			choice
+				`	"Okay, I know that system."`
+					goto "nohelp"
+				`	"Sorry, but can you tell me where that is?"`
+			`	"It's not too far from where you currently are. <destination> has this rather unique situation."`
+			label "nohelp"
+			`	You prepare to take off for the last mission.`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			`On <planet>, you don't even have to leave the Spaceport. Here, you visit the local control center where you receive another data crystal.`
+
+mission "The Legacy: Ghost Chase 6"
+	name "The Legacy: Treasure hunters"
+	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveller'."
+	cargo "technical equipment" 4
+	invisible
+	landing
+	to offer
+		has "The Legacy: Ghost Chase 5: done"
+		not "event: the legacy was aborted"
+	source "Icefall"
+	destination "Mainsail"
+	on offer
+		conversation
+			`When you contact him, Benoit is looking forward to receiving the items you have collected for him. "Once you have reached <planet>, please land directly on my island."`
+				accept
+	on decline
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on fail
+		dialog
+			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		payment 3000000
+		conversation
+			`When you land on his island, it doesn't take long and Benoit welcomes you. "That was quite a trip, Captain. I took the liberty to reimburse you with <payment>."`
+			`	"Thank you, that is very generous."`
+			choice
+				`	"Can you tell me a bit about the things I have collected for you?"`
+					goto "tell_me_more"
+				`	"Do you have any additional jobs for me?"`
+					goto "more_jobs"
+			label "tell_me_more"
+			`	"Well, the items will be used to analyse the clue itself, but we are also trying to follow the trail that may have been left while setting up all of this. Oh yes, and the brooch is simply a birthday present for Jane."`
+			`	"So this means that so far you have not really made progress?"`
+			`	Benoit seems a bit embarrassed. "Indeed, we have not."`
+			choice
+				`	"Do you have any additional jobs for me?"`
+					goto "more_jobs"
+			label "more_jobs"
+			`	"Hmm, I will think about it. Please contact me the usual way once you have refreshed yourself."`
+			`	Soon after the last crates are unloaded and you transfer over to the main Spaceport.`
+
+mission "The Legacy: The First Clue 0"
+	name "The Legacy: The First Clue"
+	description "You have received a clue for the legacy of 'Rhon the Traveller' and try to decipher it."
+	cargo "used computers" 20
+	to offer
+		has "The Legacy: Ghost Chase 6: done"
 		not "event: the legacy was aborted"
 	source "Mainsail"
 	destination "Millrace"
 	on offer
 		conversation
-			`When you call Benoit, he seems to be a bit uncomfortable. "My dear Captain <last>. I want to be honest with you. So far, even with the latest equipment, we have been unable to make any significant progress. And while with Jane we have brought in a fresh mind, I doubt we will have any breakthrough in the near future."`
-			`	You respond: "Okay, and what does that mean."`
-			`	"Well, it means that I have no reason to keep you occupied anymore. Initially, we had hoped to have the first clue solved by now and that you would take us onto a big adventure. But it seems this will take much longer. There is one last errand I would ask you to run, but after that, your services are no longer required. For now!"`
+			`When you call Benoit, he seems to be a bit uncomfortable. "My dear Captain <last>. I want to be honest with you. Right now, I have run out of ideas and therefore also out of jobs for you."`
 			`	You feel a bit disappointed by that. You had grown fond of Benoit and his jobs provided a good and not too difficult income. "I am very sorry to hear that."`
-			`	He is visibly sad. "Well, rest assured - as soon as we have something tangible, we will be in touch with you and try to employ your services again. As for the last job, I have managed to sell my old computers to a company on <destination>. Would you be willing to transport them?"`
+			`	He is visibly sad. "Well, rest assured - as soon as we have something tangible, we will be in touch with you and try to employ your services again. As for a final job, I have managed to sell some computers to a company on <destination>. Would you be willing to transport them?"`
 			choice
 				`"Sure, this will be no problem."`
 					goto "okay"
@@ -375,7 +679,7 @@ mission "The Legacy: Treasure Hunters 6"
 			label "okay"
 			`While you pick up the old computers, Benoit joins you on the landing platform.`
 			`	"Once again, I am very sorry, but I have a parting gift for you."`
-			`	He hands you one of the tubes with the first clue to the legacy. He smiles and says: "Here. This way you know at least what the fuzz is about and who knows - maybe you are smarter than all of us together and can make some sense of this."`
+			`	He hands you one of the tubes with the first clue to the legacy. He smiles and says: "Here. This way you know at least what this is all about and who knows - maybe you are smarter than the rest of us together and can make some sense of it."`
 			`	Once the loading is finished, you open the tube and take out the paper inside. It is a large sheet full of lines and dots. But the random patterns do not make any sense to you.`
 				accept
 			label "had enough"
@@ -413,51 +717,49 @@ mission "The Legacy: The First Clue 1"
 				`	No, I have better things to do.`
 					decline
 			label "check on them"
-			`You call them and they are very happy to hear from you. They invite you over for dinner. So you buy some gifts for the kids and a huge food basket and join them in their small appartment, to which they have moved in the meantime. You are happy to see that they are doing well.`
-			`	Once the kids are in the bed, you enjoy a good bottle of wine and entertain Joe and Maria with stories from your travels. However, when you mention your latest encounter with the treasure hunters, Mariah sits up straight.`
-			`	"<first>, are you serious? Do you really have a clue to the legacy of Rhon? I mean - _the_ Rhon?"`
-			`	Since you had never heard of him before, you are suprised that she knows him. You tell her so.`
-			`	"Of course I know him. Rhon Danperi, that's his real name. But the pirates call him 'Rhon the Rat'. He started off as a lowly pirate and quickly ascended through the ranks. Then, from one day to the next, he renounced his pirate ways and became an outcast."`
+			`	You call them and they are very happy to hear from you. They invite you over for dinner. So you buy some gifts for the kids and a huge food basket and join them in their small appartment, to which they have moved in the meantime. You are happy to see that they are doing well.`
+			`	Once the kids are in bed, you enjoy a good bottle of wine and entertain Joe and Maria with stories from your travels. When you mention your latest encounter with the treasure hunters, Mariah sits up straight.`
+			`	"<first>, are you serious? Do you really have a clue to the legacy of Rhon Danperi?"`
+			`	Since you had never heard of him before, you are suprised that Maria knows him. You tell her so.`
+			`	"Of course I know him. The pirates call him 'Rhon the Rat'. He started off as a lowly pirate and quickly ascended through the ranks. Then, from one day to the next, he renounced his pirate ways and became an outcast."`
 			choice
 				`	"What happened then?"`
-			`"Well, he was wanted in most known systems and now the pirates were also after him. So, he did the only thing he could - he disappeared. No one knows where to, though."`
-			`	"Twenty years later, he resurfaced. Since he had never killed anyone during his raids, he was no longer wanted by the law. So, he travelled through the systems and tried to make amends for what he had done in the past by helping."`
-			`	"He also spread his message of peace. He quickly became popular amongst the poor, but also administration listen to his advice. He was a very smart man."`
+			`	"Well, he was wanted by law and the pirates, so, he did the only thing he could - he disappeared. Rumor says he went to alien space, but no one knows for sure."`
+			`	"Many years later, he resurfaced. Since he had never killed anyone during his raids, he was no longer wanted by the law. So, he travelled through the systems and tried to make amends for what he had done in the past by helping."`
+			`	"He also spread his message of peace. He quickly became popular, even administrations sought his advice. He was a very smart man."`
 			choice
-				`	"What about the Pirates, though?"`
-			`"You are right. The Pirates never forget and there was still a large bounty on his head. Several gangs tried to cash in, but it did them no good. Rhon never attacked, but those who went up against him, he destroyed without mercy."`
-			`	"His ship could not be touched by anything built in human space. Rumor says he had filled it with alien technology. In the end, they left him alone. Turned him into a scare for little children."`
+				`	"And the Pirates?"`
+			`	"Right, there was still a large bounty on his head. Several gangs tried to cash in, but it did them no good. Rhon never attacked, but those who went up against him, he destroyed without mercy. His ship could not be touched by anything built in human space."`
 			choice
 				`	"Wow, where do you know this from?"`
-			`"They scared me with his name when I was little. But I don't like being scared, so I started digging and found out the complete story."`
-			`	"It was actually his story which expired us to run off for a better life back then when we met you on Smuggler's Den."`
-			`	You are fascinated by Maria's story and resolve to do some research of your own into this Rhon.`
+			`	"They turned 'Rhon the Rat' into a scare for children. But I don't like being scared, so I started digging and found out the complete story. Hearing of him actually gave me hope for a better life, which ultimately led to our escape."`
+			`	You are fascinated by Maria's story.`
 			choice
-				`	Offer Maria and Joe to show them the clue you have received from Benoit`
+				`	Offer Maria and Joe to show them the clue you have received from Benoit.`
 					goto "show it"
 				`	Change the subject.`
-			`You express your admiration for Maria's story and then change the subject. You enjoy the rest of your evening together and then return to your ship.`
+			`	You express your admiration for Maria's story and then change the subject. You enjoy the rest of your evening together and then return to your ship.`
 				decline
 			label "show it"
-			`Upon hearing your offer, there is no stopping Maria. Joe smiles knowingly. Maria heads over to their neighbours and makes sure they watch over the kids. Then you are off to the Spaceport.`
-			`	In the ship, you hand Maria the paper with the lines and dots. She takes a look at it and then begins to smile.`
+			`	Upon hearing your offer, there is no stopping Maria. Joe smiles knowingly. Maria heads over to their neighbours and makes sure they watch over the kids. Then you are off to the Spaceport.`
+			`	In the ship, you hand Maria the paper with the lines and dots. She takes a look at it and then smiles.`
 			`	"<first>, can we have front and backpage scanned and then projected on each other?"`
 			`	You perform the scans and bring them up on a holo screen.`
 			`	"Joe, do you still recall Rhon's coat of arms?"`
-			`	Joe paints a pattern onto a different corner of the screen. Maria makes some small adjustments and then resizes and projects it on top of the pattern scan. Then she cuts out three triangular portions.`
+			`	Joe paints a pattern onto a different corner of the screen. Maria makes some small adjustments and then resizes and projects it on top of the pattern scan. Then she cuts out three triangular portions following the outline of the coat of arms.`
 			`	"It must be these, already in his pirate days Rhon was obsessed with the number 3."`
 			choice
 				`	"That's right. The first clues were actually handed out 333 days after his death."`
-			`Maria nods absently. She turns and overlaps the triangles and then flips the pieces until suddently the previously chaotic patterns connect and form a set of symbols.`
-			`	Maria seems disappointed though. "That's an old pirate trick to encode informations, unless you know the areas and angles even the smartest computers will have trouble decoding this. However, those symbols mean absolutely nothing to me."`
-			`	Now it is your turn to be excited. "They do to me. This looks like Hai writing. You have just solved the first clue."`
+			`	Maria nods absently. She turns and overlaps the triangles and then flips the pieces until suddently the previously chaotic patterns connect and form a set of symbols.`
+			`	"That's an old pirate trick to encode informations, unless you know the areas and angles even the smartest computers will have trouble decoding this. However, those symbols mean absolutely nothing to me."`
+			`	Now it is your turn to be excited. "They do to me. This looks like Hai writing."`
 			`	Maria and Joe look confused. "Who are the Hai?"`
-			`	"They are an alien race which I have met during my travels."`
+			`	"They are an alien race which I have met during my travels. I believe, we may have just solved the first clue."`
 			choice
-				`	"I cannot read those symbols myself and to have them deciphered, I need to travel to the other side of a wormhole."`
-			`You store a copy of the symbols on a data crystal and erase all traces of your discovery. You return with Joe and Maria to their home and spend the rest of the evening wondering about what is to come.`
+				`	"However, I cannot read those symbols myself and to have them deciphered, I need to travel into a different region of space."`
+			`	You store a copy of the symbols on a data crystal and erase all traces of your discovery. You return with Joe and Maria to their home and spend the rest of the evening wondering about what is to come.`
 			`	When it's time to leave, they wish you good luck for your adventure. You promise to give them a share if your hunt is successful.`
-			`	Back on your ship, you start educating yourself about Rhon, his live and his teachings, and find that he was indeed a fascinating person. You feel that you are drawn into this adventure more than you intended. You decide to embark on the first step of the journey tomorrow.`
+			`	Back on your ship, you start educating yourself about Rhon, his live and his teachings, and find that he was indeed a fascinating person.`
 			`	You may have overdone it with your studies, tough. In your sleep you dream of Rhon visiting you.`
 			`	He gives you a warning: "If you want to find my inheritance, your mission computer will not be helping you. All you have at your disposal is your knowledge of the galaxy and the friends you have made."`
 				accept
@@ -471,10 +773,10 @@ mission "The Legacy: The First Clue 1"
 	on complete
 		conversation
 			`After you have landed on <planet>, you try to contact Ambassador Sayari. You are in luck.`
-			`	"Captain <last>, your timing is perfect. I am about to relocate to Desi Seledrak. Would you mind taking me there?"`
+			`	"Captain <last>, your timing is perfect. I am about to relocate to Desi Seledrak. Would you mind taking me and my belongings there?"`
 			choice
 				`	"I would be glad to."`
-			`"Great, thank you. Please meet me in the Spaceport in 2 hours. I have to finish packing."`
+			`	"Great, thank you. Please meet me in the Spaceport in 2 hours. I have to finish packing."`
 
 mission "The Legacy: Hai not helping 1"
 	landing
@@ -504,19 +806,42 @@ mission "The Legacy: Hai not helping 2"
 mission "The Legacy: The First Clue 2"
 	name "The Legacy: The First Clue"
 	description "You are trying to have the Hai symbols deciphered."
-	cargo "(reserved)" 8
-	passengers 1
+	cargo "personal belongings" 8
+	passengers 2
 	to offer
 		has "The Legacy: The First Clue 1: done"
 		not "event: the legacy was aborted"
 	source "Vara K'chrai"
 	destination "Desi Seledrak"
 	on offer
-		event "the legacy clue 1 pending"
+		event "the legacy clue hai pending"
 		conversation
 			`You don't know if it's because Hai diplomats are different from the ones in human space or if it's just Sayari, but she actually arrives on time in the Spaceport.`
-			`	You arrange the transfer of her belongings into the cargo bay of your ship and then help Sayari to settle in one of the cabins.`
+			`	To your surprise, she is not alone, though. Rek is accompanying her.`
+			`	"Captain <last>, I hope you have another bunk free on your ship?" Her english is almost perfect by now.`
+			`	"Of course. But why are you not on Setar Fort?"`
+			`	"I took a leave from my duties to accompany my mother, who is now undergoing the Molt. She has entered the room of seclusion yesterday, so I was on my way back to report to the leaders."`
+			`	"I hope she will be alright."`
+			`	You arrange the transfer of her belongings into the cargo bay of your ship and then help Sayari and Rek to settle in.`
 				accept
+	on enter
+			`Once your ship is cruising on auto-pilot, you gather with your friends in the mess hall and swap stories. When you tell them about your current quest, Sayari surprises everyone.`
+			`	"I knew Rhon. And he may have actually learned the symbols from me, although I did not realize this until now."`
+			`	You stare at her in disbelief.`
+			`	"It was many years ago, I had just returned from my time as envoy. My younger sister was working in the reception area of Allhome Spaceport. There he was, one day. Obviously, he had taken the trip through the wormhole by accident while fleeing the Pirates. He was more or less stranded. My sister had pity and took him in. Because I had been under humans, she asked me to help."`
+			choice
+				`	"What happened then?"`
+			` 	"Rhon had a genuine interest into the Hai and our philosophy of peace. He was a fascinating human. We became close friends."`
+			`	She pauses for a moment and then continues. "Back then, I was studying to advance in the governmental services. He helped me with that, and that's where he must have picked up the ancient symbols. He was a quick learner. He also spoke Hai in no time."`
+			choice
+				`	"Did he settle down?"`
+			`	"He wanted to. I took him on a tour through Hai space. Other humans noticed him and one of them told the Pirates, because one day a fleet of them apeared in Hai space. Rhon had always warned me that something like that might happen. We retreated deeper into Hai space, but they kept searching and caused all sorts of troubles. So Rhon decided to leave Hai space to restore peace."`
+			`	"He offered to take me with him, but I had just returned and did not want to leave my family again so soon, so I declined." The regret in her voice is tangible. "After that, I never saw him again."`
+			`	She returns into the present. "I am glad to hear that he lived a good life and achieved redemption amongst humans."`
+			choice
+				`	"So, will you help me and translate the symbols?"`
+			`	"It is our sacred law that we do not disclose these symbols to outsiders." She makes the chittering sound you know equals the Hai version of laughter. "But that does not mean that I can't disclose the translation once I have confiscated them."`
+			`	You hand her the data crystal with the symbols.`
 	on fail
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
@@ -525,12 +850,11 @@ mission "The Legacy: The First Clue 2"
 		event "the legacy abortion message" 180
 	on complete
 		conversation
-			`Once you have arrived at <planet>, Ambassador Sayari first reports to the Wanderer council, while her belongings are brought to her new quarters.`
-			`During the flight there was no good opportunity to ask her about the symbols, but when you told her that you would like to discuss something personal, she invited you to her place for dinner. A guide will pick you up in the Spaceport.`
+			`Once you have arrived at <planet>, Rek and Sayari first reports to the Wanderer leaders, while Sayari's belongings are brought to her new quarters. You agree to all meet over dinner at Sayari's place. A guide will pick you up in the Spaceport.`
 
-mission "The Legacy: The First Clue 3"
-	name "The Legacy: The First Clue"
-	description "You are following the first clue."
+mission "The Legacy: Hai Space 0"
+	name "The Legacy: Hai Space"
+	description "You are following the first clue into Hai space."
 	cargo "(reserved)" 10
 	passengers 2
 	invisible
@@ -538,7 +862,146 @@ mission "The Legacy: The First Clue 3"
 		has "The Legacy: The First Clue 2: done"
 		not "event: the legacy was aborted"
 	source "Desi Seledrak"
-	destination "Legacy Clue 1 site"
+	destination "Allhome"
+	on offer
+		conversation
+			`The guide leads you to a nice treehouse. Sayari and Rek are awaiting you.`
+			`	Sayari gets straight down to business: "Before I give you the translation, we should agree if you want to continue on your search. Once you set out on this path, you will have to follow it through."`
+			choice
+				`	"Of course I want to continue."`
+					goto "go_on"
+				`	"You are right. I had enough of this."`
+					decline
+			label "go_on"
+			`	"Okay, the symbols say: 'Go to the first place I landed in Hai space and ask for the storage of the first friend I had'." She chitters again. "So, do you know to which planet we should go?"`
+			choice
+				`	"Yes, it is pretty ovious."`
+					goto "no_help"
+				`	"I'm not sure. Can you help me?"`
+			`	"The first place he landed is the first place most Humans land when they enter Hai space. It is <destination>."`
+			label "no_help"
+			`	Sayari has a request: "I would like to join you on this quest. I am somehow involved anyway and you will likely need a Hai translator." She chitters. "So the Wanderer elders have agreed that I return to Hai space for some time so that I can update my superiors."`
+			`	Rek rustles her feathers. "I, too, would like to come along. I find this adventure very intriguing. Since I am not expected back on Setar Fort for a while, the leaders have agreed that I may assist you on your quest."`
+			`	Somehow, you feel that your chances of solving this mystery just have significantly improved. You are glad that your friends have joined your quest.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			``
+mission "The Legacy: Hai Space 1"
+	name "The Legacy: Hai Space"
+	description "You are following the first clue into Hai space."
+	cargo "(reserved)" 10
+	passengers 2
+	invisible
+	landing
+	to offer
+		has "The Legacy: Hai Space 0: done"
+		not "event: the legacy was aborted"
+	source "Allhome"
+	destination "Newhome"
+	on offer
+		conversation
+			``
+			`	"Okay, the symbols say: 'Go to the first place I landed in Hai space and ask for the storage of the first friend I had'." She chitters again. "So, do you know to which planet we should go?"`
+			choice
+				`	"Yes, it is pretty ovious."`
+					goto "no_help"
+				`	"I'm not sure. Can you help me?"`
+			`	"The first place he landed is the first place most Humans land when they enter Hai space. It is <destination>."`
+			label "no_help"
+			`	Somehow, you feel that your chances of solving this mystery just have significantly improved. You are glad that your friends have joined your quest.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			``
+# Da Ent / Newhome: They are gigantig and produce sought-for wool. But shearing them can be an adventure. 
+
+mission "The Legacy: Hai Space 2"
+	name "The Legacy: Hai Space"
+	description "You are following the first clue into Hai space."
+	cargo "(reserved)" 10
+	passengers 2
+	invisible
+	landing
+	to offer
+		has "The Legacy: Hai Space 1: done"
+		not "event: the legacy was aborted"
+	source "Newhome"
+	destination "Farwater"
+	on offer
+		conversation
+			``
+			`	"Okay, the symbols say: 'Go to the first place I landed in Hai space and ask for the storage of the first friend I had'." She chitters again. "So, do you know to which planet we should go?"`
+			choice
+				`	"Yes, it is pretty ovious."`
+					goto "no_help"
+				`	"I'm not sure. Can you help me?"`
+			`	"The first place he landed is the first place most Humans land when they enter Hai space. It is <destination>."`
+			label "no_help"
+			`	Somehow, you feel that your chances of solving this mystery just have significantly improved. You are glad that your friends have joined your quest.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			``
+# This oceanworld has become an incubator for algae and bacteria. 
+
+mission "The Legacy: Hai Space 3"
+	name "The Legacy: Hai Space"
+	description "You are following the first clue into Hai space."
+	cargo "(reserved)" 10
+	passengers 2
+	invisible
+	landing
+	to offer
+		has "The Legacy: Hai Space 2: done"
+		not "event: the legacy was aborted"
+	source "Farwater"
+	destination "Legacy Clue Hai site"
+	on offer
+		conversation
+			``
+			`	"Okay, the symbols say: 'Go to the first place I landed in Hai space and ask for the storage of the first friend I had'." She chitters again. "So, do you know to which planet we should go?"`
+			choice
+				`	"Yes, it is pretty ovious."`
+					goto "no_help"
+				`	"I'm not sure. Can you help me?"`
+			`	"The first place he landed is the first place most Humans land when they enter Hai space. It is <destination>."`
+			label "no_help"
+			`	Somehow, you feel that your chances of solving this mystery just have significantly improved. You are glad that your friends have joined your quest.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on complete
+		conversation
+			``
+# Hai: Iron Sky
+
+
+mission "The Legacy: Hai Space 0"
+	name "The Legacy: The First Clue"
+	description "You are following the first clue into Hai space."
+	cargo "(reserved)" 10
+	passengers 2
+	invisible
+	to offer
+		has "The Legacy: The First Clue 2: done"
+		not "event: the legacy was aborted"
+	source "Desi Seledrak"
+	destination "Legacy Clue Hai site"
 	on offer
 		conversation
 			`When you arrive at Sayari's place, she is not alone - Rek is with her.`
@@ -585,14 +1048,16 @@ mission "The Legacy: The First Clue 3"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
 
-mission "The Legacy: The First Clue 4"
+
+
+mission "The Legacy: Remnant 0"
 	cargo "(reserved)" 10
 	passengers 2
 	invisible
 	landing
 	to offer
 		has "The Legacy: The First Clue 3: done"
-	source "Legacy Clue 1 site"
+	source "Legacy Clue Hai site"
 	destination "Viminal"
 	on offer
 		event "the legacy clue 2A pending"
@@ -625,7 +1090,7 @@ mission "The Legacy: The First Clue 4"
 	on enter
 		dialog `You may have been concerned about your fuel costs now, had the great creator, MZ, not decided that for the advancement of space travel, space ship fuel would be free for all and everyone. In your thoughts, you thank him for creating such a wonderful universe.`
 	on complete
-		event "the legacy clue 1 done"
+		event "the legacy clue hai done"
 		log `The search for the legacy now leads us to Remnant space. I hope that Taely will be able to help us.`
 		conversation
 			`During the trip, both Rek and Sayari used your old school materials to study the sign language of the Remnant and have both reached a reasonable level of understanding. However, when you land on <planet>, only you exit the space craft, since you are unsure how the Remnant would react to the presence of aliens.`
@@ -1707,17 +2172,17 @@ mission "The Legacy: Return to Viminal"
 	on defer
 		event "the legacy was aborted"
 
-mission "The Legacy: On to the Wanderers 1"
-	cargo "(reserved)" 12
-	passengers 6
-	blocked `You are missing <capacity> to continue the missions.`
-#	invisible
-	landing
-	to offer
-		has "The Legacy: Return to Viminal: done"
-		not "event: the legacy was aborted"
-	source "Viminal"
-	destination ""
+#mission "The Legacy: On to the Wanderers 1"
+#	cargo "(reserved)" 12
+#	passengers 6
+#	blocked `You are missing <capacity> to continue the missions.`
+##	invisible
+#	landing
+#	to offer
+#		has "The Legacy: Return to Viminal: done"
+#		not "event: the legacy was aborted"
+#	source "Viminal"
+#	destination "Viminal"
 
 # Der Weg nach The Hideout: schafft es, Jump-Drive in Starling eingebaut, Reise durch Korath-Space bis zur Quark-Ringwelt
 # Rhon hat die Quark-Technik von den Quarks bekommen / behalten dürfen, weil er eine Prirate-Gang zur Strecke gebracht hat, die Quark-Technologie gezielt gestohlen hat

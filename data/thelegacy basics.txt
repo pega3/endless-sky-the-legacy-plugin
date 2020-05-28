@@ -27,3 +27,36 @@ government "Remnant Hardliner"
 		"Indigenous Lifeform" 0.05
 		"Korath" -.05
 		"Alpha" -.05
+
+ship "TL Timer Ship"
+	attributes
+		"hull" 3
+		"hull repair rate" .001
+		"mass" 100
+		"drag" 5
+		"automaton" 1
+		"thrust" 10
+		"turn" 600
+	outfits
+		"TL Timer Weapon"
+	gun 0 0
+
+outfit "TL Timer Weapon"
+	category "Guns"
+	thumbnail "outfit/unknown"
+	"gun ports" -1
+	weapon
+		"velocity" 10
+		"lifetime" 2
+		"reload" 100
+		"blast radius" 10
+		"split range" 200
+		"submunition" "TL Timer Submunition"
+
+outfit "TL Timer Submunition"
+	weapon
+		"lifetime" 20
+		"trigger radius" 200
+		"blast radius" 20
+		"hull damage" .45
+		"no damage scaling"
