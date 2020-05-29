@@ -97,13 +97,13 @@ planet "Legacy Clue Hai site"
 	description `You are beginning to wonder how many asteroids Rhon has actually converted for this chase.`
 	government "Hai"
 
-planet "Legacy Clue 2A site"
+planet "Legacy Stercutus site"
 	attributes uninhabited
 	landscape land/lava6
 	description `A barren and unwelcoming moon.`
 	government "Remnant"
 
-planet "Legacy Clue 2B site"
+planet "Legacy Antevorta site"
 	attributes uninhabited
 	landscape land/sivael4
 	description `This asteriod even has facilities to refuel and reprovision. Unbelievable.`

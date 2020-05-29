@@ -1,0 +1,96 @@
+# Copyright (c) 2020 by Ralf Franken
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+mission "The Legacy: Log Remnant 1 FR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yohna"
+		not "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `Yohna, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. She and I are getting along very well.`
+		log "People" "Yohna" `Yohna is a Remnant technician. She was assigned to me by Taely to help me on a quest.`
+		fail
+
+mission "The Legacy: Log Remnant 1 FN"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yohna"
+		has "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `Yohna, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. She is very capable.`
+		log "People" "Yohna" `Yohna is a Remnant technician. She was assigned to me by Taely to help me on a quest.`
+		fail
+
+mission "The Legacy: Log Remnant 1 MR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yahon"
+		not "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `Yahon, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. He and I are getting along very well.`
+		log "People" "Yahon" `Yahon is a Remnant technician. He was assigned to me by Taely to help me on a quest.`
+		fail
+
+mission "The Legacy: Log Remnant 1 MN"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Second Clue 1: offered"
+		has "the legacy chose yahon"
+		has "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `Yahon, a Remnant technician highly recommended by Taely, joined our party and has helped us to solve the next clues. He is very capable.`
+		log "People" "Yahon" `Yahon is a Remnant technician. He was assigned to me by Taely to help me on a quest.`
+		fail
+
+mission "The Legacy: Log Remnant 2 FR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy chose yohna"
+		not "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space. Yohna and I have become an item. Life is good!`
+		fail
+
+mission "The Legacy: Log Remnant 2 MR"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy chose yahon"
+		not "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space. Yahon and I have become an item. Life is good!`
+		fail
+
+mission "The Legacy: Remnant 2 N"
+	landing 
+	destination "Secret Sky"
+	to offer
+		has "The Legacy: The Third Clue Main: offered"
+		has "the legacy no romance"
+		not "event: the legacy was aborted"
+	on offer
+		log "Quests" "The Legacy" `We are making good progress on the Quest for the legacy, so far we were able to solve all the clues. We are now on the way back into Human space.`
+		fail

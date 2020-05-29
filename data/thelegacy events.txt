@@ -56,7 +56,7 @@ event "the legacy clue hai done"
 		remove object 
 			"Legacy Clue Hai site"
 
-event "the legacy clue 2A pending"
+event "the legacy Stercutus pending"
 	system "Stercutus"
 		pos 140.87 320.242
 		government "Rhon's Legacy"
@@ -110,7 +110,7 @@ event "the legacy clue 2A pending"
 				sprite planet/ice0-b
 				distance 332
 				period 19.9519
-			object "Legacy Clue 2A site"
+			object "Legacy Stercutus site"
 				sprite planet/rock3-b
 				distance 438
 				period 30.2335
@@ -119,8 +119,8 @@ event "the legacy clue 2A pending"
 			distance 2557.67
 			period 1683.1	
 
-event "the legacy clue 2A done"
-	"unvisit planet" "Legacy Clue 2A site"
+event "the legacy Stercutus done"
+	"unvisit planet" "Legacy Stercutus site"
 	system "Stercutus"
 		pos 140.87 320.242
 		government Uninhabited
@@ -183,22 +183,22 @@ event "the legacy clue 2A done"
 			distance 2557.67
 			period 1683.1
 		
-event "the legacy clue 2B pending"
+event "the legacy Antevorta pending"
 	system "Antevorta"
 		government "Rhon's Legacy"
-		add object "Legacy Clue 2B site"
+		add object "Legacy Antevorta site"
 			sprite "planet/asteroid base"
 			distance 3000
 			period 1000
 
-event "the legacy clue 2B done"
-	"unvisit planet" "Legacy Clue 2B site"
+event "the legacy Antevorta done"
+	"unvisit planet" "Legacy Antevorta site"
 	system "Antevorta"
 		government Uninhabited
 		remove object 
-			"Legacy Clue 2B site"
+			"Legacy Antevorta site"
 
-event "the legacy clue 3 pending"
+event "the legacy Lucina pending"
 	system "Lucina"
 		government "Rhon's Legacy"
 	planet "Far Monad"
@@ -207,7 +207,7 @@ event "the legacy clue 3 pending"
 		spaceport `The Facilities around Rhon's hideaway are simple but offer everything you need to refuel and maintain your ship`
 		security 0
 
-event "the legacy clue 3 done"
+event "the legacy Lucina done"
 	system "Lucina"
 		government Uninhabited
 	planet "Far Monad"
