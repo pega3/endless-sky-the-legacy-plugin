@@ -17,7 +17,7 @@ mission "The Legacy: version 0.9.12"
 
 mission "The Legacy: Treasure Hunters 1"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveler' will be disclosed."
+	description "Transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveler' will be disclosed."
 	deadline
 	cargo "(reserved)" 10
 	passengers 4
@@ -37,8 +37,8 @@ mission "The Legacy: Treasure Hunters 1"
 	on offer
 		require "Jump Drive"
 		conversation
-			`While enjoying some food in a rather posh spaceport restaurants, you notice a group of 4 secretive elder gentlemen at a nearby table. One of the men keeps looking at you and finally gets up and comes over to your table.`
-			`	"Sorry for the interruption, sir. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
+			`While enjoying some food in a rather posh spaceport restaurant, you notice a group of 4 secretive elder gentlemen at a nearby table. One of the men keeps looking at you and finally gets up and comes over to your table.`
+			`	"Sorry for the interruption. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
 			choice
 				`"Yes, that's me"`
 			`	"In that case, you may be just the person we are looking for."`
@@ -103,7 +103,7 @@ mission "The Legacy: Treasure Hunters 1"
 
 mission "The Legacy: Treasure Hunters 2"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveler' will be disclosed."
+	description "Transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveler' will be disclosed."
 	autosave
 	deadline 3 0
 	cargo "(reserved)" 10
@@ -187,7 +187,7 @@ mission "The Legacy: Hang around"
 
 mission "The Legacy: Treasure Hunters 3"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: transport the treasure hunters to Benoit's private island."
+	description "Transport the treasure hunters to Benoit's private island."
 	cargo "(reserved)" 10
 	passengers 4
 	landing
@@ -225,7 +225,7 @@ mission "The Legacy: Treasure Hunters 3"
 
 mission "The Legacy: Treasure Hunters 4"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: fetch some computer supplies for the Treasure Hunters."
+	description "Fetch some computer supplies for the Treasure Hunters."
 	autosave
 	deadline 3 0
 	cargo "(reserved)" 5
@@ -282,7 +282,7 @@ mission "The Legacy: Treasure Hunters 4"
 			
 mission "The Legacy: Treasure Hunters 5"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: pick up Jane and Marta from the Academy of Planetary Science."
+	description "Pick up Jane and Marta from the Academy of Planetary Science."
 	cargo "(reserved)" 5
 	passengers 2
 	landing
@@ -329,7 +329,7 @@ mission "The Legacy: Treasure Hunters 5"
 
 mission "The Legacy: Treasure Hunters 6"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: transport Jane and her maid Martha to Benoit's residence."
+	description "Transport Jane and her maid Martha to Benoit's residence."
 	cargo "(reserved)" 5
 	passengers 2
 	landing
@@ -365,7 +365,7 @@ mission "The Legacy: Treasure Hunters 6"
 
 mission "The Legacy: Ghost Chase 0"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	to offer
 		has "The Legacy: Treasure Hunters 6: done"
 		not "event: the legacy was aborted"
@@ -412,7 +412,7 @@ mission "The Legacy: Ghost Chase 0"
 
 mission "The Legacy: Ghost Chase 1"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 0: done"
@@ -458,7 +458,7 @@ mission "The Legacy: Ghost Chase 1"
 
 mission "The Legacy: Ghost Chase 2"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 1: done"
@@ -510,7 +510,7 @@ mission "The Legacy: Ghost Chase 2"
 
 mission "The Legacy: Ghost Chase 3"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 2: done"
@@ -527,12 +527,12 @@ mission "The Legacy: Ghost Chase 3"
 			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
 				decline
 			label "next_target"
-			`	"The next one is simple - go to the planet which has a moon inhabited by the Quarks."`
+			`	"The next one is simple - go to the planet which has a moon inhabited by the Quargs."`
 			choice
 				`	"Okay, I'm on my way."`
 					goto "nohelp"
 				`	"Sorry, but can you tell me where that is?"`
-			`	"<destination> has the moon Echo, where the Quarks have an outpost and are watching what is happening on the planet below."`
+			`	"<destination> has the moon Echo, where the Quargs have an outpost and are watching what is happening on the planet below."`
 			label "nohelp"
 			`	Once again, you prepare the <ship> for departure.`
 				accept
@@ -549,11 +549,11 @@ mission "The Legacy: Ghost Chase 3"
 		event "the legacy abortion message" 180
 	on complete
 		conversation
-			`On <planet>, you are not surprised when you are directed to a private hangar of the Tarazed corporation. While some technical equipment is loaded onto your ship, an official of the corporation hands you a suitcase with a data crystals.`
+			`On <planet>, you are not surprised when you are directed to a private hangar of the Tarazed corporation. While some technical equipment is loaded onto your ship, an official of the corporation hands you a suitcase with data crystals.`
 
 mission "The Legacy: Ghost Chase 4"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	cargo "technical equipment" 4
 	landing
 	to offer
@@ -597,7 +597,7 @@ mission "The Legacy: Ghost Chase 4"
 
 mission "The Legacy: Ghost Chase 5"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: support the treasure hunters by picking up some materials from <planet>."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	cargo "technical equipment" 4
 	landing
 	to offer
@@ -643,7 +643,7 @@ mission "The Legacy: Ghost Chase 5"
 
 mission "The Legacy: Ghost Chase 6"
 	name "The Legacy: Treasure hunters"
-	description "The Legacy: return with the items you have collected to Benoit on his private island."
+	description "Return with the items you have collected to Benoit on his private island."
 	cargo "technical equipment" 4
 	landing
 	to offer
@@ -689,7 +689,7 @@ mission "The Legacy: Ghost Chase 6"
 
 mission "The Legacy: The First Clue 0"
 	name "The Legacy: The First Clue"
-	description "The Legacy: your last journey for the Treasure Hunters leads you to <planet>. You also received the first clue, but so far cannot make anything of it."
+	description "Your last journey for the Treasure Hunters leads you to <planet>. You also received the first clue, but so far cannot make anything of it."
 	cargo "used computers" 20
 	to offer
 		has "The Legacy: Ghost Chase 6: done"
@@ -732,7 +732,7 @@ mission "The Legacy: The First Clue 0"
 
 mission "The Legacy: The First Clue 1"
 	name "The Legacy: The First Clue"
-	description "The Legacy: after Maria and Joe have helped you to decipher the first clue, you embark on the hunt for the legacy."
+	description "After Maria and Joe have helped you to decipher the first clue, you embark on the hunt for the legacy."
 	invisible
 	landing
 	to offer
@@ -793,7 +793,7 @@ mission "The Legacy: The First Clue 1"
 			`	When it's time to leave, they wish you good luck for your adventure. You promise to give them a share if your hunt is successful.`
 			`	Back on your ship, you start educating yourself about Rhon, his live and his teachings, and find that he was indeed a fascinating person.`
 			`	You may have overdone it with your studies, tough. In your sleep you dream of Rhon visiting you.`
-			`	He gives you a warning: "If you want to find my inheritance, don't rely solely on your mission computer. Remember the friends you have made on your travels and the knowledge you have acquire."`
+			`	He gives you a warning: "If you want to find my inheritance, don't rely solely on your mission computer. Remember the friends you have made on your travels and the knowledge you have acquired."`
 				accept
 	on accept
 		log "Quests" "The Legacy" `Maria and Joe helped me to solve the first clue, now I am on searching for someone who can decipher Hai symbols.`
@@ -831,14 +831,14 @@ mission "The Legacy: Hai not helping 2"
 		has "The Legacy: The First Clue 1: active"
 	on offer
 		conversation
-			`Since you have a good standing with the Hai, you are welcome by an official. You show him the symbols. He looks at you in what you assume is a puzzled way.`
-			`	"These symbols are sacred to the Hai. You should not even possess these. You are a good friend to the Hai, so I will not ask you how you got this. But I will not tell you anything about them."`
-			`	It looks like you will have no success through official channels. Maybe you should talk to someone you know personally.`
+			`Since you have a good standing with the Hai, you are welcome by an official who speaks your language. You show him the symbols. He looks at you in what you assume is a puzzled way.`
+			`	"These is not normal Hai writing, these are special symbols which are sacred to the Hai. You should not even possess these. You are a good friend to the Hai, so I will not ask you how you got this. But I will not tell you anything about them."`
+			`	It looks like you will have no success through official channels. Maybe you should talk to someone you know personally. Ambassador Sayari might be the right person.`
 				decline
 
 mission "The Legacy: The First Clue 2"
 	name "The Legacy: The First Clue"
-	description "The Legacy: help Sayari to relocate to <destination>, while trying to convince her to decipher the Hai symbols for you."
+	description "Help Sayari to relocate to <destination>, while trying to convince her to decipher the Hai symbols for you."
 	cargo "personal belongings" 8
 	passengers 2
 	to offer
@@ -854,14 +854,14 @@ mission "The Legacy: The First Clue 2"
 			`	"Of course. But why are you not on Setar Fort?"`
 			`	"I took a leave from my duties to accompany my mother, who is now undergoing the Molt. She has entered the room of seclusion yesterday, so I was on my way back to report to the leaders."`
 			`	"I hope she will be alright."`
-			`	You arrange the transfer of her belongings into the cargo bay of your ship and then help Sayari and Rek to settle in.`
+			`	You arrange the transfer of Sayari's belongings into the cargo bay of your ship and then help her and Rek to settle in.`
 				accept
 	on enter
 		conversation
 			`Once your ship is cruising on auto-pilot, you gather with your friends in the mess hall and swap stories. When you tell them about your current quest, Sayari surprises everyone.`
 			`	"I knew Rhon. And he may have actually learned the symbols from me, although I did not realize this until now."`
 			`	You stare at her in disbelief.`
-			`	"It was many years ago, I had just returned from my time as envoy. My younger sister was working in the reception area of Allhome Spaceport. There he was, one day. Obviously, he had taken the trip through the wormhole by accident while fleeing the Pirates. He was more or less stranded. My sister had pity and took him in. Because I had been under humans, she asked me to help."`
+			`	"It was many years ago, I had just returned from my time as envoy to the humans. My younger sister was working in the reception area of Allhome Spaceport. There he was, one day. Obviously, he had taken the trip through the wormhole by accident while fleeing the Pirates. He was more or less stranded. My sister had pity and took him in. Because I had been under humans, she asked me to help."`
 			choice
 				`	"What happened then?"`
 			` 	"Rhon had a genuine interest into the Hai and our philosophy of peace. He was a fascinating human. We became close friends."`
@@ -888,7 +888,7 @@ mission "The Legacy: The First Clue 2"
 
 mission "The Legacy: Hai Space 0"
 	name "The Legacy: Hai Space"
-	description "The Legacy: follow the next clue for the Legacy to <destination>."
+	description "Follow the next clue for the Legacy to <destination>."
 	cargo "(reserved)" 10
 	passengers 2
 	to offer
@@ -928,7 +928,7 @@ mission "The Legacy: Hai Space 0"
 	on complete
 		log "Quests" "The Legacy" `This quest leads me on another chase, this time through Hai space.`
 		conversation
-			`When you arrive in the Spaceport of <planet>, you and Sayari exist the <ship>, while Rek stays in the ship to not draw too much attention. Sayari leads you straight to the long term storage facility. You are requested to enter the retrieval code and password into a terminal by the Hai behind the counter.`
+			`When you arrive in the Spaceport of <planet>, you and Sayari exit the <ship>, while Rek stays in the ship to not draw too much attention. Sayari leads you straight to the long term storage facility. You are requested to enter the retrieval code and password into a terminal by the Hai behind the counter.`
 			`	"'The first friend I had' - I assume this is referring to my sister, because she first took care of him." Sayari enters the birthday of her sister as the storage code and her name as the password, and her input is accepted.`
 			` 	The counter clerk vanishes and returns after a while with a puzzled look on her face. They speak in Hai, but luckily you brought your translator.`
 			`	"This storage box had very [interesting, unique] instructions with it. It is paid for [many years, a long time] into the future and has specific [instructions, directives] to hand out only one bag per requestor."`
@@ -936,7 +936,7 @@ mission "The Legacy: Hai Space 0"
 
 mission "The Legacy: Hai Space 1"
 	name "The Legacy: Hai Space"
-	description "The Legacy: continue the search for the Legacy on <destination>."
+	description "Continue the search for the Legacy on <destination>."
 	cargo "(reserved)" 10
 	passengers 2
 	landing
@@ -976,7 +976,7 @@ mission "The Legacy: Hai Space 1"
 
 mission "The Legacy: Hai Space 2"
 	name "The Legacy: Hai Space"
-	description "The Legacy: search for the next clue on <destination>."
+	description "Search for the next clue on <destination>."
 	cargo "(reserved)" 10
 	passengers 2
 	landing
@@ -1017,7 +1017,7 @@ mission "The Legacy: Hai Space 2"
 
 mission "The Legacy: Hai Space 3"
 	name "The Legacy: Hai Space"
-	description "The Legacy: the search in Hai space is leading you to <destination>."
+	description "The search in Hai space is leading you to <destination>."
 	cargo "(reserved)" 10
 	passengers 2
 	landing
@@ -1057,7 +1057,7 @@ mission "The Legacy: Hai Space 3"
 
 mission "The Legacy: Remnant 0"
 	name "The Legacy: Remnant Space"
-	description "The Legacy: the final clue in Hai space leads you to the Remnant."
+	description "The final clue in Hai space leads you to the Remnant."
 	cargo "(reserved)" 10
 	passengers 2
 	landing
@@ -1087,7 +1087,7 @@ mission "The Legacy: Remnant 0"
 			`	Rek issues a serious of clicks which, as you have learned, indicates her amusement. "You have already solved the 2nd clue - admit it."`
 			choice
 				`	"Well, yes and no."`
-			`	"I know what these symbols are - they are signs from a group of humans who fled the Alpha Wars into isolation and who now communicate through sign language and not by spoken word."`
+			`	"I know what these symbols are - they are signs from a group of humans who fled from the Alpha Wars into isolation and who now communicate through sign language and not by spoken word."`
 			`Rek is excited. "That is fascinating. Albeit..." She looks down at her lengthy, claw-like fingers. Sayari looks at her small paws. They both look at you. "I believe, you will have to do the 'talking'". You all break out into laughter.`
 			`	You try to dampen the mood a bit. "We will require help in any case. I recognize some of the symbols, but not enough. Unfortunately, these humans, who call themselves 'The Remnant' are pretty much at the other end of the galaxy."`
 			`	Rek is not deterred: "Well, then we better depart." Sayari chimes in: "It's good then that I had the ship loaded with provisions before departure."`
@@ -1114,7 +1114,7 @@ mission "The Legacy: Remnant 0"
 
 mission "The Legacy: Remnant 1"
 	name "The Legacy: the Remnant years"
-	description "The Legacy: Rhon's path to the Remnants leads you to <destination>."
+	description "Rhon's path to the Remnants leads you to <destination>."
 	cargo "(reserved)" 12
 	passengers 3
 	to offer
@@ -1212,7 +1212,7 @@ mission "The Legacy: Remnant 1"
 
 mission "The Legacy: Remnant 2"
 	name "The Legacy: the Remnant years"
-	description "The Legacy: Rhon's path to the Remnants leads you to <destination>."
+	description "Rhon's path to the Remnants leads you to <destination>."
 	cargo "(reserved)" 12
 	passengers 3
 	landing
@@ -1238,7 +1238,7 @@ mission "The Legacy: Remnant 2"
 				accept
 	on enter "Nenia"
 		conversation
-			`When you enter Nenia, Yohna opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it one of us and we mean them no harm."`
+			`When you enter Nenia, Yohna opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it is one of us and we mean them no harm."`
 			`	A moment later, a drone uncloaks next to your ship. You receive a transmission, this time in English: "Come and get me..."`
 			`	One spacewalk later, you have the drone on board. Fortunately, she was small enough to fit in the airlock and followed you automatically once you had touched her.`
 			`	The examination of the drone is rather brief, once you discover the written words: 'Base: Antevorta'`
@@ -1270,7 +1270,7 @@ mission "The Legacy: Remnant 2"
 
 mission "The Legacy: Remnant 3"
 	name "The Legacy: the Remnant years"
-	description "The Legacy: visit <planet> to retrieve the next clue for the Legacy."
+	description "Visit <planet> to retrieve the next clue for the Legacy."
 	cargo "(reserved)" 12
 	passengers 3
 	to offer
@@ -1502,7 +1502,7 @@ mission "The Legacy: TMBR found"
 
 mission "The Legacy: The Hideout"
 	name "The Legacy: the Remnant years"
-	description "The Legacy: visit Rhon's hideout on <destination>."
+	description "Visit Rhon's hideout on <destination>."
 	cargo "(reserved)" 12
 	passengers 6
 	blocked `You are missing <capacity> to continue the missions.`
@@ -1533,7 +1533,7 @@ mission "The Legacy: The Hideout"
 			choice
 				`	You hear Raven mutter "Now it makes sense..."`
 			`	But you continue to listen to Rhon: "Tohra was furious, especially since the results were ambiguous. And she had the entire Ember-People community behind her and had good connections to parts of the government. So, this quickly turned into a huge political controversy and become something much bigger."`
-			`	"In the end, paranoia prevailed and I was banned for life from Remnant space and the Ember Waste. While officially Tohra brought me back to Human Space, she hid me at the place you are now going, which I refer to as 'The Hideout'. Back then, the Remnant military regularly ran patrols there, Tohra's unit and the Ember-People saw to it that we could spend a lot of time together and I had regular company there. We had everything we needed, including a small cloaking device, in case unexpected visitors would show up."`
+			`	"In the end, paranoia prevailed and I was banned for life from Remnant space and the Ember Waste. While officially Tohra brought me back to Human Space, she hid me at the place you are now going to, which I refer to as 'The Hideout'. Back then, the Remnant military regularly ran patrols there, Tohra's unit and the Ember-People saw to it that we could spend a lot of time together and I had regular company there. We had everything we needed, including a small cloaking device, in case unexpected visitors would show up."`
 			`	You notice that the last remark draws the attention of your human passengers, and so does Rhon. With a wink, he says: "Well, I guess that is enough material for discussions for now".`
 			choice
 				`	You turn towards Yohna, wondering how she is taking the news that she might have Alpha DNA in her blood.`
@@ -1582,7 +1582,7 @@ mission "The Legacy: The Hideout"
 
 mission "The Legacy: Return to Viminal"
 	name "The Legacy: Return to Viminal"
-	description "The Legacy: Transport Rhon and his family savely to <planet>."
+	description "Transport Rhon and his family savely to <planet>."
 	cargo "(reserved)" 12
 	passengers 6
 	blocked `You are missing <capacity> to continue the missions.`
@@ -1782,8 +1782,8 @@ mission "The Legacy: Return to Viminal"
 
 # Ideas for what happens after The Hideout
 # Manages to get Jump-Drive installed into Starling. 
-# Travels through Korath-Space until reaches Quark ring world
-# Helps Quarks to deal with some Pirate / Farming troubles or something else to obtain some Quark tech
+# Travels through Korath-Space until reaches Quarg ring world
+# Helps Quargs to deal with some Pirate / Farming troubles or something else to obtain some Quarg tech
 # Goes on to wonderer space - since he speaks Hai, he can communicate? Or else he learns the language
 # Chase through Wanderer planets
 # This is where Rek comes into play / why he knew the quest was not done. Something happened in the wanderer past which lead to Rhon being allowed to use the old plans and the facilities to build his own Hurricane
@@ -1809,7 +1809,7 @@ mission "The Legacy: Return to Viminal"
 # Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation. 
 
 # Ships to be offered:
-# Hurricane with Quark tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
+# Hurricane with Quarg tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
 
 
 mission "The Legacy: Muahaha"
