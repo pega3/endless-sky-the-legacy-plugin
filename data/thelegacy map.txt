@@ -88,24 +88,24 @@ planet "Wormhole Balaen Orkish Galaxy"
 planet "Legacy Disclosure site"
 	attributes uninhabited
 	landscape land/sivael6
-	description `Rhon had quite an extravagant taste. He decided that the first clue to his legacy would be handed out in a facility built for only this purpose on an uninhabited asteroid.`
+	description `The disclosure site is built into a real meteorite. It offers basic landig capabilities for space ships and a big assembly hall.`
 	government "Syndicate"
 
 planet "Legacy Clue Hai site"
 	attributes uninhabited
 	landscape land/sivael0
-	description `You are beginning to wonder how many asteroids Rhon has actually converted for this chase.`
+	description `Again, a meteorite was converted into a basic landing site. The facilities are very similar to previous location, however, the assembly hall is much smaller and some additional rooms are indicated by a number of doors.`
 	government "Hai"
 
 planet "Legacy Stercutus site"
 	attributes uninhabited
 	landscape land/lava6
-	description `A barren and unwelcoming moon.`
+	description `A barren and unwelcoming moon. It has a thin athmosphere, but longer stays without breathing equipment are not recommended.`
 	government "Remnant"
 
 planet "Legacy Antevorta site"
 	attributes uninhabited
 	landscape land/sivael4
-	description `This asteriod even has facilities to refuel and reprovision. Unbelievable.`
-	spaceport `The spaceport contains storage facilities for various kinds of synthetic food and the basic maintenance and refueling facilities for spaceships`
+	description `This asteriod was converted into a full base to service ships.`
+	spaceport `The spaceport contains storage facilities for various kinds of synthetic food and the basic maintenance and refueling facilities for spaceships.`
 	government "Remnant"
