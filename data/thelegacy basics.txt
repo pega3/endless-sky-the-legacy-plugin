@@ -8,11 +8,14 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-outfitter "Refuge Outfits"
-	"Yellow Quantum Key Stone"
+outfitter "TL Refuge Outfitter"
+	"Pilot's License"
 
-shipyard "Refuge Shipyard"
+shipyard "TL Refuge Shipyard"
 	"Rhons Hurricane"
+
+shipyard "TL Quark Shipyard"
+	"Quark Blackbird"
 
 government "Rhon's Legacy"
 	"player reputation" 1
@@ -54,6 +57,72 @@ outfit "TL Timer Weapon"
 		"submunition" "TL Timer Submunition"
 
 outfit "TL Timer Submunition"
+	weapon
+		"lifetime" 20
+		"trigger radius" 200
+		"blast radius" 20
+		"hull damage" .45
+		"no damage scaling"
+
+ship "TL Timer2 Ship"
+	attributes
+		"hull" 3
+		"hull repair rate" .001
+		"mass" 100
+		"drag" 5
+		"automaton" 1
+		"thrust" 10
+		"turn" 600
+	outfits
+		"TL Timer2 Weapon"
+	gun 0 0
+
+outfit "TL Timer2 Weapon"
+	category "Guns"
+	thumbnail "outfit/unknown"
+	"gun ports" -1
+	weapon
+		"velocity" 10
+		"lifetime" 2
+		"reload" 100
+		"blast radius" 10
+		"split range" 200
+		"submunition" "TL Timer2 Submunition"
+
+outfit "TL Timer2 Submunition"
+	weapon
+		"lifetime" 20
+		"trigger radius" 200
+		"blast radius" 20
+		"hull damage" .45
+		"no damage scaling"
+
+ship "TL Timer3 Ship"
+	attributes
+		"hull" 3
+		"hull repair rate" .001
+		"mass" 100
+		"drag" 5
+		"automaton" 1
+		"thrust" 10
+		"turn" 600
+	outfits
+		"TL Timer3 Weapon"
+	gun 0 0
+
+outfit "TL Timer3 Weapon"
+	category "Guns"
+	thumbnail "outfit/unknown"
+	"gun ports" -1
+	weapon
+		"velocity" 10
+		"lifetime" 2
+		"reload" 100
+		"blast radius" 10
+		"split range" 200
+		"submunition" "TL Timer3 Submunition"
+
+outfit "TL Timer3 Submunition"
 	weapon
 		"lifetime" 20
 		"trigger radius" 200

@@ -8,12 +8,57 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+ship "Quark Blackbird"
+	sprite ship/blackbird
+	thumbnail thumbnail/blackbird
+	attributes
+		category Transport
+		cost -176000000
+		mass 220
+		bunks 12
+		"cargo space" 60
+		drag 5
+		"engine capacity" 120
+		"fuel capacity" 900
+		"heat dissipation" 0.7
+		hull 900
+		"outfit space" 450
+		"required crew" 2
+		shields 4400
+		"turret mounts" 2
+		"weapon capacity" 40
+	outfits
+		"Medium Graviton Thruster"
+		"Jump Drive"
+		"Medium Graviton Steering"
+		"Quarg Anti-Missile"
+		"Nanotech Battery"
+		"Quantum Shield Generator"
+		"Antimatter Core"
+		"Yellow Quantum Key Stone"
+	crew 3
+	fuel 900
+	shields 4400
+	hull 900
+	engine -40 55 1
+	engine 40 55 1
+	turret -18 0 "Quarg Anti-Missile"
+	turret 18 0
+	leak leak 50 50
+	leak flame 70 80
+	explode "large explosion" 2
+	explode "tiny explosion" 15
+	explode "small explosion" 34
+	explode "medium explosion" 18
+	"final explode" "final explosion small" 1
+	description "The Quark have taken a Blackbird and refitted to serve as a pure transport ship."
+
 ship "Rhons Hurricane"
 	sprite ship/hurricane
 	thumbnail thumbnail/hurricane
 	attributes
 		category "Heavy Warship"
-		cost 39100000
+		cost 600000000
 		mass 770
 		bunks 117
 		"cargo space" 98
@@ -24,7 +69,7 @@ ship "Rhons Hurricane"
 		"heat dissipation" 0.55
 		hull 46500
 		"outfit space" 960
-		"required crew" 76
+		"required crew" 2
 		shields 72400
 		"turret mounts" 5
 		"weapon capacity" 428

@@ -37,8 +37,8 @@ mission "The Legacy: Treasure Hunters 1"
 	on offer
 		require "Jump Drive"
 		conversation
-			`While enjoying some food in a rather posh spaceport restaurants, you notice a group of 4 secretive elder gentlemen at a nearby table. One of the men keeps looking at you and finally gets up and comes over to your table.`
-			`	"Sorry for the interruption, sir. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
+			`While enjoying some food in a rather posh spaceport restaurant, you notice a group of 4 secretive elder gentlemen at a nearby table. One of the men keeps looking at you and finally gets up and comes over to your table.`
+			`	"Sorry for the interruption. Aren't you <first> <last>, the starship captain who played a vital role in the archeological discoveries on Zug?"`
 			choice
 				`"Yes, that's me"`
 			`	"In that case, you may be just the person we are looking for."`
@@ -112,7 +112,7 @@ mission "The Legacy: Treasure Hunters 2"
 		has "The Legacy: Treasure Hunters 1: done"
 		not "event: the legacy was aborted"
 	source "Tinker"
-	destination "Legacy Disclosure site"
+	destination "TL Disclosure site"
 	on offer
 		conversation
 			`When you look for your passengers in the Spaceport, they are easy to spot. Each of them commands a wagon full of electronic equipment.`
@@ -143,7 +143,7 @@ mission "The Legacy: Hang around"
 	invisible
 	to offer
 		has "The Legacy: Treasure Hunters 2: done"
-	destination "Legacy Disclosure site"
+	destination "TL Disclosure site"
 	npc disable
 		government "Test Dummy"
 		system "Kugel"
@@ -187,15 +187,14 @@ mission "The Legacy: Hang around"
 
 mission "The Legacy: Treasure Hunters 3"
 	name "The Legacy: Treasure hunters"
-	description "Transport a group of treasure hunters to the event where the legacy of legendary 'Rhon the Traveler' will be disclosed."
+	description "Transport the treasure hunters to Benoit's private island."
 	cargo "(reserved)" 10
 	passengers 4
-	invisible
 	landing
 	to offer
 		has "The Legacy: Hang around: done"
 		not "event: the legacy was aborted"
-	source "Legacy Disclosure site"
+	source "TL Disclosure site"
 	destination "Mainsail"
 	on offer
 		conversation
@@ -204,7 +203,7 @@ mission "The Legacy: Treasure Hunters 3"
 			`	You respond: "Okay, so where should I take you then?"`
 			`	Benoit thinks for a moment and then gives you a mischievous look. "Hmm... You know what, I believe you should participate in the guessing game, to earn your share. I will describe you the target, let us see if you can guess it."`
 			`	"For our studies we want to retreat to my own private island. It is on a planet consisting mostly of water, so even the spaceport is on its own city-ship. And it is not exactly cheap to live there."`
-			`	"Any idea where you should take us? Oh, and be warned: your mission computer will not disclose the destination."`
+			`	"Any idea where you should take us?"`
 			choice
 				`	"Yes, I know where you want to be taken."`
 					goto "no help"
@@ -215,6 +214,8 @@ mission "The Legacy: Treasure Hunters 3"
 				accept
 	on fail
 		event "the legacy was aborted"
+	on defer
+		event "the legacy was aborted"
 	on complete
 		payment 500000
 		conversation
@@ -224,12 +225,11 @@ mission "The Legacy: Treasure Hunters 3"
 
 mission "The Legacy: Treasure Hunters 4"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Fetch some computer supplies for the Treasure Hunters."
 	autosave
 	deadline 3 0
 	cargo "(reserved)" 5
 	passengers 2
-	invisible
 	to offer
 		has "The Legacy: Treasure Hunters 3: done"
 		not "event: the legacy was aborted"
@@ -276,13 +276,15 @@ mission "The Legacy: Treasure Hunters 4"
 			`You did not reach the destination on time. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 			
 mission "The Legacy: Treasure Hunters 5"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Pick up Jane and Marta from the Academy of Planetary Science."
 	cargo "(reserved)" 5
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Treasure Hunters 4: done"
@@ -321,13 +323,15 @@ mission "The Legacy: Treasure Hunters 5"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 
 mission "The Legacy: Treasure Hunters 6"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Transport Jane and her maid Martha to Benoit's residence."
 	cargo "(reserved)" 5
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Treasure Hunters 5: done"
@@ -348,6 +352,9 @@ mission "The Legacy: Treasure Hunters 6"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		payment 1000000
 		conversation
@@ -358,8 +365,7 @@ mission "The Legacy: Treasure Hunters 6"
 
 mission "The Legacy: Ghost Chase 0"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
-	invisible
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	to offer
 		has "The Legacy: Treasure Hunters 6: done"
 		not "event: the legacy was aborted"
@@ -396,6 +402,9 @@ mission "The Legacy: Ghost Chase 0"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`After you have landed on <planet>, you follow Benoit's instructions and visit one of the local research labs. One of the scientists hands you a suitcase and wonders: "Here is the analysis kit that Benoit requested. I have no idea what he wants with it, but he usually knows what he's doing."`
@@ -403,8 +412,7 @@ mission "The Legacy: Ghost Chase 0"
 
 mission "The Legacy: Ghost Chase 1"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
-	invisible
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 0: done"
@@ -438,6 +446,9 @@ mission "The Legacy: Ghost Chase 1"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`On <planet>, you follow Benoits directions and visit a small jewelry shop in one of the side streets. Size and location of the venue are misleading, though. The jewelry offered is of the finest quality - which is also reflected in the prices.`
@@ -447,8 +458,7 @@ mission "The Legacy: Ghost Chase 1"
 
 mission "The Legacy: Ghost Chase 2"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
-	invisible
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 1: done"
@@ -482,6 +492,9 @@ mission "The Legacy: Ghost Chase 2"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`When you arrive at the dig site on <planet>, you have difficulties to find Albert. The site has turned into somewhat of a tourist attraction and there are far more people present than in the early days. Finally, you discover Albert, who is quite happy to see you. He takes you to his quarters where you sit down and catch up on the latest developments. Eventually, the topic turns to the reason of your visit.`
@@ -497,8 +510,7 @@ mission "The Legacy: Ghost Chase 2"
 
 mission "The Legacy: Ghost Chase 3"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
-	invisible
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 2: done"
@@ -515,12 +527,12 @@ mission "The Legacy: Ghost Chase 3"
 			`	Benoit is disappointed. "This is regrettable, but in that case I wish you all the best for your further adventures."`
 				decline
 			label "next_target"
-			`	"The next one is simple - go to the planet which has a moon inhabited by the Quarks."`
+			`	"The next one is simple - go to the planet which has a moon inhabited by the Quargs."`
 			choice
 				`	"Okay, I'm on my way."`
 					goto "nohelp"
 				`	"Sorry, but can you tell me where that is?"`
-			`	"<destination> has the moon Echo, where the Quarks have an outpost and are watching what is happening on the planet below."`
+			`	"<destination> has the moon Echo, where the Quargs have an outpost and are watching what is happening on the planet below."`
 			label "nohelp"
 			`	Once again, you prepare the <ship> for departure.`
 				accept
@@ -532,15 +544,17 @@ mission "The Legacy: Ghost Chase 3"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
-			`On <planet>, you are not surprised when you are directed to a private hangar of the Tarazed corporation. While some technical equipment is loaded onto your ship, an official of the corporation hands you a suitcase with a data crystals.`
+			`On <planet>, you are not surprised when you are directed to a private hangar of the Tarazed corporation. While some technical equipment is loaded onto your ship, an official of the corporation hands you a suitcase with data crystals.`
 
 mission "The Legacy: Ghost Chase 4"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	cargo "technical equipment" 4
-	invisible
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 3: done"
@@ -574,15 +588,17 @@ mission "The Legacy: Ghost Chase 4"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`The scientist welcoming you in the astronomical laboratory of <planet> insists on giving you a tour through the relevant sections, which happens to be most of the facility. Once you are done, he hands you another data crystal. You return to your ship.`
 
 mission "The Legacy: Ghost Chase 5"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Support the treasure hunters by picking up some materials from <planet>."
 	cargo "technical equipment" 4
-	invisible
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 4: done"
@@ -618,15 +634,17 @@ mission "The Legacy: Ghost Chase 5"
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`On <planet>, you don't even have to leave the Spaceport. Here, you visit the local control center where you receive another data crystal.`
 
 mission "The Legacy: Ghost Chase 6"
 	name "The Legacy: Treasure hunters"
-	description "Support the treasure hunters in their chase for the legacy of 'Rhon the Traveler'."
+	description "Return with the items you have collected to Benoit on his private island."
 	cargo "technical equipment" 4
-	invisible
 	landing
 	to offer
 		has "The Legacy: Ghost Chase 5: done"
@@ -643,6 +661,9 @@ mission "The Legacy: Ghost Chase 6"
 	on fail
 		dialog
 			`You did not reach the destination. Benoit is very angry and terminates the collaboration.`
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
+	on defer
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
 	on complete
@@ -668,7 +689,7 @@ mission "The Legacy: Ghost Chase 6"
 
 mission "The Legacy: The First Clue 0"
 	name "The Legacy: The First Clue"
-	description "You have received a clue for the legacy of 'Rhon the Traveler' and try to decipher it."
+	description "Your last journey for the Treasure Hunters leads you to <planet>. You also received the first clue, but so far cannot make anything of it."
 	cargo "used computers" 20
 	to offer
 		has "The Legacy: Ghost Chase 6: done"
@@ -772,12 +793,13 @@ mission "The Legacy: The First Clue 1"
 			`	When it's time to leave, they wish you good luck for your adventure. You promise to give them a share if your hunt is successful.`
 			`	Back on your ship, you start educating yourself about Rhon, his live and his teachings, and find that he was indeed a fascinating person.`
 			`	You may have overdone it with your studies, tough. In your sleep you dream of Rhon visiting you.`
-			`	He gives you a warning: "If you want to find my inheritance, your mission computer will not be helping you. All you have at your disposal is your knowledge of the galaxy and the friends you have made."`
+			`	He gives you a warning: "If you want to find my inheritance, don't rely solely on your mission computer. Remember the friends you have made on your travels and the knowledge you have acquired."`
 				accept
 	on accept
 		log "Quests" "The Legacy" `Maria and Joe helped me to solve the first clue, now I am on searching for someone who can decipher Hai symbols.`
 	on decline
 		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on fail
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
@@ -809,14 +831,14 @@ mission "The Legacy: Hai not helping 2"
 		has "The Legacy: The First Clue 1: active"
 	on offer
 		conversation
-			`Since you have a good standing with the Hai, you are welcome by an official. You show him the symbols. He looks at you in what you assume is a puzzled way.`
-			`	"These symbols are sacred to the Hai. You should not even possess these. You are a good friend to the Hai, so I will not ask you how you got this. But I will not tell you anything about them."`
-			`	It looks like you will have no success through official channels. Maybe you should talk to someone you know personally.`
+			`Since you have a good standing with the Hai, you are welcome by an official who speaks your language. You show him the symbols. He looks at you in what you assume is a puzzled way.`
+			`	"These is not normal Hai writing, these are special symbols which are sacred to the Hai. You should not even possess these. You are a good friend to the Hai, so I will not ask you how you got this. But I will not tell you anything about them."`
+			`	It looks like you will have no success through official channels. Maybe you should talk to someone you know personally. Ambassador Sayari might be the right person.`
 				decline
 
 mission "The Legacy: The First Clue 2"
 	name "The Legacy: The First Clue"
-	description "You are trying to have the Hai symbols deciphered."
+	description "Help Sayari to relocate to <destination>, while trying to convince her to decipher the Hai symbols for you."
 	cargo "personal belongings" 8
 	passengers 2
 	to offer
@@ -832,14 +854,14 @@ mission "The Legacy: The First Clue 2"
 			`	"Of course. But why are you not on Setar Fort?"`
 			`	"I took a leave from my duties to accompany my mother, who is now undergoing the Molt. She has entered the room of seclusion yesterday, so I was on my way back to report to the leaders."`
 			`	"I hope she will be alright."`
-			`	You arrange the transfer of her belongings into the cargo bay of your ship and then help Sayari and Rek to settle in.`
+			`	You arrange the transfer of Sayari's belongings into the cargo bay of your ship and then help her and Rek to settle in.`
 				accept
 	on enter
 		conversation
 			`Once your ship is cruising on auto-pilot, you gather with your friends in the mess hall and swap stories. When you tell them about your current quest, Sayari surprises everyone.`
 			`	"I knew Rhon. And he may have actually learned the symbols from me, although I did not realize this until now."`
 			`	You stare at her in disbelief.`
-			`	"It was many years ago, I had just returned from my time as envoy. My younger sister was working in the reception area of Allhome Spaceport. There he was, one day. Obviously, he had taken the trip through the wormhole by accident while fleeing the Pirates. He was more or less stranded. My sister had pity and took him in. Because I had been under humans, she asked me to help."`
+			`	"It was many years ago, I had just returned from my time as envoy to the humans. My younger sister was working in the reception area of Allhome Spaceport. There he was, one day. Obviously, he had taken the trip through the wormhole by accident while fleeing the Pirates. He was more or less stranded. My sister had pity and took him in. Because I had been under humans, she asked me to help."`
 			choice
 				`	"What happened then?"`
 			` 	"Rhon had a genuine interest into the Hai and our philosophy of peace. He was a fascinating human. We became close friends."`
@@ -866,10 +888,9 @@ mission "The Legacy: The First Clue 2"
 
 mission "The Legacy: Hai Space 0"
 	name "The Legacy: Hai Space"
-	description "You are following the first clue into Hai space."
+	description "Follow the next clue for the Legacy to <destination>."
 	cargo "(reserved)" 10
 	passengers 2
-	invisible
 	to offer
 		has "The Legacy: The First Clue 2: done"
 		not "event: the legacy was aborted"
@@ -901,10 +922,13 @@ mission "The Legacy: Hai Space 0"
 	on fail
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		log "Quests" "The Legacy" `This quest leads me on another chase, this time through Hai space.`
 		conversation
-			`When you arrive in the Spaceport of <planet>, you and Sayari exist the <ship>, while Rek stays in the ship to not draw too much attention. Sayari leads you straight to the long term storage facility. You are requested to enter the retrieval code and password into a terminal by the Hai behind the counter.`
+			`When you arrive in the Spaceport of <planet>, you and Sayari exit the <ship>, while Rek stays in the ship to not draw too much attention. Sayari leads you straight to the long term storage facility. You are requested to enter the retrieval code and password into a terminal by the Hai behind the counter.`
 			`	"'The first friend I had' - I assume this is referring to my sister, because she first took care of him." Sayari enters the birthday of her sister as the storage code and her name as the password, and her input is accepted.`
 			` 	The counter clerk vanishes and returns after a while with a puzzled look on her face. They speak in Hai, but luckily you brought your translator.`
 			`	"This storage box had very [interesting, unique] instructions with it. It is paid for [many years, a long time] into the future and has specific [instructions, directives] to hand out only one bag per requestor."`
@@ -912,10 +936,9 @@ mission "The Legacy: Hai Space 0"
 
 mission "The Legacy: Hai Space 1"
 	name "The Legacy: Hai Space"
-	description "You are following the first clue into Hai space."
+	description "Continue the search for the Legacy on <destination>."
 	cargo "(reserved)" 10
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Hai Space 0: done"
@@ -941,6 +964,9 @@ mission "The Legacy: Hai Space 1"
 	on fail
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`On <planet>, Sayari has to research for a bit until she finds the company which took her and Rhon on a adventure tour many years ago - fortunately, it is still in business.`
@@ -950,10 +976,9 @@ mission "The Legacy: Hai Space 1"
 
 mission "The Legacy: Hai Space 2"
 	name "The Legacy: Hai Space"
-	description "You are following the first clue into Hai space."
+	description "Search for the next clue on <destination>."
 	cargo "(reserved)" 10
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Hai Space 1: done"
@@ -980,6 +1005,10 @@ mission "The Legacy: Hai Space 2"
 		event "the legacy clue hai done"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy clue hai done"
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on complete
 		conversation
 			`When you approach the Spaceport of <planet> you spot a cave entrance in the area Rek had identified. While you hover your ship at the height of the cave and discuss with Sayari how to best get there, Rek checks the atmospheric readings and then opens up a hatch and flies over to the cave. A couple of minutes later she returns, triumphantly.`
@@ -988,16 +1017,15 @@ mission "The Legacy: Hai Space 2"
 
 mission "The Legacy: Hai Space 3"
 	name "The Legacy: Hai Space"
-	description "You are following the first clue into Hai space."
+	description "The search in Hai space is leading you to <destination>."
 	cargo "(reserved)" 10
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Hai Space 2: done"
 		not "event: the legacy was aborted"
 	source "Farwater"
-	destination "Legacy Clue Hai site"
+	destination "TL Hai site"
 	on offer
 		conversation
 			`After you have taken care of the docking procedures, you assemble in the mess hall and have a look at what is on the data crystal. It is another set of written instructions.`
@@ -1007,7 +1035,7 @@ mission "The Legacy: Hai Space 3"
 				`	"Yes, I hope that I have figured this out."`
 					goto "no_help"
 				`	"Sorry, but I am clueless. Can you help?"`
-			`"I am pretty sure that the Iron Sky refers to the metallic meteorites of the <system> system. And if you load Heavy Metals on Stonebreak, you can achieve the highest possible profit margins for regular cargo runs."`
+			`"I am pretty sure that the Iron Sky refers to the metallic meteorites of the <system> system. And if you load Heavy Metals on Stonebreak, you can achieve the highest possible profit margin for a single regular cargo run."`
 			label "no_help"
 			`	Sayari gaze becomes distant. "This is the system that we retreated to, when we fled the Pirates."`
 				accept
@@ -1016,19 +1044,26 @@ mission "The Legacy: Hai Space 3"
 		dialog `	It takes only a moment, and you receive a guiding beam leading you to the outskirts of the system.`
 		dialog `	You prepare for another landing on an asteroid.`
 	on decline
+		event "the legacy clue hai done"
 		event "the legacy was aborted"
+	on defer
+		event "the legacy clue hai done"
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 	on fail
+		event "the legacy clue hai done"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
 
 mission "The Legacy: Remnant 0"
+	name "The Legacy: Remnant Space"
+	description "The final clue in Hai space leads you to the Remnant."
 	cargo "(reserved)" 10
 	passengers 2
-	invisible
 	landing
 	to offer
 		has "The Legacy: Hai Space 3: done"
-	source "Legacy Clue Hai site"
+	source "TL Hai site"
 	destination "Viminal"
 	on offer
 		event "the legacy Stercutus pending"
@@ -1052,7 +1087,7 @@ mission "The Legacy: Remnant 0"
 			`	Rek issues a serious of clicks which, as you have learned, indicates her amusement. "You have already solved the 2nd clue - admit it."`
 			choice
 				`	"Well, yes and no."`
-			`	"I know what these symbols are - they are signs from a group of humans who fled the Alpha Wars into isolation and who now communicate through sign language and not by spoken word."`
+			`	"I know what these symbols are - they are signs from a group of humans who fled from the Alpha Wars into isolation and who now communicate through sign language and not by spoken word."`
 			`Rek is excited. "That is fascinating. Albeit..." She looks down at her lengthy, claw-like fingers. Sayari looks at her small paws. They both look at you. "I believe, you will have to do the 'talking'". You all break out into laughter.`
 			`	You try to dampen the mood a bit. "We will require help in any case. I recognize some of the symbols, but not enough. Unfortunately, these humans, who call themselves 'The Remnant' are pretty much at the other end of the galaxy."`
 			`	Rek is not deterred: "Well, then we better depart." Sayari chimes in: "It's good then that I had the ship loaded with provisions before departure."`
@@ -1071,18 +1106,22 @@ mission "The Legacy: Remnant 0"
 		event "the legacy clue hai done"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy Stercutus done"
+		event "the legacy clue hai done"
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 
 mission "The Legacy: Remnant 1"
 	name "The Legacy: the Remnant years"
-	description "You are following Rhon's path to the Remnants."
+	description "Rhon's path to the Remnants leads you to <destination>."
 	cargo "(reserved)" 12
 	passengers 3
-	invisible
 	to offer
 		has "The Legacy: Remnant 0: done"
 		not "event: the legacy was aborted"
 	source "Viminal"
-	destination "Legacy Stercutus site"
+	destination "TL Stercutus site"
 	on offer
 		conversation
 			`When you enter the shipyards, Taely is already waiting for you, and she is not alone. With her is a woman in her mid-twenties, with a very distinctive look for a Remnant.`
@@ -1166,16 +1205,21 @@ mission "The Legacy: Remnant 1"
 		event "the legacy Stercutus done"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy Stercutus done"
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 
 mission "The Legacy: Remnant 2"
+	name "The Legacy: the Remnant years"
+	description "Rhon's path to the Remnants leads you to <destination>."
 	cargo "(reserved)" 12
 	passengers 3
-	invisible
 	landing
 	to offer
 		has "The Legacy: Remnant 1: done"
-	source "Legacy Stercutus site"
-	destination "Legacy Antevorta site"
+	source "TL Stercutus site"
+	destination "TL Antevorta site"
 	waypoint "Nenia"
 	on offer
 		conversation
@@ -1194,7 +1238,7 @@ mission "The Legacy: Remnant 2"
 				accept
 	on enter "Nenia"
 		conversation
-			`When you enter Nenia, Yohna opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it one of us and we mean them no harm."`
+			`When you enter Nenia, Yohna opens the transmitters and sings a haunted melody with non-sensical words. "This is how we let the guardians know that it is one of us and we mean them no harm."`
 			`	A moment later, a drone uncloaks next to your ship. You receive a transmission, this time in English: "Come and get me..."`
 			`	One spacewalk later, you have the drone on board. Fortunately, she was small enough to fit in the airlock and followed you automatically once you had touched her.`
 			`	The examination of the drone is rather brief, once you discover the written words: 'Base: Antevorta'`
@@ -1218,16 +1262,22 @@ mission "The Legacy: Remnant 2"
 		event "the legacy Antevorta done"
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
+	on defer
+		event "the legacy Stercutus done"
+		event "the legacy Antevorta done"
+		event "the legacy was aborted"
+		event "the legacy abortion message" 180
 
 mission "The Legacy: Remnant 3"
+	name "The Legacy: the Remnant years"
+	description "Visit <planet> to retrieve the next clue for the Legacy."
 	cargo "(reserved)" 12
 	passengers 3
-	invisible
 	to offer
 		has "The Legacy: Remnant 2: done"
 	to complete
 		has "The Legacy: TMBR found: offered"
-	source "Legacy Antevorta site"
+	source "TL Antevorta site"
 	destination "Alexandria"
 	on offer
 		conversation
@@ -1418,7 +1468,7 @@ mission "The Legacy: TMBR found"
 			`	"After that, Ulrich and his band have agreed to follow my suggestion and to participate in the project 'History making History', where a concert will be played at the location where it will be archived - on Alexandria. I suppose you won't mind taking the band to their next location?" Danforth winks at you.`
 				accept
 	on accept
-		log "Quests" "The Legacy" `Still in pursuit of The Legacy, several of my human acquaintances have joined the quest as well: Raven, Captain Paris and the even brought in Freya.`
+		log "Quests" "The Legacy" `Still in pursuit of The Legacy, several of my human acquaintances have joined the quest as well: Raven, Captain Paris and they even brought in Freya.`
 	on enter
 		conversation
 			`The concert was a triumph, even for 'The Might Be Riots' standards, so everyone is still in a very good mood when you take off. The band is absolutely fascinated by Sayari and Rek, so you don't need to worry about them.`
@@ -1451,10 +1501,11 @@ mission "The Legacy: TMBR found"
 		event "the legacy was aborted"
 
 mission "The Legacy: The Hideout"
+	name "The Legacy: the Remnant years"
+	description "Visit Rhon's hideout on <destination>."
 	cargo "(reserved)" 12
 	passengers 6
 	blocked `You are missing <capacity> to continue the missions.`
-	invisible
 	landing
 	to offer
 		has "The Legacy: TMBR found: done"
@@ -1482,7 +1533,7 @@ mission "The Legacy: The Hideout"
 			choice
 				`	You hear Raven mutter "Now it makes sense..."`
 			`	But you continue to listen to Rhon: "Tohra was furious, especially since the results were ambiguous. And she had the entire Ember-People community behind her and had good connections to parts of the government. So, this quickly turned into a huge political controversy and become something much bigger."`
-			`	"In the end, paranoia prevailed and I was banned for life from Remnant space and the Ember Waste. While officially Tohra brought me back to Human Space, she hid me at the place you are now going, which I refer to as 'The Hideout'. Back then, the Remnant military regularly ran patrols there, Tohra's unit and the Ember-People saw to it that we could spend a lot of time together and I had regular company there. We had everything we needed, including a small cloaking device, in case unexpected visitors would show up."`
+			`	"In the end, paranoia prevailed and I was banned for life from Remnant space and the Ember Waste. While officially Tohra brought me back to Human Space, she hid me at the place you are now going to, which I refer to as 'The Hideout'. Back then, the Remnant military regularly ran patrols there, Tohra's unit and the Ember-People saw to it that we could spend a lot of time together and I had regular company there. We had everything we needed, including a small cloaking device, in case unexpected visitors would show up."`
 			`	You notice that the last remark draws the attention of your human passengers, and so does Rhon. With a wink, he says: "Well, I guess that is enough material for discussions for now".`
 			choice
 				`	You turn towards Yohna, wondering how she is taking the news that she might have Alpha DNA in her blood.`
@@ -1525,8 +1576,13 @@ mission "The Legacy: The Hideout"
 	on fail
 		event "the legacy Lucina done"
 		event "the legacy was aborted"
+	on defer
+		event "the legacy Lucina done"
+		event "the legacy was aborted"
 
 mission "The Legacy: Return to Viminal"
+	name "The Legacy: Return to Viminal"
+	description "Transport Rhon and his family savely to <planet>."
 	cargo "(reserved)" 12
 	passengers 6
 	blocked `You are missing <capacity> to continue the missions.`
@@ -1700,11 +1756,11 @@ mission "The Legacy: Return to Viminal"
 	on enter "Arculus"
 		dialog `When you enter Arculus, you are awaited by a fleet of Remnant ships. Taely hails you: "Don't worry, <first>, these are our people. I have called for backup."`
 	on complete
+		log "Quests" "The Legacy" `The Quest took an unforseen turn when we found Rhon alive and well. Accompanied him to Viminal.`
 		event "the legacy Lucina done"	
 		conversation
 			`When you exit the <ship>, you are immediately surrounded by a crowd of Ember-People. There is a moment of tension when Rhon undergoes the blood test. While it is confirmed that he is not a pure human, it is ruled out that he has Alpha DNA. Once the verdict is announced, the local prefect, who had been waiting at the checkpoint, steps in front of Rhon and signs: "I hereby revoke the banishment which had been wrongly imposed on you. From this day on, you are welcome on this planet and in our society."`
 			`	Rhon and Tohra embrace to the clapping and cheering of the crowd. They invite you into one of the Spaceport restaurants for later this evening to celebrate.`
-			`	That's how far the plug-in has progressed so far....`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1726,8 +1782,8 @@ mission "The Legacy: Return to Viminal"
 
 # Ideas for what happens after The Hideout
 # Manages to get Jump-Drive installed into Starling. 
-# Travels through Korath-Space until reaches Quark ring world
-# Helps Quarks to deal with some Pirate / Farming troubles or something else to obtain some Quark tech
+# Travels through Korath-Space until reaches Quarg ring world
+# Helps Quargs to deal with some Pirate / Farming troubles or something else to obtain some Quarg tech
 # Goes on to wonderer space - since he speaks Hai, he can communicate? Or else he learns the language
 # Chase through Wanderer planets
 # This is where Rek comes into play / why he knew the quest was not done. Something happened in the wanderer past which lead to Rhon being allowed to use the old plans and the facilities to build his own Hurricane
@@ -1747,13 +1803,171 @@ mission "The Legacy: Return to Viminal"
 # The characters and backstory ideas
 # Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Red and form an aliance between the 3 races and have first official contacts with Korath. 
 # Rek - on of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them. 
-# Yohna/Yahon - helps with all things Remnant related, ensures that Remnant secrets are not revealed. In the romance branch the love interest. 
+# Yohna - helps with all things Remnant related, ensures that Remnant secrets are not revealed.
 # Freya - is interested in the technology that Rhon had with his ships. Befriends Taely, they will visit each other in the future and exchange know-how. She catalogs what she can from the Jump Drive and Cloaking tech. Returns to Deneb. (mission: bring Taely to Deneb?)
 # Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation. 
 # Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation. 
 
 # Ships to be offered:
-# Hurricane with Quark tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
+# Hurricane with Quarg tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
+
+mission "The Legacy: The Refuge 1"
+	name "The Legacy: The Refuge"
+	description "The search for Rhon's legacy leads you into Korath space."
+	cargo "(reserved)" 12
+	passengers 6
+	blocked `You are missing <capacity> to continue the missions.`
+	to offer
+		has "The Legacy: Return to Viminal: done"
+		not "event: the legacy was aborted"
+	source "Viminal"
+	destination "Kuwaru Efreti"
+	on offer
+		conversation
+			`In the evening, you join the big celebration and experience a side of Remnant culture you didn't know before. An unexpected wide variation of food and drinks, and communal singing and dancing. Yohna gives you and your companions a crash curse in Remnant dances and you all join the fun. Yohna turns out to be quite the dancer and you feel a bit sorry for Rek and Sayari who once again had to stay in the <ship>.`
+			`	The next day you, Rhon and Yohna visit you on your ship.`
+			`	"So, are you ready to continue on your quest?"`
+			choice
+				`	"Sure. So, where did you flee to?"`
+				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
+					decline
+			`	"Well, going back to human space was not really appealing, so I decided to explore the Galaxy. Thora had hidden away one of the Jump Drives she had captured from a Korath raider and I managed to install it onto the protype and get it to work. So, I decided to find out more about the Korath. Fortunately, travelling under cloak with a good ramscoop worked quite well, so I was actually able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
+			choice
+				`	"What about you, Yohna?"`
+			`	"My parents assured me that they will stay here for a while, so I will not abandon the search for my father's inheritance."`
+			`	Since the rest of your party has a similar mindset, you prepare to depart to <planet>.`
+				accept
+	on accept
+		log "Quests" "The Legacy" `On the chase for The Legacy, we are now on the way to the Quark ringworld in Korath space.`
+		event "the legacy refuge phase 1"
+	on enter "Dokdobaru"
+		conversation
+			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
+			`	"<first>, I can't help it, but something is not right. I have the feeling that we are being followed. But no matter how often I checked the radar, I never saw anything. Am I going crazy?"`
+			`	"No, Yohna, you're not. I feel exactly the same. I guess, we will have to be extra careful."`
+	on complete
+		conversation
+			`Quark conversation. Instructions to buy the blackbird and to got spaceport.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+	on defer
+		event "the legacy was aborted"
+
+mission "The Legacy: The Refuge 2"
+	name "The Legacy: The Refuge"
+	description "Try to reach the Refuge site through the wormhole on Persitar."
+	cargo "(reserved)" 12
+	passengers 6
+	blocked `You are missing <capacity> to continue the missions.`
+	to offer
+		has "The Legacy: The Refuge 1: done"
+		not "event: the legacy was aborted"
+	source "Kuwaru Efreti"
+	destination "TL Planet Transit"
+	on offer
+		log "Quests" "The Legacy" `Still in pursuit of The Legacy, we have to return into the Ember Waste.`
+		conversation
+			`Instructions to find wormhole`
+			choice
+				`	"Since I have a pretty good idea which system is meant by this, I suggest we take off immediately."`
+					accept
+				`	"Does any of you have an idea which planet he may be referring to?"`
+			`	Yohna responds: "This must refer to Far Monad in the Lucina system. The Remnant run regular patrols there, but no Faction has ever claimed the system. It's just too far off."`
+			`	"Hmm, back to the Ember Waste. I suggest we take off straight away."`
+				accept
+	on enter "TL Transit"
+		conversation
+			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
+			`	"<first>, I can't help it, but something is not right. I have the feeling that we are being followed. But no matter how often I checked the radar, I never saw anything. Am I going crazy?"`
+			`	"No, Yohna, you're not. I feel exactly the same. I guess, we will have to be extra careful."`
+	on complete
+		event "the legacy refuge phase 2"
+		conversation
+			`Description about activating strange machinery.`
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+	on defer
+		event "the legacy was aborted"
+
+mission "The Legacy: The Refuge 3"
+	landing
+#	invisible
+	to offer
+		has "The Legacy: The Refuge 2: done"
+	to complete
+		has "tl fight 1 done"
+	destination "TL Planet Transit"
+	npc disable
+		government "Test Dummy"
+		system "TL Transit"
+		personality unconstrained heroic nemesis
+		ship "TL Timer2 Ship" "TL Timer2"
+		conversation
+			apply
+				set "tl fight 1 done"
+			`In the cockpit, you and Yohna work hand in hand. So far, you have managed to avoid the attacks of Belzebub. Still, without any weapons your transport shuttle is no match against Belzebub's 'Your Nightmare'. You are desperately looking for a way out, when Tom Paris approaches you with a grim look in his face. Behind him, Raven is trying to hold back her tears.`
+			`	"Look, <first>, this ship is no match for Belzebub. But I have an idea."`
+			choice
+				`	"Okay. What is it?"`
+			`	"As long, as Belzebub is in pursuit, we will not be able to enter the relais station. Which we must do to break this stalemate. So, I will put on a Spacesuit and you will feign a landing attempt, getting me as close to the station as possible. Then you take off and draw Belzebug with you. I will enter the station and when I'm ready give you a signal. Try to get as much distance as possible between you and the 'Your nightmare', then head for the wormhole. Once you have entered the wormhole, I will shut it down before Belzebug can follow you."`
+			choice
+				`	"That sounds pretty risky... and desparate. And even if it works, what will become of you?"`
+			`	"Belzebub has taken all which is dear to me already once." He looks at Raven. "I will not let him do it again. He is the reason why I volunteered for this mission - Danforth suspected that he might show up. I had hoped that I can finally aprehend him. Now I will imprision him in the middle of nowhere. And who knows, the station is shielded well enough to withstand his assaults and it is well provisioned. So, just pick me up on the way back."`
+			`	You try to come with a different solution while avoiding another attack by Belzebub. Eventually, you have to accept that it is the best chance you have.`
+			choice
+				`	"Okay, let's do it."`
+			`	You prepare for a risky landing manouver.`
+	npc save
+		government "Remnant Hardliner"
+		personality staying nemesis heroic target mute
+		system "TL Transit"
+		ship "Albatross" "Your Nightmare" 
+	on enter
+		conversation
+			`Instructions for fight and not to leave system 3`
+	on enter "TL Refuge"
+		conversation 
+			`You have lead Belzebub to Rhon's legacy. The last thing you see is automatic defense drones decloaking beside your ship.`
+			`	You died.`
+				die
+	on visit
+		conversation
+			`You try to land, however, Belzebub is following closely and so the docking hatches remain closed.`
+				launch
+	on complete
+		conversation
+			`Ref 3 completed`
+
+mission "The Legacy: The Refuge 4"
+	landing
+#	invisible
+	to offer
+		has "The Legacy: The Refuge 3: done"
+	to complete
+		has "tl fight 2 done"
+	destination "TL Planet Refuge"
+	npc save
+		government "Remnant Hardliner"
+		personality staying nemesis heroic target mute
+		system "TL Transit"
+		ship "Albatross" "Your Nightmare" 
+	on offer
+		conversation
+			`Ref 4 on offer`
+				launch
+	on enter
+		conversation
+			`Ref 4 on enter`
+	on enter "TL Refuge"
+		conversation
+			`After you have exited the wormhole, you wait anxiously for Belzebub's ship to appear. After some minutes have passed you decide that the plan has worked. However, no one is in a cheerful mood.`
+	on complete
+		conversation
+			`Description about activating strange machinery.`
 
 
 mission "The Legacy: Muahaha"

@@ -11,6 +11,7 @@
 outfit "Yellow Quantum Key Stone"
 	category "Systems"
 	cost 12000
+	installable -1
 	thumbnail "outfit/yellowkeystone"
 	"mass" 1
 	"outfit space" -1
