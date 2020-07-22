@@ -279,7 +279,7 @@ mission "The Legacy: Treasure Hunters 4"
 	on defer
 		event "the legacy was aborted"
 		event "the legacy abortion message" 180
-			
+
 mission "The Legacy: Treasure Hunters 5"
 	name "The Legacy: Treasure hunters"
 	description "Pick up Jane and Marta from the Academy of Planetary Science."
@@ -813,7 +813,7 @@ mission "The Legacy: The First Clue 1"
 
 mission "The Legacy: Hai not helping 1"
 	landing
-	source 
+	source
 		government "Hai"
 		not planet "Hai-home"
 	to offer
@@ -1147,7 +1147,7 @@ mission "The Legacy: Remnant 1"
 				`	"Ah, so that is why you are joining the party - to ensure the Remnant will get a share in case anything interesting gets discovered."`
 			`	Yohna looks at you for a moment. Then she reaches a decision: "Okay, let us be honest with each other. Yes and no. Ensuring that we participate from any interesting discovery may have been the decisive argument to send someone along, but Taely is really fond of you and genuinely wanted to help you. And for me, this is the chance I have been waiting for. I am in this as much as for Taely as for myself."`
 			`	On the ship you introduce Yohna to Sayari and Rek over dinner. Both are as taken by her charm as you and before you know it, she is teaching you funny Remnant swear signs. Eventually, you have to get serious, though.`
-			choice 
+			choice
 				`	"Okay, you are a great teacher, but maybe it's about time you show us that you are also good at solving riddles." With that you bring up the symbols on the main screen.`
 			`	Yohna takes a look and then turns to you in surprise. "No wonder you have difficulties reading these - they are in a rare dialect."`
 			`	On your question "But you can read them?", she responds: "Yes, I actually grew up with them. They direct to a location and give instructions on what to do. But they are expressed in paraphrases."`
@@ -1227,7 +1227,7 @@ mission "The Legacy: Remnant 2"
 			`	"Welcome, seekers. It was here, that I first encountered the Ember-People. Stranded on this moon, after I had run out of fuel, energy and options, they followed their unwritten law and provided assistance. Then they hid me from the mob of pirates who had been chasing me from Hai space through half the galaxy."`
 			`	"So, this is where you will have to go next: a mighty power guards indigenous life and only who can sing the right tune will enter unharmed."`
 			`	Yohna turns to you and asks: "So, do you know where we need to go?"`
-			choice 
+			choice
 				`	"Yes, I know the system he is referring to."`
 					goto "smart_player_2c2"
 				`	"I am not really sure. So, where do go?"`
@@ -1367,7 +1367,7 @@ mission "The Legacy: TMBR hint A1"
 		has "The Legacy: Remnant 3: active"
 		has "The Legacy: TMBR setup: offered"
 		not "The Legacy: TMBR found: offered"
-	source 
+	source
 		government "Hai"
 	on offer
 		conversation
@@ -1381,7 +1381,7 @@ mission "The Legacy: TMBR hint A2"
 		has "The Legacy: Remnant 3: active"
 		has "The Legacy: TMBR setup: offered"
 		not "The Legacy: TMBR found: offered"
-	source 
+	source
 		attributes "deep"
 		attributes "spaceport"
 		not planet "Alexandria"
@@ -1397,7 +1397,7 @@ mission "The Legacy: TMBR hint B1"
 		has "The Legacy: Remnant 3: active"
 		has "The Legacy: TMBR setup: offered"
 		not "The Legacy: TMBR found: offered"
-	source 
+	source
 		government "Hai"
 	on offer
 		conversation
@@ -1414,7 +1414,7 @@ mission "The Legacy: TMBR hint C3"
 			has "The Legacy: TMBR hint A2: offered"
 			has "The Legacy: TMBR hint B1: offered"
 		not "The Legacy: TMBR found: offered"
-	source 
+	source
 		attributes "north"
 		attributes "spaceport"
 		not planet "Farpoint"
@@ -1613,12 +1613,12 @@ mission "The Legacy: Return to Viminal"
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
 		system "Lucina"
-		ship "Albatross" "Pure Blood" 
+		ship "Albatross" "Pure Blood"
 	npc disable save
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
 		system "Lucina"
-		ship "Albatross" "Blood and Honor" 
+		ship "Albatross" "Blood and Honor"
 	npc accompany
 		government "Remnant"
 		personality pacifist waiting staying
@@ -1757,7 +1757,7 @@ mission "The Legacy: Return to Viminal"
 		dialog `When you enter Arculus, you are awaited by a fleet of Remnant ships. Taely hails you: "Don't worry, <first>, these are our people. I have called for backup."`
 	on complete
 		log "Quests" "The Legacy" `The Quest took an unforseen turn when we found Rhon alive and well. Accompanied him to Viminal.`
-		event "the legacy Lucina done"	
+		event "the legacy Lucina done"
 		conversation
 			`When you exit the <ship>, you are immediately surrounded by a crowd of Ember-People. There is a moment of tension when Rhon undergoes the blood test. While it is confirmed that he is not a pure human, it is ruled out that he has Alpha DNA. Once the verdict is announced, the local prefect, who had been waiting at the checkpoint, steps in front of Rhon and signs: "I hereby revoke the banishment which had been wrongly imposed on you. From this day on, you are welcome on this planet and in our society."`
 			`	Rhon and Tohra embrace to the clapping and cheering of the crowd. They invite you into one of the Spaceport restaurants for later this evening to celebrate.`
@@ -1781,7 +1781,7 @@ mission "The Legacy: Return to Viminal"
 #	destination "Viminal"
 
 # Ideas for what happens after The Hideout
-# Manages to get Jump-Drive installed into Starling. 
+# Manages to get Jump-Drive installed into Starling.
 # Travels through Korath-Space until reaches Quarg ring world
 # Helps Quargs to deal with some Pirate / Farming troubles or something else to obtain some Quarg tech
 # Goes on to wonderer space - since he speaks Hai, he can communicate? Or else he learns the language
@@ -1794,19 +1794,19 @@ mission "The Legacy: Return to Viminal"
 # on the way to wormhole "end fight" against the Remnant traitor, (Belzebub???)
 # Clearly outmatch player (like with Archon), must keep evading while timer is running down
 # Paris goes on suicide mission to help the rest escape
-# Player travels through wormhole to location where he can select one bonus ship and finds the legacy - money, complete diaries and teachings. 
+# Player travels through wormhole to location where he can select one bonus ship and finds the legacy - money, complete diaries and teachings.
 # Potentially another wormhole leading to an unknown region of space for a future plug-in
 # on the way back rescue Paris, who after helping the rest to escape into the wormhole, decided to not fight to the death, but to live because there is reason (Raven)
 # drop everyone off
 # Visit Joe and Maria to give them their share
 
 # The characters and backstory ideas
-# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Red and form an aliance between the 3 races and have first official contacts with Korath. 
-# Rek - on of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them. 
+# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Red and form an aliance between the 3 races and have first official contacts with Korath.
+# Rek - on of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them.
 # Yohna - helps with all things Remnant related, ensures that Remnant secrets are not revealed.
 # Freya - is interested in the technology that Rhon had with his ships. Befriends Taely, they will visit each other in the future and exchange know-how. She catalogs what she can from the Jump Drive and Cloaking tech. Returns to Deneb. (mission: bring Taely to Deneb?)
-# Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation. 
-# Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation. 
+# Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation.
+# Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation.
 
 # Ships to be offered:
 # Hurricane with Quarg tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
@@ -1831,23 +1831,34 @@ mission "The Legacy: The Refuge 1"
 				`	"Sure. So, where did you flee to?"`
 				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
 					decline
-			`	"Well, going back to human space was not really appealing, so I decided to explore the Galaxy. Thora had hidden away one of the Jump Drives she had captured from a Korath raider and I managed to install it onto the protype and get it to work. So, I decided to find out more about the Korath. Fortunately, travelling under cloak with a good ramscoop worked quite well, so I was actually able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
+			`	"Well, going back to human space was not really appealing, so I decided to explore the Galaxy. Thora had hidden away one of the Jump Drives she had captured from a Korath raider and I managed to install it onto the prototype and get it to work. So, I decided to find out more about the Korath. Fortunately, travelling under cloak with a good ramscoop worked quite well, so I was actually able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
-			`	"My parents assured me that they will stay here for a while, so I will not abandon the search for my father's inheritance."`
+			`	"My parents assured me that they will stay here for a while, so I will not abandon the search for my father's inheritance. Besides, I have really taken a liking to travel within this group."`
 			`	Since the rest of your party has a similar mindset, you prepare to depart to <planet>.`
 				accept
 	on accept
 		log "Quests" "The Legacy" `On the chase for The Legacy, we are now on the way to the Quark ringworld in Korath space.`
 		event "the legacy refuge phase 1"
+	on enter
+		conversation
+			`Once the autopilot is activated, you gather in the mess hall. As expected, the holographic Rhon continues the story:`
+			`	"For a while, it looked like I had made a wrong decision. All attempts from my side to get into contact with the inhabitants of the systems I passed through were met with hostility. I was about to give up when I found the Quark ringworld on <planet>."`
+			`	"There, I had a very strange welcome. At first, the Quark were almost hostile towards me, but after they had examined me, they became very welcoming. The reason soon became clear - they were having troubles with a group of green skinned humans who were running very well organized surprise attacks."`
+			choice
+				`	"Alphas?"`
+			"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking the loss of even more ships against the Robot ships. So, I managed to strike a deal with them. They would loan me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
+			`	"Now, it wasn't as easy as I make it sound, it took me a while and the support of additional species, but that is a story for a different time. Fow now, I will introduce you to the most fascinating discovery I have made on all my journeys and there you will also find my legacy."`
 	on enter "Dokdobaru"
 		conversation
 			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
 			`	"<first>, I can't help it, but something is not right. I have the feeling that we are being followed. But no matter how often I checked the radar, I never saw anything. Am I going crazy?"`
-			`	"No, Yohna, you're not. I feel exactly the same. I guess, we will have to be extra careful."`
+			`	"No, Yohna, you're not. I have a similar feeling. I guess, we will have to be extra careful."`
 	on complete
 		conversation
-			`Quark conversation. Instructions to buy the blackbird and to got spaceport.`
+			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quarks approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
+			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
+			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire a transport ship in the Shipyard. You will only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1869,13 +1880,7 @@ mission "The Legacy: The Refuge 2"
 	on offer
 		log "Quests" "The Legacy" `Still in pursuit of The Legacy, we have to return into the Ember Waste.`
 		conversation
-			`Instructions to find wormhole`
-			choice
-				`	"Since I have a pretty good idea which system is meant by this, I suggest we take off immediately."`
-					accept
-				`	"Does any of you have an idea which planet he may be referring to?"`
-			`	Yohna responds: "This must refer to Far Monad in the Lucina system. The Remnant run regular patrols there, but no Faction has ever claimed the system. It's just too far off."`
-			`	"Hmm, back to the Ember Waste. I suggest we take off straight away."`
+			`When you enter the Spaceport, the group of Quargs which greeted you earlier, approach you again. "Take the ship you have acquired to Faronektu and have it refueled there. Then travel to Persitar, where you will find a Wormhole, through which you must travel."`
 				accept
 	on enter "TL Transit"
 		conversation
@@ -1892,6 +1897,21 @@ mission "The Legacy: The Refuge 2"
 		event "the legacy was aborted"
 	on defer
 		event "the legacy was aborted"
+
+mission "The Legacy: The Refuge 2 anticheat"
+	landing
+#	invisible
+	to offer
+		has "The Legacy: The Refuge 1: done"
+	destination "TL Planet Transit"
+	on enter
+		conversation
+			branch "all_okay"
+				has "Yellow Quantum Key Stone" == 1
+			`The Quark do not tolerate that you have taken more than one ship. The last thing you see are a fleet of Wardragon's approaching you. Then you die.`
+				die
+			label "all_okay"
+				fail
 
 mission "The Legacy: The Refuge 3"
 	landing
@@ -1925,12 +1945,12 @@ mission "The Legacy: The Refuge 3"
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
 		system "TL Transit"
-		ship "Albatross" "Your Nightmare" 
+		ship "Albatross" "Your Nightmare"
 	on enter
 		conversation
 			`Instructions for fight and not to leave system 3`
 	on enter "TL Refuge"
-		conversation 
+		conversation
 			`You have lead Belzebub to Rhon's legacy. The last thing you see is automatic defense drones decloaking beside your ship.`
 			`	You died.`
 				die
@@ -1954,7 +1974,7 @@ mission "The Legacy: The Refuge 4"
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
 		system "TL Transit"
-		ship "Albatross" "Your Nightmare" 
+		ship "Albatross" "Your Nightmare"
 	on offer
 		conversation
 			`Ref 4 on offer`
