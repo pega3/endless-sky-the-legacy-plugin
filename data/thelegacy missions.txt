@@ -1831,7 +1831,7 @@ mission "The Legacy: The Refuge 1"
 				`	"Sure. So, where did you flee to?"`
 				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
 					decline
-			`	"Well, going back to human space was not really appealing, so I decided to explore the Galaxy. Thora had hidden away one of the Jump Drives she had captured from a Korath raider and I managed to install it onto the prototype and get it to work. So, I decided to find out more about the Korath. Fortunately, travelling under cloak with a good ramscoop worked quite well, so I was actually able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
+			`	"Well, going back to human space was not really appealing. There were regular raids happening from the Korath, so I decided to find out more about them. Thora had hidden away one of the Jump Drives she had captured. I managed to install it onto the prototype and get it to work. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
 			`	"My parents assured me that they will stay here for a while, so I will not abandon the search for my father's inheritance. Besides, I have really taken a liking to travel within this group."`
@@ -1843,11 +1843,11 @@ mission "The Legacy: The Refuge 1"
 	on enter
 		conversation
 			`Once the autopilot is activated, you gather in the mess hall. As expected, the holographic Rhon continues the story:`
-			`	"For a while, it looked like I had made a wrong decision. All attempts from my side to get into contact with the inhabitants of the systems I passed through were met with hostility. I was about to give up when I found the Quark ringworld on <planet>."`
-			`	"There, I had a very strange welcome. At first, the Quark were almost hostile towards me, but after they had examined me, they became very welcoming. The reason soon became clear - they were having troubles with a group of green skinned humans who were running very well organized surprise attacks."`
+			`	"For a while, it looked like I had made a wrong decision. All attempts from my side to get into contact with the Korath were met with hostility. I was about to give up when I found the Quark ringworld on <planet>."`
+			`	"There, I had a very strange welcome. At first, the Quark were almost hostile towards me, but after they had examined me, they became very welcoming. The reason soon became clear - they were having troubles with a group of humans who were running very well organized surprise attacks."`
 			choice
 				`	"Alphas?"`
-			"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking the loss of even more ships against the Robot ships. So, I managed to strike a deal with them. They would loan me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
+			"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking the loss of even more ships against the Robot ships. So, I managed to strike a deal with the Quark. They would loan me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
 			`	"Now, it wasn't as easy as I make it sound, it took me a while and the support of additional species, but that is a story for a different time. Fow now, I will introduce you to the most fascinating discovery I have made on all my journeys and there you will also find my legacy."`
 	on enter "Dokdobaru"
 		conversation
@@ -1858,7 +1858,7 @@ mission "The Legacy: The Refuge 1"
 		conversation
 			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quarks approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
 			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
-			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire a transport ship in the Shipyard. You will only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
+			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that Rhon has prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1872,16 +1872,21 @@ mission "The Legacy: The Refuge 2"
 	cargo "(reserved)" 12
 	passengers 6
 	blocked `You are missing <capacity> to continue the missions.`
+	stopover "Fara Skaeruti"
 	to offer
 		has "The Legacy: The Refuge 1: done"
 		not "event: the legacy was aborted"
 	source "Kuwaru Efreti"
 	destination "TL Planet Transit"
 	on offer
-		log "Quests" "The Legacy" `Still in pursuit of The Legacy, we have to return into the Ember Waste.`
 		conversation
-			`When you enter the Spaceport, the group of Quargs which greeted you earlier, approach you again. "Take the ship you have acquired to Faronektu and have it refueled there. Then travel to Persitar, where you will find a Wormhole, through which you must travel."`
+			`When you enter the Spaceport, the Quargs which had greeted you earlier, approaches you again.`
+			`	"Take the ship you have acquired to Faronektu and have it refueled there. Then travel to Persitar, where you will find a Portal, through which you must travel. The remainder of your ships may stay with us, because only your transport will be able to enter the Gateway."`
 				accept
+	on enter
+		conversation
+			`Once you have engaged the auto-pilot, you join your friends in the core of the ship. Not unsurprisingly, a holoraphic Rhon appears.`
+			`	""`
 	on enter "TL Transit"
 		conversation
 			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
