@@ -1768,18 +1768,6 @@ mission "The Legacy: Return to Viminal"
 	on defer
 		event "the legacy was aborted"
 
-#mission "The Legacy: On to the Wanderers 1"
-#	cargo "(reserved)" 12
-#	passengers 6
-#	blocked `You are missing <capacity> to continue the missions.`
-##	invisible
-#	landing
-#	to offer
-#		has "The Legacy: Return to Viminal: done"
-#		not "event: the legacy was aborted"
-#	source "Viminal"
-#	destination "Viminal"
-
 # Ideas for what happens after The Hideout
 # Manages to get Jump-Drive installed into Starling.
 # Travels through Korath-Space until reaches Quarg ring world
@@ -1824,14 +1812,14 @@ mission "The Legacy: The Refuge 1"
 	destination "Kuwaru Efreti"
 	on offer
 		conversation
-			`In the evening, you join the big celebration and experience a side of Remnant culture you didn't know before. An unexpected wide variation of food and drinks, and communal singing and dancing. Yohna gives you and your companions a crash curse in Remnant dances and you all join the fun. Yohna turns out to be quite the dancer and you feel a bit sorry for Rek and Sayari who once again had to stay in the <ship>.`
+			`In the evening, you join the big celebration and experience a side of Remnant culture you didn't know before. An unexpected wide variation of food and drinks, and communal singing and dancing. Yohna gives you and your companions a crash curse and before you know it you're in the middle of the dancefloor. Yohna turns out to be quite the hustler and you feel a bit sorry for Rek and Sayari who once again had to stay in the <ship>.`
 			`	The next day you, Rhon and Yohna visit you on your ship.`
 			`	"So, are you ready to continue on your quest?"`
 			choice
 				`	"Sure. So, where did you flee to?"`
 				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
 					decline
-			`	"Well, going back to human space was not really appealing. There were regular raids happening from the Korath, so I decided to find out more about them. Thora had hidden away one of the Jump Drives she had captured. I managed to install it onto the prototype and get it to work. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened next. Good luck!"`
+			`	"Well, going back to human space was not really appealing. There were regular raids happening from the Korath, so I decided to find out more about them. Thora had hidden away one of the Jump Drives she had captured. I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened there. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
 			`	"My parents assured me that they will stay here for a while, so I will not abandon the search for my father's inheritance. Besides, I have really taken a liking to travel within this group."`
@@ -1847,8 +1835,8 @@ mission "The Legacy: The Refuge 1"
 			`	"There, I had a very strange welcome. At first, the Quark were almost hostile towards me, but after they had examined me, they became very welcoming. The reason soon became clear - they were having troubles with a group of humans who were running very well organized surprise attacks."`
 			choice
 				`	"Alphas?"`
-			"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking the loss of even more ships against the Robot ships. So, I managed to strike a deal with the Quark. They would loan me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
-			`	"Now, it wasn't as easy as I make it sound, it took me a while and the support of additional species, but that is a story for a different time. Fow now, I will introduce you to the most fascinating discovery I have made on all my journeys and there you will also find my legacy."`
+			`	"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking the loss of even more ships against the Robot ships. So, I managed to strike a deal with the Quark. They would 'loan' me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
+			`	"Now, it wasn't as easy as I make it sound, it took me a while and the support of additional species, but that is a story for a different time. Fow now, I will introduce you to the most fascinating discovery I have made on all my journeys and which will also lead you to my legacy."`
 	on enter "Dokdobaru"
 		conversation
 			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
@@ -1858,7 +1846,7 @@ mission "The Legacy: The Refuge 1"
 		conversation
 			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quarks approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
 			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
-			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that Rhon has prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
+			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1885,8 +1873,9 @@ mission "The Legacy: The Refuge 2"
 				accept
 	on enter
 		conversation
-			`Once you have engaged the auto-pilot, you join your friends in the core of the ship. Not unsurprisingly, a holoraphic Rhon appears.`
-			`	""`
+			`Once you have engaged the auto-pilot, you join your friends in the core of the ship. Not unsurprisingly, the holoraphic Rhon appears.`
+			`	"Once I had built up my new flagship, I started to chase after the Alpha raiders. Typically, I would drift under cloak in one of the borderline systems and wait until the enemy showed up or one of the sensors I had deployed would send an alert."`
+			`	"One day, it happened. Out of nowhere, a Wormhole appeared and a ship exited. It was a model I unlike anything else I had ever seen."`
 	on enter "TL Transit"
 		conversation
 			`Ever since you left Remnant space, you have been feeling a certain unease. And you are not the only one. Yohna, who is sitting beside you in the cockpit as usual, seems tense.`
