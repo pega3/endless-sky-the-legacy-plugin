@@ -1889,11 +1889,12 @@ mission "The Legacy: The Refuge 2"
 			`Much to your amazement, when you enter Persitar, a Wormhole opens. You decide to travel through it.`
 	on enter "TL Transit"
 		conversation
-			`Rhon gives you the next instructions: "You must now land on the planet and then I will show you how to reprogram the wormhole so that it will take you to my Refuge."`
+			`Rhon gives you the next instructions: "This place serves as a relais station and as a security gate. Land on the asteroid and I will show you how to operate the device that controls the wormhole, so that you can switch it to your final destination."`
 	on complete
 		event "the legacy refuge phase 2"
 		conversation
-			`Description about activating strange machinery.`
+			`The base on this asteroid in the middle of nowhere obviously only serves one function - to host the machinery controlling the wormholes. Operating it is straight forward. The Baleans, as another holographic Rhon explains, can interact with the machines directly, so the steering mechanism was built with humans in mind.`
+			`	"However", he adds, "make no mistake. Whenever you operate the switch, you will be watched closely."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1918,11 +1919,14 @@ mission "The Legacy: The Refuge 2 anticheat"
 
 mission "The Legacy: The Refuge 3"
 	landing
+	cargo "(reserved)" 12
+	passengers 6
 #	invisible
 	to offer
 		has "The Legacy: The Refuge 2: done"
 	to complete
 		has "tl fight 1 done"
+	source "TL Planet Transit"
 	destination "TL Planet Transit"
 	npc disable
 		government "Test Dummy"
@@ -1932,14 +1936,14 @@ mission "The Legacy: The Refuge 3"
 		conversation
 			apply
 				set "tl fight 1 done"
-			`In the cockpit, you and Yohna work hand in hand. So far, you have managed to avoid the attacks of Belzebub. Still, without any weapons your transport shuttle is no match against Belzebub's 'Your Nightmare'. You are desperately looking for a way out, when Tom Paris approaches you with a grim look in his face. Behind him, Raven is trying to hold back her tears.`
+			`In the cockpit, you and Yohna work hand in hand. So far, you have managed to avoid the attacks of Belzebub. Still, without any weapons your transport is no match against Belzebub's 'Your Nightmare'. You are desperately looking for a way out, when Tom Paris approaches you with a grim look in his face. Behind him, Raven is trying to hold back her tears.`
 			`	"Look, <first>, this ship is no match for Belzebub. But I have an idea."`
 			choice
 				`	"Okay. What is it?"`
-			`	"As long, as Belzebub is in pursuit, we will not be able to enter the relais station. Which we must do to break this stalemate. So, I will put on a Spacesuit and you will feign a landing attempt, getting me as close to the station as possible. Then you take off and draw Belzebug with you. I will enter the station and when I'm ready give you a signal. Try to get as much distance as possible between you and the 'Your nightmare', then head for the wormhole. Once you have entered the wormhole, I will shut it down before Belzebug can follow you."`
+			`	"As long, as Belzebub is in pursuit, we will not be able to enter the relais station. Which we must do to break this stalemate. So, I will put on a Spacesuit and you will feign a landing attempt, getting me as close to the station as possible. Then you take off and draw Belzebug with you. I will enter the station, and when I'm ready give you a signal. Try to get as much distance as possible between you and the 'Your nightmare', then head for the wormhole. Once you have entered the wormhole, I will shut it down before Belzebug can follow you."`
 			choice
 				`	"That sounds pretty risky... and desparate. And even if it works, what will become of you?"`
-			`	"Belzebub has taken all which is dear to me already once." He looks at Raven. "I will not let him do it again. He is the reason why I volunteered for this mission - Danforth suspected that he might show up. I had hoped that I can finally aprehend him. Now I will imprision him in the middle of nowhere. And who knows, the station is shielded well enough to withstand his assaults and it is well provisioned. So, just pick me up on the way back."`
+			`	"Belzebub has taken all which is dear to me already once." He looks at Raven. "I will not let him do it again. He is the reason why I volunteered for this mission - Danforth suspected that he might show up. I had hoped that I could finally aprehend him. Now I will imprision him in the middle of nowhere. And who knows, the station is shielded well enough to withstand his assaults and it is well provisioned. If Rhon's ship is as good as it is rumored to be, you should be able to defeat Beelzebub. Just pick me up on the way back."`
 			`	You try to come with a different solution while avoiding another attack by Belzebub. Eventually, you have to accept that it is the best chance you have.`
 			choice
 				`	"Okay, let's do it."`
@@ -1949,9 +1953,15 @@ mission "The Legacy: The Refuge 3"
 		personality staying nemesis heroic target mute
 		system "TL Transit"
 		ship "Albatross" "Your Nightmare"
+	on offer
+		conversation
+			`Rhon instructs you to configure the machine for a place he calls 'The Refuge'. Once you receive the confirmation that the switch is complete, you depart.`
+				launch
 	on enter
 		conversation
-			`Instructions for fight and not to leave system 3`
+			`As soon as you take off, another ship uncloaks. You are hailed and when you hear the voice, cold shivers run down your spine and Tom Paris' face turns to stone. It is Beelzebub.`
+			`	"I told you that you that one day you will pay for the troubles you caused me. And the Rat's ship and his treasure are just the right compensation. Prepare to die!"`
+			`	As if that turn of events was not shocking enough, the Holograph appears and is furious. "I will never forget this voice. This is the Remnant traitor that tried to sell Thora and me out. You must prevent at all costs that he reaches The Refuge. The Wormhole will only work when triggered by a device installed on this ship, so do not attempt to leave the system as long as he can follow you."`
 	on enter "TL Refuge"
 		conversation
 			`You have lead Belzebub to Rhon's legacy. The last thing you see is automatic defense drones decloaking beside your ship.`
@@ -1961,18 +1971,35 @@ mission "The Legacy: The Refuge 3"
 		conversation
 			`You try to land, however, Belzebub is following closely and so the docking hatches remain closed.`
 				launch
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+	on defer
+		event "the legacy was aborted"
 	on complete
 		conversation
-			`Ref 3 completed`
+			`TR 3 complete`
 
 mission "The Legacy: The Refuge 4"
 	landing
+	cargo "(reserved)" 12
+	passengers 5
 #	invisible
 	to offer
 		has "The Legacy: The Refuge 3: done"
 	to complete
 		has "tl fight 2 done"
 	destination "TL Planet Refuge"
+	npc disable
+		government "Test Dummy"
+		system "TL Transit"
+		personality unconstrained heroic nemesis
+		ship "TL Timer3 Ship" "TL Timer3"
+		conversation
+			apply
+				set "tl fight 2 done"
+			`You are overjoyed when you receive Captain Paris' message that he is ready. Now it is time to head for the Wormhole.`
 	npc save
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
@@ -1980,17 +2007,83 @@ mission "The Legacy: The Refuge 4"
 		ship "Albatross" "Your Nightmare"
 	on offer
 		conversation
-			`Ref 4 on offer`
+			`In a daunting manouver, you navigate the <ship> to the opposite side of the asteroid, keeping it as a shield between you and Beelzebub. It does not long for him to adapt to this tactic, though, and as as soon as you see his ship cloaking, Captain Paris is on his way and you turn the <ship> and head off with maximum acceleration.`
+			`	Yohna is impressed: "That was some of the best flying I have ever seen. Let's just hope our plan works."`
 				launch
-	on enter
-		conversation
-			`Ref 4 on enter`
 	on enter "TL Refuge"
 		conversation
-			`After you have exited the wormhole, you wait anxiously for Belzebub's ship to appear. After some minutes have passed you decide that the plan has worked. However, no one is in a cheerful mood.`
+			branch "all_okay"
+				has "tl fight 2 done"
+			`You have lead Belzebub to Rhon's legacy. The last thing you see is automatic defense drones decloaking beside your ship.`
+			`	You died.`
+				die
+			label "all_okay"
+			`After you have exited the wormhole, you wait anxiously for Belzebub's ship to appear. After some minutes have passed you decide that the plan has worked. You are relieved, but of course the mood is dampened.`
+			`It takes you a while until you start taking in your surroundings. Obviously, you have travelled far. The space around you is almost completely black, except for a much too small sun, orbited by a single planet. You are almost certain that both were created artificially. You decide to follow the landing beacon towards the planet.` 
+	on decline
+		event "the legacy was aborted"
+	on fail
+		event "the legacy was aborted"
+	on defer
+		event "the legacy was aborted"
+	on complete
+		payment 3000000000
+		conversation
+			`After you have landed on the planet, it becomes clear that you have reached your destination. You are greeted by Rhon: "Welcome to 'The Refuge'. The Baleans built this place ages ago, when they were still actively searching contact to other species. They used it to study their visitors and their intentions, but also to answer their questions about them. Feel free to relax on the planet as long as you like."`
+			`	"Since this is your first visit, you will not find any information about the Baleans. They will study you, and if they deem you worthy and you return, you will find also information about them and they might even reach out to you."`
+			`	"For now, you will find in the shipyard my 'Thora', but feel free to give her a name of your own. After all, she is yours now. On it, you will also find 3 Billion credits, my publications, and my diaries. While the ship replicators could easily produce additional copies of the 'Thora', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole."`
+			`	"And do not worry about time - it passes different here. Even if you stay for a year, merely a day will have passed in the outside world."`
+			`	"Once you are done, meet me at the Spaceport"`
+
+mission "The Legacy: The Refuge 5"
+	name "The Legacy: The Refuge"
+	description "Rescue Captain Paris."
+	cargo "(reserved)" 12
+	passengers 5
+	to offer
+		has "The Legacy: The Refuge 4: done"
+		not "event: the legacy was aborted"
+	source "TL Planet Refuge"
+	destination "TL Planet Transit"
+	on offer
+		conversation
+			`While under different circumstances, you would have loved to explore the beautiful surroundings, everyone is anxious to rescue Captain Paris. Still, when you see Rhon's ship, you cannot help but wonder. "This pretty much looks like a Hurricane."`
+			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has many more chapters. Maybe something to explore in the future, but for now, we need to rescue Captain Paris."`
+				accept
+	on enter "TL Transit"
+		conversation
+			`When you exit the Wormhole, you have a brief encounter with Beelzebub, who quickly realizes that he hopelessly outmatched against the <ship>. He cloaks his ship and disappears. This gives you the opportunity to land on the relais station.`
 	on complete
 		conversation
-			`Description about activating strange machinery.`
+			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
+			`	Raven updates Captain Paris on your discoveries and obviously Rhon was correct - time indeed passed differently in the Refuge.`
+			`	Meanwhile, Yohna and you reconfigure the Wormhole to lead back into Korath space.`
+
+mission "The Legacy: Epilogue 1"
+	name "The Legacy: Epilog"
+	description "Return Rek and Sayari to xxx."
+	cargo "(reserved)" 12
+	passengers 6
+	to offer
+		has "The Legacy: The Refuge 5: done"
+		not "event: the legacy was aborted"
+	source "TL Planet Transit"
+	destination "Desi Seledrak"
+	on offer
+		conversation
+			`Once the Wormhole is reconfigured, you all meet in the mess hall of the <ship> to discuss the next steps. Captain Paris sums `
+			"So, whereto now?"While under different circumstances, you would have loved to explore the beautiful surroundings, everyone is anxious to rescue Captain Paris. Still, when you see Rhon's ship, you cannot help but wonder. "This pretty much looks like a Hurricane."`
+			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has many more chapters. Maybe something to explore in the future, but for now, we need to rescue Captain Paris."`
+				accept
+	on complete
+		event general cleanup
+		conversation
+			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
+			`	Raven updates Captain Paris on your discoveries and obviously Rhon was correct - time indeed passed differently in the Refuge.`
+			`	Meanwhile, Yohna and you reconfigure the Wormhole to lead back into Korath space.`
+
+
+
 
 
 mission "The Legacy: Muahaha"
