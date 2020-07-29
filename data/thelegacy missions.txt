@@ -1448,7 +1448,7 @@ mission "The Legacy: TMBR found"
 				`	"Thank you". You wonder if it is time to invest into additional protective shielding against unwanted scans.`
 			`	You follow the beam. While crossing the regular spaceport, you notice that the guide did not exaggerate - the landing field is full to the brim with ships.`
 			`	When you exit the <ship>, you are greeted by a familiar face. Raven is waiting for you and your party. "Captain <last>, it is a pleasure to meet you again, and for once in less dramatic circumstances."`
-			`	While you believe that her friendliness is genuine, you also know that her task is to make sure that you follow Danforth's instructions. Raven leads you to a conference room, where a whole bunch of happy reunions take place. Danforth, but also Captain Paris from Deep Security, Ulrich from 'There Might Be Riots' and Freya.`
+			`	While you believe that her friendliness is genuine, you also know that her task is to make sure that you follow Danforth's instructions. Raven leads you to a conference room, where a whole bunch of happy reunions take place. Danforth is there, but also Captain Paris from Deep Security, and Ulrich from 'There Might Be Riots'.`
 			`	You have lunch together and you manage to catch up with almost everyone, except for Ulrich who instead ogles all over 'the peaceful Squirrel People Lady and the Giant Bird'.`
 			`	Eventually, Danforth get's down to business: "So, Captain <last>, this gathering here should only be a mild surprise for you."`
 			choice
@@ -1459,8 +1459,8 @@ mission "The Legacy: TMBR found"
 			`	Danforth interrupts the banter between Raven and Paris. "So, we are aware of your current quest. When we heard you were on your way here, we thought it would be nice to catch up - and to offer you our assistance."`
 			choice
 				`	This, now, sounds familiar to you: "So, who is going to join the fun then?".`
-			`	Danford smiles: "I see, we understand each other. It is going the be Miss Winters, Raven, and Captain Paris."`
-			`	"I am quite happy about all of them. Thank you for your considerate selection."`
+			`	Danford smiles: "I see, we understand each other. It is going the be Raven and Captain Paris."`
+			`	"I am quite happy about both of them. Thank you for your considerate selection."`
 			`	Danford appreciates your approval and raises his glass for a salute: "To a successful adventure!" You all toast.`
 			choice
 				`	You wonder: "So, what happens next, then?"`
@@ -1468,7 +1468,7 @@ mission "The Legacy: TMBR found"
 			`	"After that, Ulrich and his band have agreed to follow my suggestion and to participate in the project 'History making History', where a concert will be played at the location where it will be archived - on Alexandria. I suppose you won't mind taking the band to their next location?" Danforth winks at you.`
 				accept
 	on accept
-		log "Quests" "The Legacy" `Still in pursuit of The Legacy, several of my human acquaintances have joined the quest as well: Raven, Captain Paris and they even brought in Freya.`
+		log "Quests" "The Legacy" `Still in pursuit of The Legacy, two of my human acquaintances have joined the quest as well: Raven and Tom Paris who was promoted to Captain.`
 	on enter
 		conversation
 			`The concert was a triumph, even for 'The Might Be Riots' standards, so everyone is still in a very good mood when you take off. The band is absolutely fascinated by Sayari and Rek, so you don't need to worry about them.`
@@ -1504,7 +1504,7 @@ mission "The Legacy: The Hideout"
 	name "The Legacy: the Remnant years"
 	description "Visit Rhon's hideout on <destination>."
 	cargo "(reserved)" 12
-	passengers 6
+	passengers 5
 	blocked `You are missing <capacity> to continue the missions.`
 	landing
 	to offer
@@ -1570,7 +1570,7 @@ mission "The Legacy: The Hideout"
 			choice
 				`	"But if Yohna is Rhon's daughter, why was she not detected by the DNA scanners?"`
 			`	"For the first couple of years, we made sure she didn't have to do a blood test. I used all the resources and connections we had to get a sample of real Alpha DNA. That allowed us to improve the detectors. By now, even Rhon will pass."`
-			`	She answers a couple of more questions and then you decide to split up and have a look around. Freya approaches Taely with questions regarding the cloaking technology and before you know it the two are discussing advanced physics. Paris and Raven are more interested in the security configuration of the site. Later, you spot them on a jetty, taking in the peace and serenity of the place.`
+			`	She answers a couple of more questions and then you decide to split up and have a look around. Taely explain Paris and Raven the security configuration of the site. Later, you spot them on a jetty, taking in the peace and serenity of the place.`
 			`	You have an animated discussion with Rek and Sayari about the turn of events. While you believe that the quest has ended, Rek is sure that this was not the end. You wonder how she knows.`
 			`	Rhon, not without a sense of humor, has put up a 'Spaceport' sign over a big fireplace. You will all meet there for dinner.`
 	on fail
@@ -1584,7 +1584,7 @@ mission "The Legacy: Return to Viminal"
 	name "The Legacy: Return to Viminal"
 	description "Transport Rhon and his family savely to <planet>."
 	cargo "(reserved)" 12
-	passengers 6
+	passengers 5
 	blocked `You are missing <capacity> to continue the missions.`
 	to offer
 		has "The Legacy: The Hideout: done"
@@ -1803,7 +1803,7 @@ mission "The Legacy: The Refuge 1"
 	name "The Legacy: The Refuge"
 	description "The search for Rhon's legacy leads you into Korath space."
 	cargo "(reserved)" 12
-	passengers 6
+	passengers 5
 	blocked `You are missing <capacity> to continue the missions.`
 	to offer
 		has "The Legacy: Return to Viminal: done"
@@ -1819,7 +1819,7 @@ mission "The Legacy: The Refuge 1"
 				`	"Sure. So, where did you flee to?"`
 				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
 					decline
-			`	"Well, going back to human space was not really appealing. While on patrol in the Ember Waste, we had regular encounters with the Korath, so I decided to find out more about them. Thora had hidden away one of the Jump Drives she had captured and I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened from then on. Good luck!"`
+			`	"Well, going back to human space was not really appealing. While on patrol in the Ember Waste, we had regular encounters with the Korath, so I decided to find out more about them. Tohra had hidden away one of the Jump Drives she had captured and I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened from then on. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
 			`	"My parents are save here and assured me that they will stay. I want to follow in my father's steps, see what he has seen, make experiences like he did and learn. Besides, I have really taken a liking to travel within this group."`
@@ -1859,7 +1859,7 @@ mission "The Legacy: The Refuge 2"
 	name "The Legacy: The Refuge"
 	description "Try to reach the Refuge site through the wormhole on Persitar."
 	cargo "(reserved)" 12
-	passengers 6
+	passengers 5
 	blocked `You are missing <capacity> to continue the missions.`
 	stopover "Fara Skaeruti"
 	to offer
@@ -1920,7 +1920,7 @@ mission "The Legacy: The Refuge 2 anticheat"
 mission "The Legacy: The Refuge 3"
 	landing
 	cargo "(reserved)" 12
-	passengers 6
+	passengers 5
 #	invisible
 	to offer
 		has "The Legacy: The Refuge 2: done"
@@ -1961,7 +1961,7 @@ mission "The Legacy: The Refuge 3"
 		conversation
 			`As soon as you take off, another ship uncloaks. You are hailed and when you hear the voice, cold shivers run down your spine and Tom Paris' face turns to stone. It is Beelzebub.`
 			`	"I told you that you that one day you will pay for the troubles you caused me. And the Rat's ship and his treasure are just the right compensation. Prepare to die!"`
-			`	As if that turn of events was not shocking enough, the Holograph appears and is furious. "I will never forget this voice. This is the Remnant traitor that tried to sell Thora and me out. You must prevent at all costs that he reaches The Refuge. The Wormhole will only work when triggered by a device installed on this ship, so do not attempt to leave the system as long as he can follow you."`
+			`	As if that turn of events was not shocking enough, the Holograph appears and is furious. "I will never forget this voice. This is the Remnant traitor that tried to sell Tohra and me out. You must prevent at all costs that he reaches The Refuge. The Wormhole will only work when triggered by a device installed on this ship, so do not attempt to leave the system as long as he can follow you."`
 	on enter "TL Refuge"
 		conversation
 			`You have lead Belzebub to Rhon's legacy. The last thing you see is automatic defense drones decloaking beside your ship.`
@@ -1984,7 +1984,7 @@ mission "The Legacy: The Refuge 3"
 mission "The Legacy: The Refuge 4"
 	landing
 	cargo "(reserved)" 12
-	passengers 5
+	passengers 4
 #	invisible
 	to offer
 		has "The Legacy: The Refuge 3: done"
@@ -2020,70 +2020,118 @@ mission "The Legacy: The Refuge 4"
 			label "all_okay"
 			`After you have exited the wormhole, you wait anxiously for Belzebub's ship to appear. After some minutes have passed you decide that the plan has worked. You are relieved, but of course the mood is dampened.`
 			`It takes you a while until you start taking in your surroundings. Obviously, you have travelled far. The space around you is almost completely black, except for a much too small sun, orbited by a single planet. You are almost certain that both were created artificially. You decide to follow the landing beacon towards the planet.` 
-	on decline
-		event "the legacy was aborted"
-	on fail
-		event "the legacy was aborted"
-	on defer
-		event "the legacy was aborted"
 	on complete
 		payment 3000000000
 		conversation
 			`After you have landed on the planet, it becomes clear that you have reached your destination. You are greeted by Rhon: "Welcome to 'The Refuge'. The Baleans built this place ages ago, when they were still actively searching contact to other species. They used it to study their visitors and their intentions, but also to answer their questions about them. Feel free to relax on the planet as long as you like."`
 			`	"Since this is your first visit, you will not find any information about the Baleans. They will study you, and if they deem you worthy and you return, you will find also information about them and they might even reach out to you."`
-			`	"For now, you will find in the shipyard my 'Thora', but feel free to give her a name of your own. After all, she is yours now. On it, you will also find 3 Billion credits, my publications, and my diaries. While the ship replicators could easily produce additional copies of the 'Thora', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole."`
-			`	"And do not worry about time - it passes different here. Even if you stay for a year, merely a day will have passed in the outside world."`
+			`	"For now, you will find in the shipyard my 'Tohra', but feel free to give her a name of your own. After all, she is yours now. On it, you will also find 3 Billion credits, my publications, and my diaries. While the Balean replicators could easily produce additional copies of the 'Tohra', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole."`
+			`	"And do not worry about time - it passes different here. Even if you stay for a year, merely a day will have passed in the outside world. Use your time wisely, because it is not guaranteed when you will be able to return to hear, if at all..."`
 			`	"Once you are done, meet me at the Spaceport"`
 
 mission "The Legacy: The Refuge 5"
 	name "The Legacy: The Refuge"
 	description "Rescue Captain Paris."
+	passengers 4
+	to offer
+		has "The Legacy: The Refuge 4: done"
+	source "TL Planet Refuge"
+	destination "TL Planet Transit"
+	npc kill
+		government "Remnant Hardliner"
+		personality staying nemesis heroic target mute
+		system "TL Transit"
+		ship "Albatross" "Your Nightmare"
+		conversation
+			`As Beelzebub's ship explodes, Yohna breaths a sigh of relieve: "It is finally over. The traitor is dead."`
+			`	However, you are less optimistic. "I am sorry Yohna, but I have seen Beelzebub die to often to believe that this was really his end. Well, at least the base seems to be undamaged."`
+			`	You initiate the landing manouver.`
+	on offer
+		conversation
+			`While under different circumstances, you would have loved to explore the beautiful surroundings and find out more about the Baleans, everyone is anxious to rescue Captain Paris. Still, when you see Rhon's ship, you cannot help but wonder. "This pretty much looks like a Hurricane."`
+			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has more chapters. Maybe something to explore in the future? But for now, we should return as soon as possible to save your friend."`
+				accept
+	on complete
+		event "the legacy refuge phase 3"
+		conversation
+			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
+			`	Raven updates Captain Paris on your discoveries and obviously Rhon was correct - time indeed passed differently in the Refuge.`
+			`	You decide to return to 'The Refuge', but when you check the controls, you realize they are set to take you back to Persitar. Your attempts to reprogram the destination fail - it seems the Baleans for now do not want any further contact.`
+			
+mission "The Legacy: Epilogue 1"
+	name "The Legacy: Epilog"
+	description "Return Rek and Sayari to Desi Seledrak."
+	landing
 	cargo "(reserved)" 12
 	passengers 5
 	to offer
-		has "The Legacy: The Refuge 4: done"
-		not "event: the legacy was aborted"
-	source "TL Planet Refuge"
-	destination "TL Planet Transit"
-	on offer
-		conversation
-			`While under different circumstances, you would have loved to explore the beautiful surroundings, everyone is anxious to rescue Captain Paris. Still, when you see Rhon's ship, you cannot help but wonder. "This pretty much looks like a Hurricane."`
-			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has many more chapters. Maybe something to explore in the future, but for now, we need to rescue Captain Paris."`
-				accept
-	on enter "TL Transit"
-		conversation
-			`When you exit the Wormhole, you have a brief encounter with Beelzebub, who quickly realizes that he hopelessly outmatched against the <ship>. He cloaks his ship and disappears. This gives you the opportunity to land on the relais station.`
-	on complete
-		conversation
-			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
-			`	Raven updates Captain Paris on your discoveries and obviously Rhon was correct - time indeed passed differently in the Refuge.`
-			`	Meanwhile, Yohna and you reconfigure the Wormhole to lead back into Korath space.`
-
-mission "The Legacy: Epilogue 1"
-	name "The Legacy: Epilog"
-	description "Return Rek and Sayari to xxx."
-	cargo "(reserved)" 12
-	passengers 6
-	to offer
 		has "The Legacy: The Refuge 5: done"
-		not "event: the legacy was aborted"
 	source "TL Planet Transit"
 	destination "Desi Seledrak"
 	on offer
+		payment -2000000000
 		conversation
-			`Once the Wormhole is reconfigured, you all meet in the mess hall of the <ship> to discuss the next steps. Captain Paris sums `
-			"So, whereto now?"While under different circumstances, you would have loved to explore the beautiful surroundings, everyone is anxious to rescue Captain Paris. Still, when you see Rhon's ship, you cannot help but wonder. "This pretty much looks like a Hurricane."`
-			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has many more chapters. Maybe something to explore in the future, but for now, we need to rescue Captain Paris."`
+			`When you realize that you cannot return to 'The Refuge' you briefly discuss the next steps. Each of you will get a copy of Rhon's publications and diaries. You also find the blueprints to the <ship>, which again is distributed amongst the members of your party. When it comes to the money, you decide to split it into 6 parts, with Raven and Tom Paris only taking one share together, so that you can give a share to Joe and Maria.`
+			`	You will still have to drop of the members of your party to various lcoations. You start by taking Rek and Sayari to <destination>.`
 				accept
 	on complete
-		event general cleanup
+		event "the legacy refuge cleanup"
 		conversation
-			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
-			`	Raven updates Captain Paris on your discoveries and obviously Rhon was correct - time indeed passed differently in the Refuge.`
-			`	Meanwhile, Yohna and you reconfigure the Wormhole to lead back into Korath space.`
+			`With a heavy heart, you say farewell to Rek and Sayari. They are visibly sad that your common adventure has ended. Sayari addresses you: "Please let us know when you hear from the Baleans and we might return to 'The Refuge'."`
+			`	Rek adds: "And please give our greetings to Rhon when you return Yohna. And do not forget to ask him about the next steps of his journey."`
+			choice
+				`	"I promise, I will."`
 
+mission "The Legacy: Epilogue 2"
+	name "The Legacy: Epilog"
+	description "Return Raven and Captain Paris to Farpoint."
+	landing
+	passengers 3
+	to offer
+		has "The Legacy: Epilogue 1: done"
+	source "Desi Seledrak"
+	destination "Farpoint"
+	on offer
+		conversation
+			`The next destination on your farewell tour is <destination>, where you will drop of Raven and Captain Paris.`
+				accept
+	on complete
+		conversation
+			Meeting with Danforth, but also with treasure hunters
 
+mission "The Legacy: Epilogue 3"
+	name "The Legacy: Epilog"
+	description "Visit Joe and Maria to give them their share of Rhon's legacy."
+	landing
+	passengers 1
+	to offer
+		has "The Legacy: Epilogue 2: done"
+	source "Farpoint"
+	destination "Millrace"
+	on offer
+		conversation
+			``
+				accept
+	on complete
+		conversation
+			Meeting with Joe and Maria
 
+mission "The Legacy: Epilogue 4"
+	name "The Legacy: Epilog"
+	description "Return Yohna to Viminal"
+	landing
+	passengers 1
+	to offer
+		has "The Legacy: Epilogue 3: done"
+	source "Millrace"
+	destination "Viminal"
+	on offer
+		conversation
+			``
+				accept
+	on complete
+		conversation
+			Meeting Rhon and Tohra, 
 
 
 mission "The Legacy: Muahaha"
