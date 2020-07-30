@@ -2069,10 +2069,12 @@ mission "The Legacy: Epilogue 1"
 	source "TL Planet Transit"
 	destination "Desi Seledrak"
 	on offer
-		payment -2000000000
+		payment -1900000000
 		conversation
-			`When you realize that you cannot return to 'The Refuge' you briefly discuss the next steps. Each of you will get a copy of Rhon's publications and diaries. You also find the blueprints to the <ship>, which again is distributed amongst the members of your party. When it comes to the money, you decide to split it into 6 parts, with Raven and Tom Paris only taking one share together, so that you can give a share to Joe and Maria.`
-			`	You will still have to drop of the members of your party to various lcoations. You start by taking Rek and Sayari to <destination>.`
+			`When you realize that you cannot return to 'The Refuge' you briefly discuss the next steps. In the end you agree to return to your normal lives until you hear from the Baleans again.`
+			`	As for the legacy, each member of the party gets a copy of Rhon's publications and diaries. You also find the blueprints to the <ship>, which again is distributed amongst your group. Regarding the money, again an agreement is quickly found - you split it in 6 and Raven and Captain Paris each donate 50 Million out of their share to be given to Joe and Maria.`
+			`	When it comes to the <ship>, you find yourself isolated against the rest. You tried to buy out the others, but everyone is in agreement that the ship shall be yours without any compensation. You gratefully accept.`
+			`	Then you prepare for the return journey. You start by taking Rek and Sayari to <destination>.`
 				accept
 	on complete
 		event "the legacy refuge cleanup"
@@ -2097,8 +2099,18 @@ mission "The Legacy: Epilogue 2"
 				accept
 	on complete
 		conversation
-			Meeting with Danforth, but also with treasure hunters
-
+			`On <planet>, a surprise awaits you. When you join Danforth for dinner, you are awaited not only by him, but also by the 5 treasure hunters which set the whole affair in motion. There are no ill feelings, though. Benoit cordially greets you: "My dear Captain <last>, what a pleasure to see you. And what a delight that it was you who won Rhon's Legacy."`
+			choice
+				`	"So, you are not upset that I did not tell you when I solved the first clue?"`
+			`	"Not in the slightest. After all, it was me who gave you the clue and sent you away. For us, it was always more about solving the riddles than actually winning the price. And this way, we can at least compare notes."`
+			`	You have a very pleasant dinner where you and your friends have ample opportunity to recount your adventures. You discover that Benoit and his friends had solved the first clue shortly after you and then contacted Benoit's old friend Admiral Danforth to help them with the search in Hai space.`
+			`	When it comes to the Remnant part of the story, you leave the storytelling to Yohna, who knows best what is better left untold. After a harmonious and relaxed evening, it is time to say good-bye to Raven and Captain Paris.`
+			choice
+				`	"So, what are you going to do now?"`
+			`	Raven responds: "I expect the Admiral wants to have a more thorough debriefing." She turns to Captain Paris. "If you wait for me, I can join you on your journey to Valhalla."`
+			`	Captain Paris blushes a bit. "I... would like this very much."`
+			`	Then Raven turns to Yohna. "I hope that we will meet again one day."`
+			`	"I am sure we will. Now, that I have seen what is out there, I intend to follow in the footsteps of my father." With a smile, Yohna adds: "It is probably in my genes."`
 mission "The Legacy: Epilogue 3"
 	name "The Legacy: Epilog"
 	description "Visit Joe and Maria to give them their share of Rhon's legacy."
@@ -2110,11 +2122,14 @@ mission "The Legacy: Epilogue 3"
 	destination "Millrace"
 	on offer
 		conversation
-			``
+			`The next morning, you depart for <planet>.`
 				accept
 	on complete
+		payment -100000000
 		conversation
-			Meeting with Joe and Maria
+			`When you contact Joe and Maria, they are as welcoming as always and immediately invite you and Yohna for dinner. However, when you arrive at their place, you notice that something is wrong. When you ask them about it, Maria reluctantly tells you: "The factory in which we work hat to temporarily shut down due to a virus outbreak. So they sent everyone away on unpaid leave. We have put some money on the side, so we are okay, but it is not yet clear how long this situation will last, so this worries us." She tries to change the subject. "So, how did your quest go, and who is this?"`
+			`	"I am Yohna. The daughter of Rhon." Joe and Maria are dumbstruck. Yohna laughs in her disarming way. "It is a long story. And if you want, we will tell you all about it. But first things first - the most important part is that the story has a happy ending. Also for you."`
+			`	With that, Yohna hands Joe the credit chip and Maria the data crystals with Rhon's publications and diaries. It takes them a while to recover from the shock, but then they radiate pure joy and happyness for the remainder of the evening.`
 
 mission "The Legacy: Epilogue 4"
 	name "The Legacy: Epilog"
@@ -2127,13 +2142,22 @@ mission "The Legacy: Epilogue 4"
 	destination "Viminal"
 	on offer
 		conversation
-			``
+			`Back on the ship, you prepare for the trip to <planet>.`
 				accept
 	on complete
 		conversation
-			Meeting Rhon and Tohra, 
-
-
+			`When you arrive on <planet>, you are awaited by Rhon and Tohra. They invite you over to their new home and you both recount the adventures you had in the meantime. Rhon has a surprise for you.`
+			`	"I have been contacted by the Baleans. They have studied you and all your actions. They approve of the decisions you have taken. There is a good chance they will allow you to revisit 'The Refuge' and maybe even their star systems." He hands you a small metalic cube. "They will contact you through this device."`
+			choice
+				`	"Thank you. There is one other thing. Your ship - the design... this looks like a Wanderer Hurricane. So, how did that happen?"`
+			`	Rhon laughs. "You are correct. You see, my journey was much longer than the steps you have followed so far. If you are interested in the rest, let me know, and I will prepare some additional data crystals. But for now, take the time to reminiscent about what you have learned and experienced in these last weeks. And give me a chance to get to know my daughter." You all smile at that.` 
+			`	The next morning, Yohna accompanies you to the Spaceport. "Thank you for everything, <first>. This was a life altering trip. I now have a father and my mother is still alive. And I have seen the world out there. I want to learn more about the Baleans... I will never forget this... you. Please visit me, whenever you are near."`
+			`	Tears are streaming down Yohna's face. You embrace her.`
+			choice
+				`	"I will for sure. And I will also let you know as soon as I hear anything from the Baleans. And I am sure that this was not our last trip."`
+			`	THE END.`
+			
+			
 mission "The Legacy: Muahaha"
 	landing
 	to offer
