@@ -279,9 +279,10 @@ event "the legacy refuge phase 3"
 			distance 2077.64
 			period 1835.49
 
-event "the legacy refuge phase cleanup"
+event "the legacy refuge cleanup"
 	system Persitar
-		remove object "TL Wormhole Transit"
+		remove object
+			"TL Wormhole Transit"
 	planet "Kuwaru Efreti"
 		attributes quarg station
 		landscape land/station2

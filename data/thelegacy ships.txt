@@ -13,7 +13,7 @@ ship "Quark Blackbird"
 	thumbnail thumbnail/blackbird
 	attributes
 		category Transport
-		cost -176000000
+		cost -140000000
 		mass 220
 		bunks 12
 		"cargo space" 60
@@ -28,14 +28,14 @@ ship "Quark Blackbird"
 		"turret mounts" 2
 		"weapon capacity" 40
 	outfits
-		"Medium Graviton Thruster"
+		"Antimatter Core"
+		"Balean Beacon"
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
 		"Jump Drive"
-		"Medium Graviton Steering"
-		"Quarg Anti-Missile"
 		"Nanotech Battery"
 		"Quantum Shield Generator"
-		"Antimatter Core"
-		"Yellow Quantum Key Stone"
+		"Quarg Anti-Missile"
 	crew 3
 	fuel 900
 	shields 4400
@@ -53,58 +53,56 @@ ship "Quark Blackbird"
 	"final explode" "final explosion small" 1
 	description "The Quark have taken a Blackbird and refitted to serve as a pure transport ship."
 
-ship "Rhons Hurricane"
+ship "Rhons Ship"
 	sprite ship/hurricane
 	thumbnail thumbnail/hurricane
 	attributes
 		category "Heavy Warship"
 		cost 600000000
-		mass 770
-		bunks 117
-		"cargo space" 98
+		mass 990
+		bunks 120
+		"cargo space" 120
 		drag 11.9
-		"engine capacity" 140
-		"fuel capacity" 500
-		"gun ports" 6
+		"engine capacity" 240
+		"fuel capacity" 800
+		"gun ports" 4
 		"heat dissipation" 0.55
 		hull 46500
-		"outfit space" 960
+		"hull energy" 3.6
+		"hull repair rate" 4.8
+		"outfit space" 1050
 		"required crew" 2
 		shields 72400
 		"turret mounts" 5
-		"weapon capacity" 428
+		"weapon capacity" 390
 	outfits
+		"Asteroid Scanner"
+		"Balean Beacon"
 		"Scram Drive"
-		"Fuel Pod"
-		"Quantum Keystone"
-		"Jump Drive"
-		"Cloaking Device"
-		Sunbeam 4
 		"Quarg Skylance" 2
 		"Quarg Anti-Missile"
 		"Antimatter Core" 2
-		"Dark Storm Shielding" 2
-		"Large Repair Module"
+		"Quantum Shield Generator"
+		"Medium Graviton Thruster" 2
+		"Medium Graviton Steering" 2
 		"Fuel Processor" 2
-		"Thruster (Planetary Class)"
-		"Steering (Comet Class)"
-		"Steering (Planetary Class)"
-		"Cooling Module" 7
-		"Drak Anti-Missile Field"
-		"Drak Turret"
+		Sunbeam 4
+		"Sunbeam Turret" 2
+		"Cooling Module" 4
+		"Scanning Module" 2
+		"Quantum Keystone"
+		"Jump Drive"
 	engine -23 181 1
 	engine 23 181 1
 	gun -68 5 Sunbeam
 	gun 68 5 Sunbeam
 	gun -85 21 Sunbeam
 	gun 85 21 Sunbeam
-	gun -62 32
-	gun 62 32
 	turret -27 -80 "Quarg Skylance"
 	turret 27 -80 "Quarg Skylance"
-	turret 0 -33 "Drak Turret"
-	turret -39 140 "Drak Anti-Missile Field"
-	turret 39 140 "Quarg Anti-Missile"
+	turret 0 -33 "Quarg Anti-Missile"
+	turret -39 140 "Sunbeam Turret"
+	turret 39 140 "Sunbeam Turret"
 	explode "small explosion" 20
 	explode "medium explosion" 80
 	explode "large explosion" 70

@@ -1778,26 +1778,13 @@ mission "The Legacy: Return to Viminal"
 # Gets into trouble for fighting the Unfettered when they start stealing, because this is not the Wanderer way - reason to leave?
 # Somehow has to get into Coaltion space
 # Chase through Coalition space
-# Heliarch are "in the know" and provide ship with special crystal which enables travel through wormhole - not moveable
-# on the way to wormhole "end fight" against the Remnant traitor, (Belzebub???)
-# Clearly outmatch player (like with Archon), must keep evading while timer is running down
-# Paris goes on suicide mission to help the rest escape
-# Player travels through wormhole to location where he can select one bonus ship and finds the legacy - money, complete diaries and teachings.
-# Potentially another wormhole leading to an unknown region of space for a future plug-in
-# on the way back rescue Paris, who after helping the rest to escape into the wormhole, decided to not fight to the death, but to live because there is reason (Raven)
-# drop everyone off
-# Visit Joe and Maria to give them their share
 
 # The characters and backstory ideas
-# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Red and form an aliance between the 3 races and have first official contacts with Korath.
-# Rek - on of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them.
+# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Rek and form an aliance between the 3 races and have first official contacts with Korath.
+# Rek - one of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them.
 # Yohna - helps with all things Remnant related, ensures that Remnant secrets are not revealed.
-# Freya - is interested in the technology that Rhon had with his ships. Befriends Taely, they will visit each other in the future and exchange know-how. She catalogs what she can from the Jump Drive and Cloaking tech. Returns to Deneb. (mission: bring Taely to Deneb?)
 # Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation.
 # Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation.
-
-# Ships to be offered:
-# Hurricane with Quarg tech. Extremely fast Kestrel (where did he get the plans for that one? Maybe he gave the constructor the vision?)
 
 mission "The Legacy: The Refuge 1"
 	name "The Legacy: The Refuge"
@@ -1822,7 +1809,7 @@ mission "The Legacy: The Refuge 1"
 			`	"Well, going back to human space was not really appealing. While on patrol in the Ember Waste, we had regular encounters with the Korath, so I decided to find out more about them. Tohra had hidden away one of the Jump Drives she had captured and I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened from then on. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
-			`	"My parents are save here and assured me that they will stay. I want to follow in my father's steps, see what he has seen, make experiences like he did and learn. Besides, I have really taken a liking to travel within this group."`
+			`	"My parents are save and assured me that they will stay here for now. I want to follow in my father's steps, see what he has seen, make experiences like he did and learn. Besides, I have really taken a liking to travel within this group."`
 			`	Since the rest of your party has a similar mindset, you prepare to depart to <planet>.`
 				accept
 	on accept
@@ -1836,7 +1823,7 @@ mission "The Legacy: The Refuge 1"
 			choice
 				`	"Alphas?"`
 			`	"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking further losses to the Robot ships. So, I managed to strike a deal. They would 'loan' me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
-			`	"It didn't take me long to have first successes, applying partisan tactics utilizing my jump drive and cloaking capability. However, I also realized that my trusty Starling was no real match for their several of their ships at once and that one day my luck may run out."`
+			`	"It didn't take me long to have first successes, applying partisan tactics utilizing my jump drive and cloaking capability. However, I also realized that my trusty Starling was no real match for several of their ships at once and that one day my luck may run out."`
 			`	"I set out to build a ship matching anything they could throw at me and ultimately managed to do so, but that is story for another time and another quest. On this voyage, I will introduce you to the most fascinating discovery I have made on all my journeys and which will also lead you to my legacy."`
 	on enter "Dokdobaru"
 		conversation
@@ -1847,7 +1834,7 @@ mission "The Legacy: The Refuge 1"
 		conversation
 			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quarks approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
 			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
-			`	The Quarg bows back. "Just like your father, you will always be welcome here." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
+			`	The Quarg bows back. "Just like your father, here always you will be welcome." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1870,9 +1857,10 @@ mission "The Legacy: The Refuge 2"
 	on offer
 		conversation
 			`When you enter the Spaceport, the Quargs which had greeted you earlier, approaches you again.`
-			`	"Take the ship you have acquired to Faronektu and have it refueled there. Then travel to Persitar, where you will find a Portal, through which you must travel. The remainder of your ships may stay with us, because only your transport will be able to proceed."`
+			`	"Take the ship you have acquired to Faronektu and have it refueled there. Then travel to Persitar, where you will find a Portal, through which you must travel. The remainder of your ships should stay with us, because only your transport will be able to proceed."`
 				accept
 	on enter
+		outfit "Yellow Quantum Key Stone" 1
 		conversation
 			`Once you have engaged the auto-pilot, you join your friends in the core of the ship. Not unsurprisingly, the holoraphic Rhon appears.`
 			`	"So, my mission was to turn the hunters into the hunted. Typically, I would drift under cloak in one of the borderline systems and wait until the enemy showed up or one of the sensors I had deployed would transmit an alert."`
@@ -1901,21 +1889,6 @@ mission "The Legacy: The Refuge 2"
 		event "the legacy was aborted"
 	on defer
 		event "the legacy was aborted"
-
-mission "The Legacy: The Refuge 2 anticheat"
-	landing
-#	invisible
-	to offer
-		has "The Legacy: The Refuge 1: done"
-	destination "TL Planet Transit"
-	on enter
-		conversation
-			branch "all_okay"
-				has "Yellow Quantum Key Stone" == 1
-			`The Quark do not tolerate that you have taken more than one ship. The last thing you see are a fleet of Wardragon's approaching you. Then you die.`
-				die
-			label "all_okay"
-				fail
 
 mission "The Legacy: The Refuge 3"
 	landing
@@ -1960,7 +1933,7 @@ mission "The Legacy: The Refuge 3"
 	on enter
 		conversation
 			`As soon as you take off, another ship uncloaks. You are hailed and when you hear the voice, cold shivers run down your spine and Tom Paris' face turns to stone. It is Beelzebub.`
-			`	"I told you that you that one day you will pay for the troubles you caused me. And the Rat's ship and his treasure are just the right compensation. Prepare to die!"`
+			`	"I told you that one day you will pay for the troubles you caused me. And the Rat's ship and his treasure are just the right compensation. Prepare to die!"`
 			`	As if that turn of events was not shocking enough, the Holograph appears and is furious. "I will never forget this voice. This is the Remnant traitor that tried to sell Tohra and me out. You must prevent at all costs that he reaches The Refuge. The Wormhole will only work when triggered by a device installed on this ship, so do not attempt to leave the system as long as he can follow you."`
 	on enter "TL Refuge"
 		conversation
@@ -2021,12 +1994,13 @@ mission "The Legacy: The Refuge 4"
 			`After you have exited the wormhole, you wait anxiously for Belzebub's ship to appear. After some minutes have passed you decide that the plan has worked. You are relieved, but of course the mood is dampened.`
 			`It takes you a while until you start taking in your surroundings. Obviously, you have travelled far. The space around you is almost completely black, except for a much too small sun, orbited by a single planet. You are almost certain that both were created artificially. You decide to follow the landing beacon towards the planet.` 
 	on complete
-		payment 3000000000
+		payment 3960000000
 		conversation
-			`After you have landed on the planet, it becomes clear that you have reached your destination. You are greeted by Rhon: "Welcome to 'The Refuge'. The Baleans built this place ages ago, when they were still actively searching contact to other species. They used it to study their visitors and their intentions, but also to answer their questions about them. Feel free to relax on the planet as long as you like."`
-			`	"Since this is your first visit, you will not find any information about the Baleans. They will study you, and if they deem you worthy and you return, you will find also information about them and they might even reach out to you."`
-			`	"For now, you will find in the shipyard my 'Tohra', but feel free to give her a name of your own. After all, she is yours now. On it, you will also find 3 Billion credits, my publications, and my diaries. While the Balean replicators could easily produce additional copies of the 'Tohra', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole."`
-			`	"And do not worry about time - it passes different here. Even if you stay for a year, merely a day will have passed in the outside world. Use your time wisely, because it is not guaranteed when you will be able to return to hear, if at all..."`
+			`After you have landed on the planet, it becomes clear that you have reached your destination. You are greeted by another holographic Rhon: "Welcome to 'The Refuge'. The Baleans built this place ages ago, when they were still actively searching contact to other species. They used it to study their visitors and their intentions, but also to answer their questions about them. Feel free to relax on the planet as long as you like."`
+			`	"Since this is your first visit, you will not find any information about the Baleans. They will study you, and if they deem you worthy and allow you to return, you will find information about them and they might even let you proceed into their system."`
+			`	"For now, you will find in the shipyard my 'Tohra', but feel free to give her a name of your own. After all, she is yours now. On it, there is a chip with 3 Billion credits, my publications, and my diaries. Feel free to copy my publications and diaries to your liking.`
+			`	While the Balean replicators could easily produce additional copies of the 'Tohra', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole. Consequently, sell the <ship> at the shipyard, after you have taken out the keystone."`
+			`	"One more thing - do not worry about time. Time passes different here. Even if you stay for a year, merely a day will have passed in the outside world. Use your stay wisely, because it is not guaranteed when you will be able to return..."`
 			`	"Once you are done, meet me at the Spaceport"`
 
 mission "The Legacy: The Refuge 5"
@@ -2072,17 +2046,18 @@ mission "The Legacy: Epilogue 1"
 		payment -1900000000
 		conversation
 			`When you realize that you cannot return to 'The Refuge' you briefly discuss the next steps. In the end you agree to return to your normal lives until you hear from the Baleans again.`
-			`	As for the legacy, each member of the party gets a copy of Rhon's publications and diaries. You also find the blueprints to the <ship>, which again is distributed amongst your group. Regarding the money, again an agreement is quickly found - you split it in 6 and Raven and Captain Paris each donate 50 Million out of their share to be given to Joe and Maria.`
+			`	As for the legacy, each member of the party gets a copy of Rhon's publications and diaries. You also find the blueprints to the <ship>, which again is distributed amongst your group. Regarding the money, an agreement is quickly found - you split it in 6 and Raven and Captain Paris each donate 50 Million out of their share to be given to Joe and Maria.`
 			`	When it comes to the <ship>, you find yourself isolated against the rest. You tried to buy out the others, but everyone is in agreement that the ship shall be yours without any compensation. You gratefully accept.`
 			`	Then you prepare for the return journey. You start by taking Rek and Sayari to <destination>.`
 				accept
 	on complete
 		event "the legacy refuge cleanup"
 		conversation
-			`With a heavy heart, you say farewell to Rek and Sayari. They are visibly sad that your common adventure has ended. Sayari addresses you: "Please let us know when you hear from the Baleans and we might return to 'The Refuge'."`
+			`With a heavy heart, you say farewell to Rek and Sayari. They are visibly sad that your common adventure has ended. Sayari addresses you: "Please let us know when you hear from the Baleans and if we might return to 'The Refuge'."`
 			`	Rek adds: "And please give our greetings to Rhon when you return Yohna. And do not forget to ask him about the next steps of his journey."`
 			choice
 				`	"I promise, I will."`
+			`	Your friends take their belongings and depart the <ship>.`
 
 mission "The Legacy: Epilogue 2"
 	name "The Legacy: Epilog"

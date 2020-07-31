@@ -11,10 +11,18 @@
 outfit "Yellow Quantum Key Stone"
 	category "Systems"
 	cost 12000
-	installable -1
 	thumbnail "outfit/yellowkeystone"
 	"mass" 1
 	"outfit space" -1
 	"yellow quantum keystone" 1
 	description "This special Quantum Keystone version allows to travel a different type of wormhole."
-	
+
+outfit "Balean Beacon"
+	category "Systems"
+	cost 12000
+	installable -1
+	thumbnail "outfit/unknown"
+	"mass" 1
+	"outfit space" -1
+	"balean beacon" 1
+	description "This device allows the Baleans to track you and communicate with you."

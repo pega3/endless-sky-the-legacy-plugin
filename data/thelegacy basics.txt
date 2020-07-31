@@ -12,10 +12,13 @@ outfitter "TL Refuge Outfitter"
 	"Pilot's License"
 
 shipyard "TL Refuge Shipyard"
-	"Rhons Hurricane"
+	"Rhons Ship"
 
 shipyard "TL Quark Shipyard"
 	"Quark Blackbird"
+
+
+# Governments
 
 government "Rhon's Legacy"
 	"player reputation" 1
@@ -30,6 +33,9 @@ government "Remnant Hardliner"
 		"Indigenous Lifeform" 0.05
 		"Korath" -.05
 		"Alpha" -.05
+
+
+# Timer-Ships
 
 ship "TL Timer Ship"
 	attributes
@@ -94,7 +100,7 @@ outfit "TL Timer2 Submunition"
 		"lifetime" 20
 		"trigger radius" 200
 		"blast radius" 20
-		"hull damage" .45
+		"hull damage" .50
 		"no damage scaling"
 
 ship "TL Timer3 Ship"
@@ -127,5 +133,5 @@ outfit "TL Timer3 Submunition"
 		"lifetime" 20
 		"trigger radius" 200
 		"blast radius" 20
-		"hull damage" .45
+		"hull damage" .60
 		"no damage scaling"
