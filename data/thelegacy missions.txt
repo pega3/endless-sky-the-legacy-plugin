@@ -1806,14 +1806,14 @@ mission "The Legacy: The Refuge 1"
 				`	"Sure. So, where did you flee to?"`
 				`	"I am sorry, but I'm glad I made it this far. I am giving up."`
 					decline
-			`	"Well, going back to human space was not really appealing. While on patrol in the Ember Waste, we had regular encounters with the Korath, so I decided to find out more about them. Tohra had hidden away one of the Jump Drives she had captured and I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quark have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened from then on. Good luck!"`
+			`	"Well, going back to human space was not really appealing. While on patrol in the Ember Waste, we had regular encounters with the Korath, so I decided to find out more about them. Tohra had hidden away one of the Jump Drives she had captured and I managed to install it onto the prototype. Travelling under cloak with a good ramscoop worked quite well, I was able to make it to the ringworld that the Quarg have in Korath space. And this is where you have to go next. On the way, my hologram will tell you a bit more on what happened from then on. Good luck!"`
 			choice
 				`	"What about you, Yohna?"`
 			`	"My parents are save and assured me that they will stay here for now. I want to follow in my father's steps, see what he has seen, make experiences like he did and learn. Besides, I have really taken a liking to travel within this group."`
 			`	Since the rest of your party has a similar mindset, you prepare to depart to <planet>.`
 				accept
 	on accept
-		log "Quests" "The Legacy" `On the chase for The Legacy, we are now on the way to the Quark ringworld in Korath space.`
+		log "Quests" "The Legacy" `On the chase for The Legacy, we are now on the way to the Quarg ringworld in Korath space.`
 		event "the legacy refuge phase 1"
 	on enter
 		conversation
@@ -1822,7 +1822,7 @@ mission "The Legacy: The Refuge 1"
 			`	"There, I had a very strange welcome. At first, the Quarg were almost hostile towards me, but after they had examined me and my ship, they became very welcoming. The reason soon became clear - they were having troubles with a group of humans who were running very well organized surprise attacks on their ships, trying to capture their technology."`
 			choice
 				`	"Alphas?"`
-			`	"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quark never had the appetite to chase after them, risking further losses to the Robot ships. So, I managed to strike a deal. They would 'loan' me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quark ships."`
+			`	"Precisely. They had somehow found a way to get by the Automata without being attacked. The Quarg never had the appetite to chase after them, risking further losses to the Robot ships. So, I managed to strike a deal. They would 'loan' me some of their technology and I would go after the Alpha's and spoil their appetite for attacking Quarg ships."`
 			`	"It didn't take me long to have first successes, applying partisan tactics utilizing my jump drive and cloaking capability. However, I also realized that my trusty Starling was no real match for several of their ships at once and that one day my luck may run out."`
 			`	"I set out to build a ship matching anything they could throw at me and ultimately managed to do so, but that is story for another time and another quest. On this voyage, I will introduce you to the most fascinating discovery I have made on all my journeys and which will also lead you to my legacy."`
 	on enter "Dokdobaru"
@@ -1832,7 +1832,7 @@ mission "The Legacy: The Refuge 1"
 			`	"No, Yohna, you're not. I have a similar feeling. I guess, we will have to be extra careful."`
 	on complete
 		conversation
-			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quarks approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
+			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quargs approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
 			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
 			`	The Quarg bows back. "Just like your father, here always you will be welcome." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
