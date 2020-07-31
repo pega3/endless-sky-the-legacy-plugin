@@ -14,8 +14,8 @@ outfitter "TL Refuge Outfitter"
 shipyard "TL Refuge Shipyard"
 	"Rhons Ship"
 
-shipyard "TL Quark Shipyard"
-	"Quark Blackbird"
+shipyard "TL Quarg Shipyard"
+	"Quarg Blackbird"
 
 
 # Governments
