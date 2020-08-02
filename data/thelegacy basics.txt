@@ -100,7 +100,7 @@ outfit "TL Timer2 Submunition"
 		"lifetime" 20
 		"trigger radius" 200
 		"blast radius" 20
-		"hull damage" .50
+		"hull damage" .55
 		"no damage scaling"
 
 ship "TL Timer3 Ship"

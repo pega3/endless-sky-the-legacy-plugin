@@ -791,8 +791,8 @@ mission "The Legacy: The First Clue 1"
 				`	"However, I cannot read those symbols myself and to have them deciphered, I need to travel into a different region of space."`
 			`	You store a copy of the symbols on a data crystal and erase all traces of your discovery. You return with Joe and Maria to their home and spend the rest of the evening wondering about what is to come.`
 			`	When it's time to leave, they wish you good luck for your adventure. You promise to give them a share if your hunt is successful.`
-			`	Back on your ship, you start educating yourself about Rhon, his live and his teachings, and find that he was indeed a fascinating person.`
-			`	You may have overdone it with your studies, tough. In your sleep you dream of Rhon visiting you.`
+			`	Back on your ship, you start educating yourself about Rhon, his life and his teachings, and find that he was indeed a fascinating person.`
+			`	You may have overdone it with your studies, though. In your sleep you dream of Rhon visiting you.`
 			`	He gives you a warning: "If you want to find my inheritance, don't rely solely on your mission computer. Remember the friends you have made on your travels and the knowledge you have acquired."`
 				accept
 	on accept
@@ -1608,7 +1608,7 @@ mission "The Legacy: Return to Viminal"
 	npc accompany
 		government "Remnant"
 		personality pacifist escort
-		ship "Albatross" "Bright Raven"
+		ship "Albatross TL" "Bright Raven"
 	npc disable save
 		government "Remnant Hardliner"
 		personality staying nemesis heroic target mute
@@ -1768,24 +1768,6 @@ mission "The Legacy: Return to Viminal"
 	on defer
 		event "the legacy was aborted"
 
-# Ideas for what happens after The Hideout
-# Manages to get Jump-Drive installed into Starling.
-# Travels through Korath-Space until reaches Quarg ring world
-# Helps Quargs to deal with some Pirate / Farming troubles or something else to obtain some Quarg tech
-# Goes on to wonderer space - since he speaks Hai, he can communicate? Or else he learns the language
-# Chase through Wanderer planets
-# This is where Rek comes into play / why he knew the quest was not done. Something happened in the wanderer past which lead to Rhon being allowed to use the old plans and the facilities to build his own Hurricane
-# Gets into trouble for fighting the Unfettered when they start stealing, because this is not the Wanderer way - reason to leave?
-# Somehow has to get into Coaltion space
-# Chase through Coalition space
-
-# The characters and backstory ideas
-# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Rek and form an aliance between the 3 races and have first official contacts with Korath.
-# Rek - one of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them.
-# Yohna - helps with all things Remnant related, ensures that Remnant secrets are not revealed.
-# Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation.
-# Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation.
-
 mission "The Legacy: The Refuge 1"
 	name "The Legacy: The Refuge"
 	description "The search for Rhon's legacy leads you into Korath space."
@@ -1832,9 +1814,9 @@ mission "The Legacy: The Refuge 1"
 			`	"No, Yohna, you're not. I have a similar feeling. I guess, we will have to be extra careful."`
 	on complete
 		conversation
-			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quargs approach you and one speaks to you: "Greetings, sojourners. Expected you were. Among you, the offspring of Rhon is?"`
+			`When you enter the ringworld promenade, your illoustrus group soon draws attention. A number of Quargs approach you and one speaks to you: "Greetings, sojourners. Expected you were and welcom you are. Among you, the offspring of Rhon is?"`
 			`	Yohna takes a step forward and bows towards the Quarg who asked the question.`
-			`	The Quarg bows back. "Just like your father, here always you will be welcome." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
+			`	The Quarg bows back. "Just like your father, here you will always be welcome." Then it turns towards you. "For the next step in your journey, please acquire one of the special transport ships that we have prepared for you in the Shipyard. You will need only 1 ship, so that is what you should buy, and not more. We will wait for your in the Spaceport to give you further instructions."`
 	on decline
 		event "the legacy was aborted"
 	on fail
@@ -1947,12 +1929,7 @@ mission "The Legacy: The Refuge 3"
 	on decline
 		event "the legacy was aborted"
 	on fail
-		event "the legacy was aborted"
-	on defer
-		event "the legacy was aborted"
-	on complete
-		conversation
-			`TR 3 complete`
+		event "the legacy was aborted
 
 mission "The Legacy: The Refuge 4"
 	landing
@@ -1998,7 +1975,7 @@ mission "The Legacy: The Refuge 4"
 		conversation
 			`After you have landed on the planet, it becomes clear that you have reached your destination. You are greeted by another holographic Rhon: "Welcome to 'The Refuge'. The Baleans built this place ages ago, when they were still actively searching contact to other species. They used it to study their visitors and their intentions, but also to answer their questions about them. Feel free to relax on the planet as long as you like."`
 			`	"Since this is your first visit, you will not find any information about the Baleans. They will study you, and if they deem you worthy and allow you to return, you will find information about them and they might even let you proceed into their system."`
-			`	"For now, you will find in the shipyard my 'Tohra', but feel free to give her a name of your own. After all, she is yours now. On it, there is a chip with 3 Billion credits, my publications, and my diaries. Feel free to copy my publications and diaries to your liking.`
+			`	"For now, you will find in the shipyard my 'Tohra', but feel free to give her a name of your own. After all, she is yours now. The shipyard will charge you a price, but that amount has been credited to you. On top of it, on the ship there is a chip with 3 Billion credits, my publications, and my diaries. Feel free to copy my publications and diaries to your liking.`
 			`	While the Balean replicators could easily produce additional copies of the 'Tohra', you will not be able to take them with you. You need to transfer the 'Yellow Keystone' from your transport to your new ship to travel through the Wormhole. Consequently, sell the <ship> at the shipyard, after you have taken out the keystone."`
 			`	"One more thing - do not worry about time. Time passes different here. Even if you stay for a year, merely a day will have passed in the outside world. Use your stay wisely, because it is not guaranteed when you will be able to return..."`
 			`	"Once you are done, meet me at the Spaceport"`
@@ -2026,6 +2003,7 @@ mission "The Legacy: The Refuge 5"
 			`	Rek looks at you mischievously. "Yes, it does. I told you that Rhon's story has more chapters. Maybe something to explore in the future? But for now, we should return as soon as possible to save your friend."`
 				accept
 	on complete
+		log "Quests" "The Legacy" `We have found 'The Refuge', which was built by an ancient race referred to as the 'Baleans' and can only be accessed through a wormhole controlled by that species. We are now in the possession of Rhon's legacy and had an unpleasant encounter with Beelzebub where we were able to destroy his ship.`
 		event "the legacy refuge phase 3"
 		conversation
 			`At the base you are already awaited by Captain Paris. You let Raven exit the ship first and the two share a long embrace. Then the rest of your party joins them. Captain Paris is confused: "How is this possible? You entered the Wormhole and seconds later you exit in a completely different ship. And what a beauty she is..."`
@@ -2120,6 +2098,7 @@ mission "The Legacy: Epilogue 4"
 			`Back on the ship, you prepare for the trip to <planet>.`
 				accept
 	on complete
+		log "Quests" "The Legacy" `The Quest has come to an end after we split up the inheritance and I have returned all members of my party. I am now in possession of Rhon's legendary ship.`
 		conversation
 			`When you arrive on <planet>, you are awaited by Rhon and Tohra. They invite you over to their new home and you both recount the adventures you had in the meantime. Rhon has a surprise for you.`
 			`	"I have been contacted by the Baleans. They have studied you and all your actions. They approve of the decisions you have taken. There is a good chance they will allow you to revisit 'The Refuge' and maybe even their star systems." He hands you a small metalic cube. "They will contact you through this device."`
@@ -2141,3 +2120,22 @@ mission "The Legacy: Muahaha"
 		conversation
 			`When you enter the spaceport you notice the latest news. The mystery around the legacy of Rhon the Traveller was finally solved. It was discovered in a previously unknown area of space and contained a new type of spaceship and immense riches. You briefly recall that you had a chance to participate...`
 				decline
+
+# Ideas for what happens after The Hideout
+# Manages to get Jump-Drive installed into Starling.
+# Travels through Korath-Space until reaches Quarg ring world
+# Helps Quargs to deal with some Pirate / Farming troubles or something else to obtain some Quarg tech
+# Goes on to wonderer space - since he speaks Hai, he can communicate? Or else he learns the language
+# Chase through Wanderer planets
+# This is where Rek comes into play / why he knew the quest was not done. Something happened in the wanderer past which lead to Rhon being allowed to use the old plans and the facilities to build his own Hurricane
+# Gets into trouble for fighting the Unfettered when they start stealing, because this is not the Wanderer way - reason to leave?
+# Somehow has to get into Coaltion space
+# Chase through Coalition space
+
+# The characters and backstory ideas
+# Sayari - knew Rhon, helps in Hai space, motivates Danford to join her and Rek and form an aliance between the 3 races and have first official contacts with Korath.
+# Rek - one of his closer relatives also had dealings with Rhon, helped him to the Hurricane plans and let him build the ship. Was therefore punished. Rek hopes that if she can present the further story of Rhon to the Leaders that they might pardon her relative. She and Sayari become good friends and motivate Danford to visit the Wanderer leaders with them.
+# Yohna - helps with all things Remnant related, ensures that Remnant secrets are not revealed.
+# Raven - Sent by Danford to be his eyes and ears and to participate in any interesting findings. Develops feelings for Paris. Either part of the delegation that visits the Wanderer elders or leaves with Paris on mission or vacation.
+# Paris - Representative of the Deep. Similar function as Raven. Sees an opportunity for revenge when it turns out that Belzebub is a part in this. Develops feelings for Raven. Either part of the delegation that visits the Wanderer leaders or with Raven on mission or vacation.
+

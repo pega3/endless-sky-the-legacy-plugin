@@ -8,6 +8,10 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+ship "Albatross" "Albatross TL"
+	add attributes
+		"fuel capacity" 1200
+
 ship "Quarg Blackbird"
 	sprite ship/blackbird
 	thumbnail thumbnail/blackbird
